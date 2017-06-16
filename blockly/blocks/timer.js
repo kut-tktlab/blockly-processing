@@ -54,7 +54,7 @@ var timerSleepJson =
     }],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": Blockly.Constants.Timer.HUE
+    "colour": "%{BKY_TIMER_HUE}"
   };
 
 Blockly.Blocks['timer_sleep'] = {

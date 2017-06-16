@@ -424,5 +424,6 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
+Blockly.Msg.TIMER_HUE = "280";
 
 Blockly.Msg.TIMER_SLEEP_TITLE = "%1 秒待ちます";
