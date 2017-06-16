@@ -124,6 +124,11 @@ Blockly.Variables.flyoutCategory = function(workspace) {
       var blockText = '<xml>' +
             '<block type="variables_set" gap="' + gap + '">' +
             '<field name="VAR">' + variableList[0] + '</field>' +
+            '<value name="VALUE">' +
+            '<shadow type="math_number">' +
+            '<field name="NUM">0</field>' +
+            '</shadow>' +
+            '</value>' +
             '</block>' +
             '</xml>';
       var block = Blockly.Xml.textToDom(blockText).firstChild;
