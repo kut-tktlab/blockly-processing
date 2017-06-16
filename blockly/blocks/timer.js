@@ -46,7 +46,7 @@ Blockly.Blocks.timer.HUE = Blockly.Constants.Timer.HUE;
 
 var timerSleepJson =
   {
-    "message0": "Wait for %1 seconds",
+    "message0": "%{BKY_TIMER_SLEEP_TITLE}",
     "args0": [{
       "type": "input_value",
       "name": "SECONDS",
