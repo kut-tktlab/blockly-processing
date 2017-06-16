@@ -77,4 +77,27 @@ Blockly.Python.text_changeCase=function(a){var b={UPPERCASE:".upper()",LOWERCASE
 Blockly.Python.text_print=function(a){return"print("+(Blockly.Python.valueToCode(a,"TEXT",Blockly.Python.ORDER_NONE)||"''")+")\n"};
 Blockly.Python.text_prompt_ext=function(a){var b=Blockly.Python.provideFunction_("text_prompt",["def "+Blockly.Python.FUNCTION_NAME_PLACEHOLDER_+"(msg):","  try:","    return raw_input(msg)","  except NameError:","    return input(msg)"]);var c=a.getField("TEXT")?Blockly.Python.quote_(a.getFieldValue("TEXT")):Blockly.Python.valueToCode(a,"TEXT",Blockly.Python.ORDER_NONE)||"''";c=b+"("+c+")";"NUMBER"==a.getFieldValue("TYPE")&&(c="float("+c+")");return[c,Blockly.Python.ORDER_FUNCTION_CALL]};
 Blockly.Python.text_prompt=Blockly.Python.text_prompt_ext;Blockly.Python.text_count=function(a){var b=Blockly.Python.valueToCode(a,"TEXT",Blockly.Python.ORDER_MEMBER)||"''";a=Blockly.Python.valueToCode(a,"SUB",Blockly.Python.ORDER_NONE)||"''";return[b+".count("+a+")",Blockly.Python.ORDER_MEMBER]};
-Blockly.Python.text_replace=function(a){var b=Blockly.Python.valueToCode(a,"TEXT",Blockly.Python.ORDER_MEMBER)||"''",c=Blockly.Python.valueToCode(a,"FROM",Blockly.Python.ORDER_NONE)||"''";a=Blockly.Python.valueToCode(a,"TO",Blockly.Python.ORDER_NONE)||"''";return[b+".replace("+c+", "+a+")",Blockly.Python.ORDER_MEMBER]};Blockly.Python.text_reverse=function(a){return[(Blockly.Python.valueToCode(a,"TEXT",Blockly.Python.ORDER_MEMBER)||"''")+"[::-1]",Blockly.Python.ORDER_MEMBER]};Blockly.Python.variables={};Blockly.Python.variables_get=function(a){return[Blockly.Python.variableDB_.getName(a.getFieldValue("VAR"),Blockly.Variables.NAME_TYPE),Blockly.Python.ORDER_ATOMIC]};Blockly.Python.variables_set=function(a){var b=Blockly.Python.valueToCode(a,"VALUE",Blockly.Python.ORDER_NONE)||"0";return Blockly.Python.variableDB_.getName(a.getFieldValue("VAR"),Blockly.Variables.NAME_TYPE)+" = "+b+"\n"};
+Blockly.Python.text_replace=function(a){var b=Blockly.Python.valueToCode(a,"TEXT",Blockly.Python.ORDER_MEMBER)||"''",c=Blockly.Python.valueToCode(a,"FROM",Blockly.Python.ORDER_NONE)||"''";a=Blockly.Python.valueToCode(a,"TO",Blockly.Python.ORDER_NONE)||"''";return[b+".replace("+c+", "+a+")",Blockly.Python.ORDER_MEMBER]};Blockly.Python.text_reverse=function(a){return[(Blockly.Python.valueToCode(a,"TEXT",Blockly.Python.ORDER_MEMBER)||"''")+"[::-1]",Blockly.Python.ORDER_MEMBER]};/*
+
+ This file is a added by Yoshiaki Takata, 2017.
+ The original Blockly files as well as this file are provided
+ under Apache License 2.0.
+
+ Visual Blocks Language
+
+ Copyright 2012 Google Inc.
+ https://developers.google.com/blockly/
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+Blockly.Python.timer={};Blockly.Python.timer_sleep=function(a){Blockly.Python.definitions_.import_time="import time";return"time.sleep("+(Blockly.Python.valueToCode(a,"SECONDS",Blockly.JavaScript.ORDER_NONE)||1)+")\n"};Blockly.Python.variables={};Blockly.Python.variables_get=function(a){return[Blockly.Python.variableDB_.getName(a.getFieldValue("VAR"),Blockly.Variables.NAME_TYPE),Blockly.Python.ORDER_ATOMIC]};Blockly.Python.variables_set=function(a){var b=Blockly.Python.valueToCode(a,"VALUE",Blockly.Python.ORDER_NONE)||"0";return Blockly.Python.variableDB_.getName(a.getFieldValue("VAR"),Blockly.Variables.NAME_TYPE)+" = "+b+"\n"};
