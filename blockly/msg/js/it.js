@@ -7,7 +7,7 @@ goog.provide('Blockly.Msg.it');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Aggiungi commento";
-Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
+Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Non si può cancellare la variabile '%1' perché è parte della definizione della funzione '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Modifica valore:";
 Blockly.Msg.CLEAN_UP = "Pulisci i blocchi";
 Blockly.Msg.COLLAPSE_ALL = "Comprimi blocchi";
@@ -79,7 +79,7 @@ Blockly.Msg.IOS_ERROR = "Errore";
 Blockly.Msg.IOS_OK = "OK";
 Blockly.Msg.IOS_PROCEDURES_ADD_INPUT = "+ Aggiungi input";
 Blockly.Msg.IOS_PROCEDURES_ALLOW_STATEMENTS = "Consenti dichiarazioni";
-Blockly.Msg.IOS_PROCEDURES_DUPLICATE_INPUTS_ERROR = "This function has duplicate inputs.";  // untranslated
+Blockly.Msg.IOS_PROCEDURES_DUPLICATE_INPUTS_ERROR = "Questa funzione ha entrate duplicate.";
 Blockly.Msg.IOS_PROCEDURES_INPUTS = "INPUTS";
 Blockly.Msg.IOS_VARIABLES_ADD_BUTTON = "Aggiungi";
 Blockly.Msg.IOS_VARIABLES_ADD_VARIABLE = "+ Aggiungi variabile";
@@ -286,9 +286,9 @@ Blockly.Msg.NEW_VARIABLE_TITLE = "Nome della nuova variabile:";
 Blockly.Msg.ORDINAL_NUMBER_SUFFIX = "";  // untranslated
 Blockly.Msg.PROCEDURES_ALLOW_STATEMENTS = "consenti dichiarazioni";
 Blockly.Msg.PROCEDURES_BEFORE_PARAMS = "conː";
-Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL = "https://it.wikipedia.org/wiki/Funzione_%28informatica%29";
+Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL = "https://it.wikipedia.org/wiki/Funzione (informatica)";
 Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP = "Esegue la funzione definita dall'utente '%1'.";
-Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL = "https://it.wikipedia.org/wiki/Funzione_%28informatica%29";
+Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL = "https://it.wikipedia.org/wiki/Funzione (informatica)";
 Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP = "Esegue la funzione definita dall'utente '%1' ed usa il suo output.";
 Blockly.Msg.PROCEDURES_CALL_BEFORE_PARAMS = "conː";
 Blockly.Msg.PROCEDURES_CREATE_DO = "Crea '%1'";

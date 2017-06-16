@@ -7,7 +7,7 @@ goog.provide('Blockly.Msg.pt.br');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Adicionar comentário";
-Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Funcoes'%n1' nao podem ser deletadas porque faz parte das definicoes'%2'";
+Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Não se pode deletar a variável '%1' porque é parte da definição da função '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Mudar valor:";
 Blockly.Msg.CLEAN_UP = "Limpar blocos";
 Blockly.Msg.COLLAPSE_ALL = "Colapsar Blocos";
@@ -75,16 +75,16 @@ Blockly.Msg.EXTERNAL_INPUTS = "Entradas externas";
 Blockly.Msg.HELP = "Ajuda";
 Blockly.Msg.INLINE_INPUTS = "Entradas incorporadas";
 Blockly.Msg.IOS_CANCEL = "blockly:IOS Cancelar/pt-br";
-Blockly.Msg.IOS_ERROR = "Error";  // untranslated
+Blockly.Msg.IOS_ERROR = "Erro";
 Blockly.Msg.IOS_OK = "Ok";
-Blockly.Msg.IOS_PROCEDURES_ADD_INPUT = "+ Add Input";  // untranslated
-Blockly.Msg.IOS_PROCEDURES_ALLOW_STATEMENTS = "Allow statements";  // untranslated
-Blockly.Msg.IOS_PROCEDURES_DUPLICATE_INPUTS_ERROR = "This function has duplicate inputs.";  // untranslated
-Blockly.Msg.IOS_PROCEDURES_INPUTS = "INPUTS";  // untranslated
-Blockly.Msg.IOS_VARIABLES_ADD_BUTTON = "Add";  // untranslated
-Blockly.Msg.IOS_VARIABLES_ADD_VARIABLE = "+ Add Variable";  // untranslated
+Blockly.Msg.IOS_PROCEDURES_ADD_INPUT = "+ Adicionar Entrada";
+Blockly.Msg.IOS_PROCEDURES_ALLOW_STATEMENTS = "Permitir declarações";
+Blockly.Msg.IOS_PROCEDURES_DUPLICATE_INPUTS_ERROR = "Essa função tem entradas duplicadas.";
+Blockly.Msg.IOS_PROCEDURES_INPUTS = "ENTRADAS";
+Blockly.Msg.IOS_VARIABLES_ADD_BUTTON = "Adicionar";
+Blockly.Msg.IOS_VARIABLES_ADD_VARIABLE = "+ Adicionar Variável";
 Blockly.Msg.IOS_VARIABLES_DELETE_BUTTON = "Deletar";
-Blockly.Msg.IOS_VARIABLES_EMPTY_NAME_ERROR = "You can't use an empty variable name.";  // untranslated
+Blockly.Msg.IOS_VARIABLES_EMPTY_NAME_ERROR = "Você não pode usar um nome de variável vazio.";
 Blockly.Msg.IOS_VARIABLES_RENAME_BUTTON = "Blockly:Renomear varioas botoens/pt-br";
 Blockly.Msg.IOS_VARIABLES_VARIABLE_NAME = "Nome variavel";
 Blockly.Msg.LISTS_CREATE_EMPTY_HELPURL = "https://github.com/google/blockly/wiki/Lists#create-empty-list";  // untranslated
