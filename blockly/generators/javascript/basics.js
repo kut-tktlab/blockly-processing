@@ -33,6 +33,38 @@ goog.provide('Blockly.JavaScript.basics');
 goog.require('Blockly.JavaScript');
 
 
+Blockly.JavaScript['basics_setup'] = function(block) {
+  var funcName = 'setup';
+  var branch = Blockly.JavaScript.statementToCode(block, 'DO');
+  if (Blockly.JavaScript.STATEMENT_PREFIX) {
+    branch = Blockly.JavaScript.prefixLines(
+        Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
+  }
+  var code = 'function ' + funcName + '() {\n' +
+      branch + '}';
+  code = Blockly.JavaScript.scrub_(block, code);
+  // Add % so as not to collide with helper functions in definitions list.
+  Blockly.JavaScript.definitions_['%' + funcName] = code;
+  return null;
+};
+
+Blockly.JavaScript['basics_loop'] = function(block) {
+  var funcName = 'loop';
+  var branch = Blockly.JavaScript.statementToCode(block, 'DO');
+  if (Blockly.JavaScript.STATEMENT_PREFIX) {
+    branch = Blockly.JavaScript.prefixLines(
+        Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
+  }
+  var code = 'function ' + funcName + '() {\n' +
+      branch + '}';
+  code = Blockly.JavaScript.scrub_(block, code);
+  // Add % so as not to collide with helper functions in definitions list.
+  Blockly.JavaScript.definitions_['%' + funcName] = code;
+  return null;
+};
+
 Blockly.JavaScript['basics_sleep'] = function(block) {
   var sec = Blockly.JavaScript.valueToCode(block, 'SECONDS',
       Blockly.JavaScript.ORDER_NONE) || 1;

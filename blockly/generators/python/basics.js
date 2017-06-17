@@ -33,6 +33,60 @@ goog.provide('Blockly.Python.basics');
 goog.require('Blockly.Python');
 
 
+Blockly.Python['basics_setup'] = function(block) {
+  var globals = [];
+  for (var i = 0, varName; varName = block.workspace.variableList[i]; i++) {
+    if (block.arguments_.indexOf(varName) == -1) {
+      globals.push(Blockly.Python.variableDB_.getName(varName,
+          Blockly.Variables.NAME_TYPE));
+    }
+  }
+  globals = globals.length ? '  global ' + globals.join(', ') + '\n' : '';
+  var funcName = 'setup';
+  var branch = Blockly.Python.statementToCode(block, 'DO');
+  if (Blockly.Python.STATEMENT_PREFIX) {
+    branch = Blockly.Python.prefixLines(
+        Blockly.Python.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\''), Blockly.Python.INDENT) + branch;
+  }
+  if (!branch) {
+    branch = Blockly.Python.PASS;
+  }
+  var code = 'def ' + funcName + '():\n' +
+      globals + branch;
+  code = Blockly.Python.scrub_(block, code);
+  // Add % so as not to collide with helper functions in definitions list.
+  Blockly.Python.definitions_['%' + funcName] = code;
+  return null;
+};
+
+Blockly.Python['basics_loop'] = function(block) {
+  var globals = [];
+  for (var i = 0, varName; varName = block.workspace.variableList[i]; i++) {
+    if (block.arguments_.indexOf(varName) == -1) {
+      globals.push(Blockly.Python.variableDB_.getName(varName,
+          Blockly.Variables.NAME_TYPE));
+    }
+  }
+  globals = globals.length ? '  global ' + globals.join(', ') + '\n' : '';
+  var funcName = 'loop';
+  var branch = Blockly.Python.statementToCode(block, 'DO');
+  if (Blockly.Python.STATEMENT_PREFIX) {
+    branch = Blockly.Python.prefixLines(
+        Blockly.Python.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\''), Blockly.Python.INDENT) + branch;
+  }
+  if (!branch) {
+    branch = Blockly.Python.PASS;
+  }
+  var code = 'def ' + funcName + '():\n' +
+      globals + branch;
+  code = Blockly.Python.scrub_(block, code);
+  // Add % so as not to collide with helper functions in definitions list.
+  Blockly.Python.definitions_['%' + funcName] = code;
+  return null;
+};
+
 Blockly.Python['basics_sleep'] = function(block) {
   Blockly.Python.definitions_['import_time'] = 'import time';
   var sec = Blockly.Python.valueToCode(block, 'SECONDS',
