@@ -4,7 +4,7 @@
  * The original Blockly files as well as this file are provided
  * under Apache License 2.0.
  *
- * Visual Blocks Editor
+ * Visual Blocks Language
  *
  * Copyright 2012 Google Inc.
  * https://developers.google.com/blockly/
@@ -23,42 +23,19 @@
  */
 
 /**
- * @fileoverview Timer blocks for Blockly.
+ * @fileoverview Generating Python for basic blocks.
  * @author takata.yoshiaki@kochi-tech.ac.jp (ytakata69)
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.timer');  // Deprecated
-goog.provide('Blockly.Constants.Timer');
+goog.provide('Blockly.Python.basics');
 
-goog.require('Blockly.Blocks');
-
-
-/**
- * Common HSV hue for all blocks in this category.
- * This should be the same as Blockly.Msg.TIMER_HUE.
- * @readonly
- */
-Blockly.Constants.Timer.HUE = 280;
-/** @deprecated Use Blockly.Constants.Timer.HUE */
-Blockly.Blocks.timer.HUE = Blockly.Constants.Timer.HUE;
+goog.require('Blockly.Python');
 
 
-var timerSleepJson =
-  {
-    "message0": "%{BKY_TIMER_SLEEP_TITLE}",
-    "args0": [{
-      "type": "input_value",
-      "name": "SECONDS",
-      "check": "Number"
-    }],
-    "previousStatement": null,
-    "nextStatement": null,
-    "colour": "%{BKY_TIMER_HUE}"
-  };
-
-Blockly.Blocks['timer_sleep'] = {
-  init: function() {
-    this.jsonInit(timerSleepJson);
-  }
+Blockly.Python['basics_sleep'] = function(block) {
+  Blockly.Python.definitions_['import_time'] = 'import time';
+  var sec = Blockly.Python.valueToCode(block, 'SECONDS',
+      Blockly.JavaScript.ORDER_NONE) || 1.0;
+  return 'time.sleep(' + sec + ')\n';
 };

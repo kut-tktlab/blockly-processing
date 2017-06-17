@@ -4,7 +4,7 @@
  * The original Blockly files as well as this file are provided
  * under Apache License 2.0.
  *
- * Visual Blocks Language
+ * Visual Blocks Editor
  *
  * Copyright 2012 Google Inc.
  * https://developers.google.com/blockly/
@@ -23,19 +23,43 @@
  */
 
 /**
- * @fileoverview Generating JavaScript for timer blocks.
+ * @fileoverview Basic blocks for Blockly.
  * @author takata.yoshiaki@kochi-tech.ac.jp (ytakata69)
  */
 'use strict';
 
-goog.provide('Blockly.JavaScript.timer');
+goog.provide('Blockly.Blocks.basics');  // Deprecated
+goog.provide('Blockly.Constants.Basics');
 
-goog.require('Blockly.JavaScript');
+goog.require('Blockly.Blocks');
 
 
-Blockly.JavaScript['timer_sleep'] = function(block) {
-  var sec = Blockly.JavaScript.valueToCode(block, 'SECONDS',
-      Blockly.JavaScript.ORDER_NONE) || 1;
-  return 'window.alert(\'sleeping ' + sec +
-         ' sec... (not implemented)\');\n';
+/**
+ * Common HSV hue for all blocks in this category.
+ * This should be the same as Blockly.Msg.BASICS_HUE.
+ * @readonly
+ */
+Blockly.Constants.Basics.HUE = 280;
+/** @deprecated Use Blockly.Constants.Basics.HUE */
+Blockly.Blocks.basics.HUE = Blockly.Constants.Basics.HUE;
+
+
+var basicsSleepJson =
+  {
+    "type": "basics_sleep",
+    "message0": "%{BKY_BASICS_SLEEP_TITLE}",
+    "args0": [{
+      "type": "input_value",
+      "name": "SECONDS",
+      "check": "Number"
+    }],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_BASICS_HUE}"
+  };
+
+Blockly.Blocks['basics_sleep'] = {
+  init: function() {
+    this.jsonInit(basicsSleepJson);
+  }
 };

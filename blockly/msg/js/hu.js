@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.hu');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Megjegyzés hozzáadása";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Érték módosítása:";
 Blockly.Msg.CLEAN_UP = "Blokkok kiürítése";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "szóközök levágása mindkét végérő
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "szóközök levágása az elejéről";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "szóközök levágása a végéről";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Levágja a megadott szöveg végeiről a szóközöket.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Ma";
 Blockly.Msg.UNDO = "Visszavonás";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "változó";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

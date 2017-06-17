@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.sv');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Lägg till kommentar";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Kan inte radera variabeln '%1' eftersom den är en del av definition för funktionen '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Ändra värde:";
 Blockly.Msg.CLEAN_UP = "Rada upp block";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "ta bort mellanrum från båda sidorna av"
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "ta bort mellanrum från vänstra sidan av";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "ta bort mellanrum från högra sidan av";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Returnerar en kopia av texten med borttagna mellanrum från en eller båda ändar.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Idag";
 Blockly.Msg.UNDO = "Ångra";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "föremål";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

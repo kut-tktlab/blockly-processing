@@ -23,19 +23,19 @@
  */
 
 /**
- * @fileoverview Generating Python for timer blocks.
+ * @fileoverview Generating JavaScript for basic blocks.
  * @author takata.yoshiaki@kochi-tech.ac.jp (ytakata69)
  */
 'use strict';
 
-goog.provide('Blockly.Python.timer');
+goog.provide('Blockly.JavaScript.basics');
 
-goog.require('Blockly.Python');
+goog.require('Blockly.JavaScript');
 
 
-Blockly.Python['timer_sleep'] = function(block) {
-  Blockly.Python.definitions_['import_time'] = 'import time';
-  var sec = Blockly.Python.valueToCode(block, 'SECONDS',
-      Blockly.JavaScript.ORDER_NONE) || 1.0;
-  return 'time.sleep(' + sec + ')\n';
+Blockly.JavaScript['basics_sleep'] = function(block) {
+  var sec = Blockly.JavaScript.valueToCode(block, 'SECONDS',
+      Blockly.JavaScript.ORDER_NONE) || 1;
+  return 'window.alert(\'sleeping ' + sec +
+         ' sec... (not implemented)\');\n';
 };

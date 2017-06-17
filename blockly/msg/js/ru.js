@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.ru');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Добавить комментарий";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Невозможно удалить переменную '%1', поскольку она является частью определения функции '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Измените значение:";
 Blockly.Msg.CLEAN_UP = "Убрать блоки";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "обрезать пробелы с дву
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "обрезать пробелы слева";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "обрезать пробелы справа";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Возвращает копию текста с пробелами, удалеными с одного или обоих концов.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Сегодня";
 Blockly.Msg.UNDO = "Отменить";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "элемент";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.en.gb');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Add Comment";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Change value:";
 Blockly.Msg.CLEAN_UP = "Clean up Blocks";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "trim spaces from both sides of";  // untr
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "trim spaces from left side of";  // untranslated
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "trim spaces from right side of";  // untranslated
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Return a copy of the text with spaces removed from one or both ends.";  // untranslated
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Today";
 Blockly.Msg.UNDO = "Undo";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "item";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

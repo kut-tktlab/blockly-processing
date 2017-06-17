@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.br');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Ouzhpennañ un evezhiadenn";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Ne ch'aller ket dilemel an argemm \"%1\" dre m'eo lod eus dielfennadur an arc'hwel \"%2\"";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Kemmañ an dalvoudenn :";
 Blockly.Msg.CLEAN_UP = "Naetaat ar bloc'hoù";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "Lemel an esaouennoù en daou du";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "Lemel an esaouennoù eus an tu kleiz";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "Lemel an esaouennoù eus an tu dehou";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Distreiñ un eilenn eus an destenn gant an esaouennoù lamet eus un tu pe eus an daou du";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Hiziv";
 Blockly.Msg.UNDO = "Dizober";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "elfenn";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

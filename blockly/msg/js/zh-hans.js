@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.zh.hans');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "添加注释";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "不能删除变量“%1”，因为它是功能“%2”定义的一部分";
 Blockly.Msg.CHANGE_VALUE_TITLE = "更改值：";
 Blockly.Msg.CLEAN_UP = "整理块";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "消除两侧空格";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "消除左侧空格";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "消除右侧空格";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "复制这段文字的同时删除两端多余的空格。";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "今天";
 Blockly.Msg.UNDO = "撤销";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "项目";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.is');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Skrifa skýringu";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Breyta gildi:";
 Blockly.Msg.CLEAN_UP = "Hreinsa kubba";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "eyða bilum báðum megin við";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "eyða bilum vinstra megin við";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "eyða bilum hægra megin við";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Skila afriti af textanum þar sem möguleg bil við báða enda hafa verið fjarlægð.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Í dag";
 Blockly.Msg.UNDO = "Afturkalla";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "atriði";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

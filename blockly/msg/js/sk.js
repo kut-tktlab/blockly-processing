@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.sk');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Pridať komentár";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Zmeniť hodnotu:";
 Blockly.Msg.CLEAN_UP = "Narovnať bloky";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "odstráň medzery z oboch strán";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "odstráň medzery z ľavej strany";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "odstráň medzery z pravej strany";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Vráť kópiu textu bez medzier na jednom alebo oboch koncoch.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Dnes";
 Blockly.Msg.UNDO = "Späť";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "prvok";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

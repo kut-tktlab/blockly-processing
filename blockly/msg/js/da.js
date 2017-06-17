@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.da');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Tilføj kommentar";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Skift værdi:";
 Blockly.Msg.CLEAN_UP = "Ryd op i blokke";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "fjern mellemrum fra begge sider af";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "fjern mellemrum fra venstre side af";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "fjern mellemrum fra højre side af";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Returner en kopi af teksten med mellemrum fjernet fra den ene eller begge sider.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "I dag";
 Blockly.Msg.UNDO = "Undo";  // untranslated
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "element";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

@@ -7,6 +7,7 @@ goog.provide('Blockly.Msg.ms');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Berikan Komen";
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Ubah nilai:";
 Blockly.Msg.CLEAN_UP = "Kemaskan Blok";
@@ -386,7 +387,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "mengurangkan kawasan dari kedua-dua belah
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "mengurangkan ruang dari sebelah kiri";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "mengurangkan kawasan dari sisi kanan";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Kembali salinan teks dengan ruang yang dikeluarkan daripada satu atau hujung kedua belah.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Hari ini";
 Blockly.Msg.UNDO = "Undo";  // untranslated
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "Perkara";
@@ -426,5 +426,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";
