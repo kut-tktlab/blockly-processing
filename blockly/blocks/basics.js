@@ -44,7 +44,8 @@ Blockly.Constants.Basics.HUE = 280;
 Blockly.Blocks.basics.HUE = Blockly.Constants.Basics.HUE;
 
 
-var basicsSetupJson =
+Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+  // Block for the setup routine.
   {
     "type": "basics_setup",
     "message0": "%{BKY_BASICS_SETUP_TITLE} %1 %2",
@@ -58,15 +59,8 @@ var basicsSetupJson =
       }
     ],
     "colour": "%{BKY_BASICS_HUE}"
-  };
-
-Blockly.Blocks['basics_setup'] = {
-  init: function() {
-    this.jsonInit(basicsSetupJson);
-  }
-};
-
-var basicsLoopJson =
+  },
+  // Block for the main loop.
   {
     "type": "basics_loop",
     "message0": "%{BKY_BASICS_LOOP_TITLE} %1 %2",
@@ -80,15 +74,8 @@ var basicsLoopJson =
       }
     ],
     "colour": "%{BKY_BASICS_HUE}"
-  };
-
-Blockly.Blocks['basics_loop'] = {
-  init: function() {
-    this.jsonInit(basicsLoopJson);
-  }
-};
-
-var basicsSleepJson =
+  },
+  // Block for sleeping.
   {
     "type": "basics_sleep",
     "message0": "%{BKY_BASICS_SLEEP_TITLE}",
@@ -100,10 +87,5 @@ var basicsSleepJson =
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_BASICS_HUE}"
-  };
-
-Blockly.Blocks['basics_sleep'] = {
-  init: function() {
-    this.jsonInit(basicsSleepJson);
   }
-};
+]);  // END JSON EXTRACT (Do not delete this comment.)
