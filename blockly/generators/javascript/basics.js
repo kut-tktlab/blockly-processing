@@ -34,35 +34,13 @@ goog.require('Blockly.JavaScript');
 
 
 Blockly.JavaScript['basics_setup'] = function(block) {
-  var funcName = 'setup';
-  var branch = Blockly.JavaScript.statementToCode(block, 'DO');
-  if (Blockly.JavaScript.STATEMENT_PREFIX) {
-    branch = Blockly.JavaScript.prefixLines(
-        Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
-        '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
-  }
-  var code = 'function ' + funcName + '() {\n' +
-      branch + '}';
-  code = Blockly.JavaScript.scrub_(block, code);
-  // Add % so as not to collide with helper functions in definitions list.
-  Blockly.JavaScript.definitions_['%' + funcName] = code;
-  return null;
+  Blockly.JavaScript.basics.createFunc(block, 'setup');
+  return 'setup();\n';
 };
 
 Blockly.JavaScript['basics_loop'] = function(block) {
-  var funcName = 'loop';
-  var branch = Blockly.JavaScript.statementToCode(block, 'DO');
-  if (Blockly.JavaScript.STATEMENT_PREFIX) {
-    branch = Blockly.JavaScript.prefixLines(
-        Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
-        '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
-  }
-  var code = 'function ' + funcName + '() {\n' +
-      branch + '}';
-  code = Blockly.JavaScript.scrub_(block, code);
-  // Add % so as not to collide with helper functions in definitions list.
-  Blockly.JavaScript.definitions_['%' + funcName] = code;
-  return null;
+  Blockly.JavaScript.basics.createFunc(block, 'loop');
+  return 'for (var i = 0; i < 3; i++) { loop(); }\n';
 };
 
 Blockly.JavaScript['basics_sleep'] = function(block) {
@@ -70,4 +48,25 @@ Blockly.JavaScript['basics_sleep'] = function(block) {
       Blockly.JavaScript.ORDER_NONE) || 1;
   return 'window.alert(\'sleeping ' + sec +
          ' sec... (not implemented)\');\n';
+};
+
+
+// Create a function without arguments or a return value.
+Blockly.JavaScript.basics.createFunc = function(block, funcName) {
+  var branch = Blockly.JavaScript.statementToCode(block, 'DO');
+  if (Blockly.JavaScript.STATEMENT_PREFIX) {
+    branch = Blockly.JavaScript.prefixLines(
+        Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
+  }
+  if (Blockly.JavaScript.INFINITE_LOOP_TRAP) {
+    branch = Blockly.JavaScript.INFINITE_LOOP_TRAP.replace(/%1/g,
+        '\'' + block.id + '\'') + branch;
+  }
+  var code = 'function ' + funcName + '() {\n' +
+      branch + '}';
+  code = Blockly.JavaScript.scrub_(block, code);
+  // Add % so as not to collide with helper functions in definitions list.
+  Blockly.JavaScript.definitions_['%' + funcName] = code;
+  return null;
 };
