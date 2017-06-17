@@ -7,6 +7,8 @@ goog.provide('Blockly.Msg.ko');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "댓글 추가";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "'%2' 함수 정의의 일부이기 때문에 '%1' 변수를 삭제할 수 없습니다";
 Blockly.Msg.CHANGE_VALUE_TITLE = "값 바꾸기:";

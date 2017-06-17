@@ -7,6 +7,8 @@ goog.provide('Blockly.Msg.be.tarask');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Дадаць камэнтар";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Немагчыма выдаліць зьменную «%1», таму што яна зьяўляецца часткай вызначэньня функцыі «%2»";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Зьмяніць значэньне:";

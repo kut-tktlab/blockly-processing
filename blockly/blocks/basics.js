@@ -44,6 +44,50 @@ Blockly.Constants.Basics.HUE = 280;
 Blockly.Blocks.basics.HUE = Blockly.Constants.Basics.HUE;
 
 
+var basicsSetupJson =
+  {
+    "type": "basics_setup",
+    "message0": "%{BKY_BASICS_SETUP_TITLE} %1 %2",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
+    "colour": "%{BKY_BASICS_HUE}"
+  };
+
+Blockly.Blocks['basics_setup'] = {
+  init: function() {
+    this.jsonInit(basicsSetupJson);
+  }
+};
+
+var basicsLoopJson =
+  {
+    "type": "basics_loop",
+    "message0": "%{BKY_BASICS_LOOP_TITLE} %1 %2",
+    "args0": [
+      {
+        "type": "input_dummy",
+      },
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
+    "colour": "%{BKY_BASICS_HUE}"
+  };
+
+Blockly.Blocks['basics_loop'] = {
+  init: function() {
+    this.jsonInit(basicsLoopJson);
+  }
+};
+
 var basicsSleepJson =
   {
     "type": "basics_sleep",

@@ -7,6 +7,8 @@ goog.provide('Blockly.Msg.pms');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Gionté un coment";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "As peul nen eliminesse la variàbil '%1' përchè a l'é part ëd la definission dla fonsion '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Modifiché ël valor:";

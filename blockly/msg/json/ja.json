@@ -358,6 +358,8 @@
 	"PROCEDURES_CREATE_DO": "'%1' を作成",
 	"PROCEDURES_IFRETURN_TOOLTIP": "1番目の値が true の場合、2番目の値を返します。",
 	"PROCEDURES_IFRETURN_WARNING": "警告: このブロックは、関数定義内でのみ使用できます。",
+	"BASICS_SETUP_TITLE": "最初だけ",
+	"BASICS_LOOP_TITLE": "ずっと",
 	"BASICS_SLEEP_TITLE": "%1 秒待ちます",
 	"LED_SET_COLOR_TITLE": "LEDの色を変える 位置 %1 色 %2"
 }

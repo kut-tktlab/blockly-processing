@@ -7,6 +7,8 @@ goog.provide('Blockly.Msg.fr');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Ajouter un commentaire";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Impossible de supprimer la variable '%1' parce qu’elle fait partie de la définition de la fonction '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Modifier la valeur :";

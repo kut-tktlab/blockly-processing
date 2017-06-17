@@ -7,6 +7,8 @@ goog.provide('Blockly.Msg.nl');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Reactie toevoegen";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "De variabele \"%1\" kan niet verwijderd worden omdat die onderdeel uitmaakt van de definitie van de functie \"%2\"";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Waarde wijzigen:";

@@ -7,6 +7,8 @@ goog.provide('Blockly.Msg.zh.hant');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "加入註解";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "無法刪除變數「%1」，因為這是功能「%2」定義的一部份內容";
 Blockly.Msg.CHANGE_VALUE_TITLE = "修改值：";
