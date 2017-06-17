@@ -389,5 +389,6 @@
 	"PROCEDURES_IFRETURN_TOOLTIP": "tooltip - If the first value is true, this causes the second value to be returned immediately from the enclosing function.",
 	"PROCEDURES_IFRETURN_HELPURL": "{{optional}}\nurl - Information about guard clauses.",
 	"PROCEDURES_IFRETURN_WARNING": "warning - This appears if the user tries to use this block outside of a function definition.",
-	"TIMER_SLEEP_TITLE": "block text - Wait for a few seconds. \n\nParameters:\n* %1 - the number of seconds to wait"
+	"TIMER_SLEEP_TITLE": "block text - Wait for a few seconds. \n\nParameters:\n* %1 - the number of seconds to wait",
+	"LED_SET_COLOR_TITLE": "block text - Set the color of an LED. \n\nParameters:\n* %1 - the id of the LED\n* %2 - colour"
 }

@@ -66,6 +66,8 @@ Blockly.Msg.VARIABLES_HUE = '330';
 Blockly.Msg.PROCEDURES_HUE = '290';
 /// {{Notranslate}} Hue value for all timer blocks.
 Blockly.Msg.TIMER_HUE = '280';
+/// {{Notranslate}} Hue value for all leds blocks.
+Blockly.Msg.LEDS_HUE = '160';
 
 /// default name - A simple, general default name for a variable, preferably short.
 /// For more context, see
@@ -1193,3 +1195,7 @@ Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only 
 /// block text - Wait for a few seconds.
 /// \n\nParameters:\n* %1 - the number of seconds to wait
 Blockly.Msg.TIMER_SLEEP_TITLE = 'Wait for %1 seconds';
+
+/// block text - Set the color of an LED.
+/// \n\nParameters:\n* %1 - the id of the LED\n* %2 - colour
+Blockly.Msg.LED_SET_COLOR_TITLE = 'Set the color of LED %1 to colour %2';
