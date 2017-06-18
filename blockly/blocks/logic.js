@@ -40,7 +40,7 @@ goog.require('Blockly.Blocks');
  * Should be the same as Blockly.Msg.LOGIC_HUE.
  * @readonly
  */
-Blockly.Constants.Logic.HUE = 210;
+Blockly.Constants.Logic.HUE = '#0c696f';
 /** @deprecated Use Blockly.Constants.Logic.HUE */
 Blockly.Blocks.logic.HUE = Blockly.Constants.Logic.HUE;
 

@@ -49,25 +49,25 @@ goog.require('Blockly.Msg');
  */
 
 /// {{Notranslate}} Hue value for all logic blocks.
-Blockly.Msg.LOGIC_HUE = '210';
+Blockly.Msg.LOGIC_HUE = '#0c696f';
 /// {{Notranslate}} Hue value for all loop blocks.
-Blockly.Msg.LOOPS_HUE = '120';
+Blockly.Msg.LOOPS_HUE = '#197b1b';
 /// {{Notranslate}} Hue value for all math blocks.
-Blockly.Msg.MATH_HUE = '230';
+Blockly.Msg.MATH_HUE = '#702971';
 /// {{Notranslate}} Hue value for all text blocks.
 Blockly.Msg.TEXTS_HUE = '160';
 /// {{Notranslate}} Hue value for all list blocks.
 Blockly.Msg.LISTS_HUE = '260';
 /// {{Notranslate}} Hue value for all colour blocks.
-Blockly.Msg.COLOUR_HUE = '20';
+Blockly.Msg.COLOUR_HUE = '#d63c18';
 /// {{Notranslate}} Hue value for all variable blocks.
-Blockly.Msg.VARIABLES_HUE = '330';
+Blockly.Msg.VARIABLES_HUE = '#a6050e';
 /// {{Notranslate}} Hue value for all procedure blocks.
 Blockly.Msg.PROCEDURES_HUE = '290';
 /// {{Notranslate}} Hue value for all timer blocks.
-Blockly.Msg.BASICS_HUE = '280';
+Blockly.Msg.BASICS_HUE = '#137ad4';
 /// {{Notranslate}} Hue value for all leds blocks.
-Blockly.Msg.LEDS_HUE = '160';
+Blockly.Msg.LEDS_HUE = '#5b318f';
 
 /// default name - A simple, general default name for a variable, preferably short.
 /// For more context, see
