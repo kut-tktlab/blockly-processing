@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.nl');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Reactie toevoegen";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "De variabele \"%1\" kan niet verwijderd worden omdat die onderdeel uitmaakt van de definitie van de functie \"%2\"";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Waarde wijzigen:";
 Blockly.Msg.CLEAN_UP = "Blokken opschonen";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "spaties van beide kanten afhalen van";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "spaties van de linkerkant verwijderen van";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "spaties van de rechterkant verwijderen van";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Geeft een kopie van de tekst met verwijderde spaties van één of beide kanten.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Vandaag";
 Blockly.Msg.UNDO = "Ongedaan maken";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "item";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

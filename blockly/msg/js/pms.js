@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.pms');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Gionté un coment";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "As peul nen eliminesse la variàbil '%1' përchè a l'é part ëd la definission dla fonsion '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Modifiché ël valor:";
 Blockly.Msg.CLEAN_UP = "Dëscancelé ij blòch";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "gavé jë spassi da le doe bande ëd";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "gavé jë spassi da la banda snistra ëd";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "gavé jë spassi da la banda drita ëd";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "A smon na còpia dël test con jë spassi gavà da n'estremità o da tute doe.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Ancheuj";
 Blockly.Msg.UNDO = "Anulé";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "element";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.lv');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Pievienot komentāru";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Mainīt vērtību:";
 Blockly.Msg.CLEAN_UP = "Sakopt blokus";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "Dzēst atstarpes no abām pusēm";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "Dzēst atstarpes no sākuma";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "Dzēst atstarpes no beigām";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Atgriež teksta kopiju ar noņemtām atstarpēm vienā vai otrā galā.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Šodiena";
 Blockly.Msg.UNDO = "Atsaukt";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "objekts";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

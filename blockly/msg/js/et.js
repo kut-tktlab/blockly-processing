@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.et');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Lisa kommentaar";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Muuda väärtust:";
 Blockly.Msg.CLEAN_UP = "Korista plokid kokku";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "mõlemalt poolt eemaldatud tühikutega";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "algusest eemaldatud tühikutega";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "lõpust eemaldatud tühikutega";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Tagastab koopia tekstist, millel on tühikud ühelt või mõlemalt poolt eemaldatud.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Täna";
 Blockly.Msg.UNDO = "Võta tagasi";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "objekt";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

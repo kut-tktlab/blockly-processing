@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.ro');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Adaugă un comentariu";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Schimbaţi valoarea:";
 Blockly.Msg.CLEAN_UP = "Clean up Blocks";  // untranslated
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "taie spațiile de pe ambele părți ale";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "tăiaţi spațiile din partea stângă a";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "taie spațiile din partea dreaptă a";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Returnează o copie a textului fără spațiile de la unul sau ambele capete.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Astăzi";
 Blockly.Msg.UNDO = "Undo";  // untranslated
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "element";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

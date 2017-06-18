@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.id');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Tambahkan Komentar";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Ubah nilai:";
 Blockly.Msg.CLEAN_UP = "Bersihkan Blok";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "pangkas ruang dari kedua belah sisi";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "pangkas ruang dari sisi kiri";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "pangkas ruang dari sisi kanan";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Kembali salinan teks dengan spasi dihapus dari satu atau kedua ujungnya.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Hari ini";
 Blockly.Msg.UNDO = "Urungkan";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "item";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

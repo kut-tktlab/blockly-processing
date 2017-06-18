@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.be.tarask');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Дадаць камэнтар";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Немагчыма выдаліць зьменную «%1», таму што яна зьяўляецца часткай вызначэньня функцыі «%2»";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Зьмяніць значэньне:";
 Blockly.Msg.CLEAN_UP = "Ачысьціць блёкі";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "абрэзаць прабелы з або
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "абрэзаць прабелы зь левага боку";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "абрэзаць прабелы з правага боку";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Вяртае копію тэксту з прабеламі, выдаленымі ад аднаго ці абодвух бакоў.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Сёньня";
 Blockly.Msg.UNDO = "Скасаваць";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "аб’ект";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.cs');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Přidat komentář";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Změnit hodnotu:";
 Blockly.Msg.CLEAN_UP = "Uspořádat bloky";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "odstranit mezery z obou stran";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "odstranit mezery z levé strany";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "odstranit mezery z pravé strany";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Vrátí kopii textu s odstraněnými mezerami z jednoho nebo obou konců.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Dnes";
 Blockly.Msg.UNDO = "Zpět";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "položka";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

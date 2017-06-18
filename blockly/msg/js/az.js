@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.az');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Şərh əlavə et";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Qiyməti dəyiş:";
 Blockly.Msg.CLEAN_UP = "Blokları təmizlə";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "Boşluqları hər iki tərəfdən pozun";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "Boşluqlari yalnız sol tərəfdən pozun";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "Boşluqları yalnız sağ tərəfdən pozun";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Mətnin hər iki və ya yalnız bir tərəfdən olan boşluqları pozulmuş surətini qaytarın.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Bugün";
 Blockly.Msg.UNDO = "Undo";  // untranslated
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "element";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

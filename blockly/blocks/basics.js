@@ -23,30 +23,62 @@
  */
 
 /**
- * @fileoverview Timer blocks for Blockly.
+ * @fileoverview Basic blocks for Blockly.
  * @author takata.yoshiaki@kochi-tech.ac.jp (ytakata69)
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.timer');  // Deprecated
-goog.provide('Blockly.Constants.Timer');
+goog.provide('Blockly.Blocks.basics');  // Deprecated
+goog.provide('Blockly.Constants.Basics');
 
 goog.require('Blockly.Blocks');
 
 
 /**
  * Common HSV hue for all blocks in this category.
- * This should be the same as Blockly.Msg.TIMER_HUE.
+ * This should be the same as Blockly.Msg.BASICS_HUE.
  * @readonly
  */
-Blockly.Constants.Timer.HUE = 280;
-/** @deprecated Use Blockly.Constants.Timer.HUE */
-Blockly.Blocks.timer.HUE = Blockly.Constants.Timer.HUE;
+Blockly.Constants.Basics.HUE = 280;
+/** @deprecated Use Blockly.Constants.Basics.HUE */
+Blockly.Blocks.basics.HUE = Blockly.Constants.Basics.HUE;
 
 
-var timerSleepJson =
+Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+  // Block for the setup routine.
   {
-    "message0": "%{BKY_TIMER_SLEEP_TITLE}",
+    "type": "basics_setup",
+    "message0": "%{BKY_BASICS_SETUP_TITLE} %1 %2",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
+    "colour": "%{BKY_BASICS_HUE}"
+  },
+  // Block for the main loop.
+  {
+    "type": "basics_loop",
+    "message0": "%{BKY_BASICS_LOOP_TITLE} %1 %2",
+    "args0": [
+      {
+        "type": "input_dummy",
+      },
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
+    "colour": "%{BKY_BASICS_HUE}"
+  },
+  // Block for sleeping.
+  {
+    "type": "basics_sleep",
+    "message0": "%{BKY_BASICS_SLEEP_TITLE}",
     "args0": [{
       "type": "input_value",
       "name": "SECONDS",
@@ -54,11 +86,6 @@ var timerSleepJson =
     }],
     "previousStatement": null,
     "nextStatement": null,
-    "colour": "%{BKY_TIMER_HUE}"
-  };
-
-Blockly.Blocks['timer_sleep'] = {
-  init: function() {
-    this.jsonInit(timerSleepJson);
+    "colour": "%{BKY_BASICS_HUE}"
   }
-};
+]);  // END JSON EXTRACT (Do not delete this comment.)

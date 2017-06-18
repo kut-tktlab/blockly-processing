@@ -39,12 +39,25 @@
   <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
 
   <xml id="toolbox" style="display: none">
-    <category name="条件" colour="%{BKY_LOGIC_HUE}">
-      <block type="controls_if"></block>
-      <block type="logic_compare"></block>
-      <block type="logic_operation"></block>
-      <block type="logic_negate"></block>
-      <block type="logic_boolean"></block>
+    <category name="基本" colour="%{BKY_BASICS_HUE}">
+      <block type="basics_setup"></block>
+      <block type="basics_loop"></block>
+      <block type="basics_sleep">
+        <value name="SECONDS">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <category name="LED" colour="%{BKY_LEDS_HUE}">
+      <block type="led_set_color">
+        <value name="LED">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
     </category>
     <category name="ループ" colour="%{BKY_LOOPS_HUE}">
       <block type="controls_repeat_ext">
@@ -73,6 +86,13 @@
         </value>
       </block>
       <block type="controls_flow_statements"></block>
+    </category>
+    <category name="条件" colour="%{BKY_LOGIC_HUE}">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
     </category>
     <category name="数値" colour="%{BKY_MATH_HUE}">
       <block type="math_number"></block>
@@ -118,24 +138,6 @@
         </value>
       </block>
 -->
-    </category>
-    <category name="LED" colour="%{BKY_LEDS_HUE}">
-      <block type="led_set_color">
-        <value name="LED">
-          <shadow type="math_number">
-            <field name="NUM">0</field>
-          </shadow>
-        </value>
-      </block>
-    </category>
-    <category name="時間" colour="%{BKY_TIMER_HUE}">
-      <block type="timer_sleep">
-        <value name="SECONDS">
-          <shadow type="math_number">
-            <field name="NUM">1</field>
-          </shadow>
-        </value>
-      </block>
     </category>
     <sep></sep>
     <category name="変数" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>

@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.ko');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "댓글 추가";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "'%2' 함수 정의의 일부이기 때문에 '%1' 변수를 삭제할 수 없습니다";
 Blockly.Msg.CHANGE_VALUE_TITLE = "값 바꾸기:";
 Blockly.Msg.CLEAN_UP = "블록 정리";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "양쪽의 공백 문자 제거";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "왼쪽의 공백 문자 제거";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "오른쪽의 공백 문자 제거";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "문장의 왼쪽/오른쪽/양쪽에서 스페이스 문자를 제거해 돌려줍니다.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "오늘";
 Blockly.Msg.UNDO = "실행 취소";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "항목";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

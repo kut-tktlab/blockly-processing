@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.pt');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Adicionar Comentário";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Não se pode eliminar a variável '%1' porque faz parte da definição da função '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Alterar valor:";
 Blockly.Msg.CLEAN_UP = "Limpar Blocos";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "remover espaços de ambos os lados";
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "remover espaços à esquerda de";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "remover espaços à direita";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Retorna uma cópia do texto com os espaços removidos de uma ou ambas as extremidades.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Hoje";
 Blockly.Msg.UNDO = "Desfazer";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "item";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";

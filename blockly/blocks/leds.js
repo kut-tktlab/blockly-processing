@@ -44,7 +44,8 @@ Blockly.Constants.Leds.HUE = 160;
 Blockly.Blocks.leds.HUE = Blockly.Constants.Leds.HUE;
 
 
-var ledSetColorJson =
+Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
+  // Block for setting the colour of an LED.
   {
     "type": "led_set_color",
     "message0": "%{BKY_LED_SET_COLOR_TITLE}",
@@ -65,10 +66,5 @@ var ledSetColorJson =
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_LEDS_HUE}"
-  };
-
-Blockly.Blocks['led_set_color'] = {
-  init: function() {
-    this.jsonInit(ledSetColorJson);
   }
-};
+]);  // END JSON EXTRACT (Do not delete this comment.)

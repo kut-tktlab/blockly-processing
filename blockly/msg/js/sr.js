@@ -7,6 +7,9 @@ goog.provide('Blockly.Msg.sr');
 goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Додај коментар";
+Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Не могу да обришем варијаблу ’%1’ јер је део дефиниције функције ’%2’";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Промените вредност:";
 Blockly.Msg.CLEAN_UP = "Уклони блокове";
@@ -386,7 +389,6 @@ Blockly.Msg.TEXT_TRIM_OPERATOR_BOTH = "трим празнине са обе с�
 Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT = "скратити простор са леве стране";
 Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT = "скратити простор са десне стране";
 Blockly.Msg.TEXT_TRIM_TOOLTIP = "Враћа копију текста са уклонјеним простором са једног од два краја.";
-Blockly.Msg.TIMER_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
 Blockly.Msg.TODAY = "Данас";
 Blockly.Msg.UNDO = "Опозови";
 Blockly.Msg.VARIABLES_DEFAULT_NAME = "ставка";
@@ -426,5 +428,5 @@ Blockly.Msg.VARIABLES_HUE = "330";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
 Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.TIMER_HUE = "280";
+Blockly.Msg.BASICS_HUE = "280";
 Blockly.Msg.LEDS_HUE = "160";
