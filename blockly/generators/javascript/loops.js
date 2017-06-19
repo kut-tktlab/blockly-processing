@@ -74,16 +74,37 @@ Blockly.JavaScript['controls_whileUntil'] = function(block) {
   return 'while (' + argument0 + ') {\n' + branch + '}\n';
 };
 
+Blockly.JavaScript['controls_while'] = function(block) {
+  // While loop.
+  var argument0 = Blockly.JavaScript.valueToCode(block, 'BOOL',
+      Blockly.JavaScript.ORDER_NONE) || 'false';
+  var branch = Blockly.JavaScript.statementToCode(block, 'DO');
+  branch = Blockly.JavaScript.addLoopTrap(branch, block.id);
+  return 'while (' + argument0 + ') {\n' + branch + '}\n';
+};
+
 Blockly.JavaScript['controls_for'] = function(block) {
   // For loop.
-  var variable0 = Blockly.JavaScript.variableDB_.getName(
-      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.JavaScript.valueToCode(block, 'FROM',
       Blockly.JavaScript.ORDER_ASSIGNMENT) || '0';
   var argument1 = Blockly.JavaScript.valueToCode(block, 'TO',
       Blockly.JavaScript.ORDER_ASSIGNMENT) || '0';
   var increment = Blockly.JavaScript.valueToCode(block, 'BY',
       Blockly.JavaScript.ORDER_ASSIGNMENT) || '1';
+  return Blockly.JavaScript.loops.createFor(block, argument0, argument1, increment);
+};
+
+Blockly.JavaScript['controls_for_simple'] = function(block) {
+  // For loop.
+  var argument1 = Blockly.JavaScript.valueToCode(block, 'TO',
+      Blockly.JavaScript.ORDER_ASSIGNMENT) || '0';
+  return Blockly.JavaScript.loops.createFor(block, '0', argument1, '1');
+};
+
+
+Blockly.JavaScript.loops.createFor = function(block, argument0, argument1, increment) {
+  var variable0 = Blockly.JavaScript.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var branch = Blockly.JavaScript.statementToCode(block, 'DO');
   branch = Blockly.JavaScript.addLoopTrap(branch, block.id);
   var code;

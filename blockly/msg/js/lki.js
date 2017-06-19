@@ -42,6 +42,8 @@ Blockly.Msg.CONTROLS_FOREACH_HELPURL = "https://github.com/google/blockly/wiki/L
 Blockly.Msg.CONTROLS_FOREACH_TITLE = "ئةرا هر مورد %1 وۀ نام لیست%2";
 Blockly.Msg.CONTROLS_FOREACH_TOOLTIP = "برای هر مورد در این فهرست، تنظیم متغیر «%1» به مورد و انجام تعدادی عبارت.";
 Blockly.Msg.CONTROLS_FOR_HELPURL = "https://github.com/google/blockly/wiki/Loops#count-with";  // untranslated
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TITLE = "count with %1 from 0 to %2";  // untranslated
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TOOLTIP = "Have the variable '%1' take on the values from zero to the end number, and do the specified blocks.";  // untranslated
 Blockly.Msg.CONTROLS_FOR_TITLE = "با تعداد %1 از %2 به %3 با گام‌های %4";
 Blockly.Msg.CONTROLS_FOR_TOOLTIP = "متغیر %1 را در مقادیر شروع‌شده از عدد انتهای  به عدد انتهایی را دارد، با فواصل مشخص‌شده می‌شمارد و این بلوک مشخص‌شده را انجام می‌دهد.";
 Blockly.Msg.CONTROLS_IF_ELSEIF_TOOLTIP = "افزودن یک شرط به بلوک اگر.";
@@ -65,6 +67,7 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "تکرار تا وةختێ گ�
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "تکرار در حالی که";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "تا زمانی که یک مقدار ناصحیح است، چند عبارت را انجام بده.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "تا زمانی که یک مقدار صحیح است، چند عبارت را انجام بده.";
+Blockly.Msg.CONTROLS_WHILE_TITLE = "repeat while %1";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "حةذف کؤل %1 بلاکةل?";
 Blockly.Msg.DELETE_BLOCK = "پاک کردن بلاک";
 Blockly.Msg.DELETE_VARIABLE = "Delete the '%1' variable";  // untranslated

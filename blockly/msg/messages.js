@@ -194,11 +194,16 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = 'repeat until';
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = 'While a value is true, then do some statements.';
 /// tooltip - See [https://github.com/google/blockly/wiki/Loops#repeat-until https://github.com/google/blockly/wiki/Loops#repeat-until].
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = 'While a value is false, then do some statements.';
+/// block input text - Title of 'while' loops.
+/// \n\nParameters:\n* %1 - while it is true, the loop should be repeated.
+Blockly.Msg.CONTROLS_WHILE_TITLE = 'repeat while %1';
 
 /// url - Describes 'for loops' in computer programs.  Consider using your language's translation of [https://en.wikipedia.org/wiki/For_loop https://en.wikipedia.org/wiki/For_loop], if present.
 Blockly.Msg.CONTROLS_FOR_HELPURL = 'https://github.com/google/blockly/wiki/Loops#count-with';
 /// tooltip - See [https://github.com/google/blockly/wiki/Loops#count-with https://github.com/google/blockly/wiki/Loops#count-with].\n\nParameters:\n* %1 - the name of the loop variable.
 Blockly.Msg.CONTROLS_FOR_TOOLTIP = 'Have the variable "%1" take on the values from the start number to the end number, counting by the specified interval, and do the specified blocks.';
+/// tooltip - See [https://github.com/google/blockly/wiki/Loops#count-with https://github.com/google/blockly/wiki/Loops#count-with].\n\nParameters:\n* %1 - the name of the loop variable.
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TOOLTIP = 'Have the variable "%1" take on the values from zero to the end number, and do the specified blocks.';
 /// block text - Repeatedly counts a variable (%1)
 /// starting with a (usually lower) number in a range (%2),
 /// ending with a (usually higher) number in a range (%3), and counting the
@@ -207,6 +212,9 @@ Blockly.Msg.CONTROLS_FOR_TOOLTIP = 'Have the variable "%1" take on the values fr
 /// https://github.com/google/blockly/wiki/Loops#count-with].
 /// [[File:Blockly-count-with.png]]
 Blockly.Msg.CONTROLS_FOR_TITLE = 'count with %1 from %2 to %3 by %4';
+/// block text - Repeatedly counts a variable (%1)
+/// ending with a number in a range (%2).
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TITLE = 'count with %1 from 0 to %2';
 Blockly.Msg.CONTROLS_FOR_INPUT_DO = Blockly.Msg.CONTROLS_REPEAT_INPUT_DO;
 
 /// url - Describes 'for-each loops' in computer programs.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Foreach https://en.wikipedia.org/wiki/Foreach] if present.
