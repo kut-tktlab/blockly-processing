@@ -102,6 +102,35 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "helpUrl": "%{BKY_COLOUR_RGB_HELPURL}",
     "tooltip": "%{BKY_COLOUR_RGB_TOOLTIP}"
   },
+  // Block for composing a colour from HSV components.
+  {
+    "type": "colour_hsv",
+    "message0": "%{BKY_COLOUR_RGB_TITLE} %{BKY_COLOUR_HSV_HUE} %1 %{BKY_COLOUR_HSV_SATURATION} %2 %{BKY_COLOUR_HSV_VALUE} %3",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "HUE",
+        "check": "Number",
+        "align": "RIGHT"
+      },
+      {
+        "type": "input_value",
+        "name": "SATURATION",
+        "check": "Number",
+        "align": "RIGHT"
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE",
+        "check": "Number",
+        "align": "RIGHT"
+      }
+    ],
+    "output": "Colour",
+    "colour": "%{BKY_COLOUR_HUE}",
+    "helpUrl": "%{BKY_COLOUR_RGB_HELPURL}",
+    "tooltip": "%{BKY_COLOUR_HSV_TOOLTIP}"
+  },
 
   // Block for blending two colours together.
   {
