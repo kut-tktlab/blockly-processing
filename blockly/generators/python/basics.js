@@ -45,9 +45,9 @@ Blockly.Python['basics_loop'] = function(block) {
 
 Blockly.Python['basics_sleep'] = function(block) {
   Blockly.Python.definitions_['import_time'] = 'import time';
-  var sec = Blockly.Python.valueToCode(block, 'SECONDS',
+  var msec = Blockly.Python.valueToCode(block, 'MSEC',
       Blockly.JavaScript.ORDER_NONE) || 1.0;
-  return 'time.sleep(' + sec + ')\n';
+  return 'time.sleep(' + msec + ' / 1000.0)\n';
 };
 
 

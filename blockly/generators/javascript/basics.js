@@ -44,10 +44,10 @@ Blockly.JavaScript['basics_loop'] = function(block) {
 };
 
 Blockly.JavaScript['basics_sleep'] = function(block) {
-  var sec = Blockly.JavaScript.valueToCode(block, 'SECONDS',
+  var msec = Blockly.JavaScript.valueToCode(block, 'MSEC',
       Blockly.JavaScript.ORDER_NONE) || 1;
-  return 'window.alert(\'sleeping ' + sec +
-         ' sec... (not implemented)\');\n';
+  return 'window.alert(\'sleeping ' + msec +
+         ' msec... (not implemented)\');\n';
 };
 
 

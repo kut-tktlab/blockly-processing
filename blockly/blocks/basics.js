@@ -81,7 +81,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "message0": "%{BKY_BASICS_SLEEP_TITLE}",
     "args0": [{
       "type": "input_value",
-      "name": "SECONDS",
+      "name": "MSEC",
       "check": "Number"
     }],
     "previousStatement": null,

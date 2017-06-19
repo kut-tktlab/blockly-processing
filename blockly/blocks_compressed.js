@@ -25,7 +25,7 @@
  limitations under the License.
 */
 Blockly.Blocks.basics={};Blockly.Constants={};Blockly.Constants.Basics={};Blockly.Constants.Basics.HUE="#137ad4";Blockly.Blocks.basics.HUE=Blockly.Constants.Basics.HUE;
-Blockly.defineBlocksWithJsonArray([{type:"basics_setup",message0:"%{BKY_BASICS_SETUP_TITLE} %1 %2",args0:[{type:"input_dummy"},{type:"input_statement",name:"DO"}],colour:"%{BKY_BASICS_HUE}"},{type:"basics_loop",message0:"%{BKY_BASICS_LOOP_TITLE} %1 %2",args0:[{type:"input_dummy"},{type:"input_statement",name:"DO"}],colour:"%{BKY_BASICS_HUE}"},{type:"basics_sleep",message0:"%{BKY_BASICS_SLEEP_TITLE}",args0:[{type:"input_value",name:"SECONDS",check:"Number"}],previousStatement:null,nextStatement:null,
+Blockly.defineBlocksWithJsonArray([{type:"basics_setup",message0:"%{BKY_BASICS_SETUP_TITLE} %1 %2",args0:[{type:"input_dummy"},{type:"input_statement",name:"DO"}],colour:"%{BKY_BASICS_HUE}"},{type:"basics_loop",message0:"%{BKY_BASICS_LOOP_TITLE} %1 %2",args0:[{type:"input_dummy"},{type:"input_statement",name:"DO"}],colour:"%{BKY_BASICS_HUE}"},{type:"basics_sleep",message0:"%{BKY_BASICS_SLEEP_TITLE}",args0:[{type:"input_value",name:"MSEC",check:"Number"}],previousStatement:null,nextStatement:null,
 colour:"%{BKY_BASICS_HUE}"}]);
 // Copyright 2012 Google Inc.  Apache License 2.0
 Blockly.Blocks.colour={};Blockly.Constants.Colour={};Blockly.Constants.Colour.HUE="#d63c18";Blockly.Blocks.colour.HUE=Blockly.Constants.Colour.HUE;

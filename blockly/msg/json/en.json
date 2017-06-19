@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-06-19 14:32:10.151938",
+		"lastupdated": "2017-06-19 15:02:45.732299",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -400,6 +400,6 @@
 	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition.",
 	"BASICS_SETUP_TITLE": "Setup",
 	"BASICS_LOOP_TITLE": "Forever do",
-	"BASICS_SLEEP_TITLE": "Wait for %1 seconds",
+	"BASICS_SLEEP_TITLE": "Wait for %1 milliseconds",
 	"LED_SET_COLOR_TITLE": "Set the color of LED %1 to colour %2"
 }

@@ -1206,7 +1206,7 @@ Blockly.Msg.BASICS_SETUP_TITLE = 'Setup';
 Blockly.Msg.BASICS_LOOP_TITLE = 'Forever do';
 /// block text - Wait for a few seconds.
 /// \n\nParameters:\n* %1 - the number of seconds to wait
-Blockly.Msg.BASICS_SLEEP_TITLE = 'Wait for %1 seconds';
+Blockly.Msg.BASICS_SLEEP_TITLE = 'Wait for %1 milliseconds';
 
 /// block text - Set the color of an LED.
 /// \n\nParameters:\n* %1 - the id of the LED\n* %2 - colour

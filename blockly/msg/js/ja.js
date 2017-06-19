@@ -9,7 +9,7 @@ goog.require('Blockly.Msg');
 Blockly.Msg.ADD_COMMENT = "コメントを追加";
 Blockly.Msg.BASICS_LOOP_TITLE = "ずっと";
 Blockly.Msg.BASICS_SETUP_TITLE = "最初だけ";
-Blockly.Msg.BASICS_SLEEP_TITLE = "%1 秒待つ";
+Blockly.Msg.BASICS_SLEEP_TITLE = "%1 ミリ秒待つ";
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "値を変える：";
 Blockly.Msg.CLEAN_UP = "ブロックを整理する";

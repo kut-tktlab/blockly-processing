@@ -9,7 +9,7 @@ goog.require('Blockly.Msg');
 Blockly.Msg.ADD_COMMENT = "Lägg till kommentar";
 Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
 Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
-Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 milliseconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Kan inte radera variabeln '%1' eftersom den är en del av definition för funktionen '%2'";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Ändra värde:";
 Blockly.Msg.CLEAN_UP = "Rada upp block";

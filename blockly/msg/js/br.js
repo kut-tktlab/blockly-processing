@@ -9,7 +9,7 @@ goog.require('Blockly.Msg');
 Blockly.Msg.ADD_COMMENT = "Ouzhpennañ un evezhiadenn";
 Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
 Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
-Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 milliseconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Ne ch'aller ket dilemel an argemm \"%1\" dre m'eo lod eus dielfennadur an arc'hwel \"%2\"";
 Blockly.Msg.CHANGE_VALUE_TITLE = "Kemmañ an dalvoudenn :";
 Blockly.Msg.CLEAN_UP = "Naetaat ar bloc'hoù";

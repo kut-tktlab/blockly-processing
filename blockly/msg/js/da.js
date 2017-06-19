@@ -9,7 +9,7 @@ goog.require('Blockly.Msg');
 Blockly.Msg.ADD_COMMENT = "Tilføj kommentar";
 Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
 Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
-Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 milliseconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "Skift værdi:";
 Blockly.Msg.CLEAN_UP = "Ryd op i blokke";
