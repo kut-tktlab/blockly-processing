@@ -101,3 +101,39 @@ Blockly.JavaScript['colour_blend'] = function(block) {
   var code = functionName + '(' + c1 + ', ' + c2 + ', ' + ratio + ')';
   return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };
+
+Blockly.JavaScript['colour_hsv'] = function(block) {
+  // Compose a colour from HSV components expressed as percentages.
+  var hue = Blockly.JavaScript.valueToCode(block, 'HUE',
+      Blockly.JavaScript.ORDER_COMMA) || 0;
+  var saturation = Blockly.JavaScript.valueToCode(block, 'SATURATION',
+      Blockly.JavaScript.ORDER_COMMA) || 0;
+  var value = Blockly.JavaScript.valueToCode(block, 'VALUE',
+      Blockly.JavaScript.ORDER_COMMA) || 0;
+  var functionName = Blockly.JavaScript.provideFunction_(
+      'colourHsv',
+      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
+          '(h, s, v) {',
+       '  h = Math.round(Math.min(360, Math.max(0, Number(h))));',
+       '  s = Math.min(100, Math.max(0, Number(s))) / 100.0;',
+       '  v = Math.min(100, Math.max(0, Number(v))) * 2.55;',
+       '  var hgroup = Math.floor(h / 60) % 6;',
+       '  var f  = (h % 60) / 60.0;',
+       '  var p  = (v * (1.0 - s));',
+       '  var q  = (v * (1.0 - f * s));',
+       '  var t  = (v * (1.0 - (1.0 - f) * s));',
+       '  var r, g, b;',
+       '  if      (hgroup == 0) { r = v; g = t; b = p; }',
+       '  else if (hgroup == 1) { r = q; g = v; b = p; }',
+       '  else if (hgroup == 2) { r = p; g = v; b = t; }',
+       '  else if (hgroup == 3) { r = p; g = q; b = v; }',
+       '  else if (hgroup == 4) { r = t; g = p; b = v; }',
+       '  else if (hgroup == 5) { r = v; g = p; b = q; }',
+       '  r = (\'0\' + (Math.round(r) || 0).toString(16)).slice(-2);',
+       '  g = (\'0\' + (Math.round(g) || 0).toString(16)).slice(-2);',
+       '  b = (\'0\' + (Math.round(b) || 0).toString(16)).slice(-2);',
+       '  return \'#\' + r + g + b;',
+       '}']);
+  var code = functionName + '(' + hue + ', ' + saturation + ', ' + value + ')';
+  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};

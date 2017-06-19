@@ -84,3 +84,34 @@ Blockly.Python['colour_blend'] = function(block) {
   var code = functionName + '(' + colour1 + ', ' + colour2 + ', ' + ratio + ')';
   return [code, Blockly.Python.ORDER_FUNCTION_CALL];
 };
+
+Blockly.Python['colour_hsv'] = function(block) {
+  // Compose a colour from HSV components expressed as percentages.
+  var functionName = Blockly.Python.provideFunction_(
+      'colour_hsv',
+      ['def ' + Blockly.Python.FUNCTION_NAME_PLACEHOLDER_ + '(h, s, v):',
+       '  h = round(min(360, max(0, h)))',
+       '  s = min(100, max(0, s)) / 100.0',
+       '  v = min(100, max(0, v)) * 2.55',
+       '  hgroup = (h // 60) % 6',
+       '  f  = (h % 60) / 60.0',
+       '  p  = round(v * (1.0 - s))',
+       '  q  = round(v * (1.0 - f * s))',
+       '  t  = round(v * (1.0 - (1.0 - f) * s))',
+       '  v  = round(v)',
+       '  if   hgroup == 0: r = v; g = t; b = p',
+       '  elif hgroup == 1: r = q; g = v; b = p',
+       '  elif hgroup == 2: r = p; g = v; b = t',
+       '  elif hgroup == 3: r = p; g = q; b = v',
+       '  elif hgroup == 4: r = t; g = p; b = v',
+       '  elif hgroup == 5: r = v; g = p; b = q',
+       '  return \'#%02x%02x%02x\' % (r, g, b)']);
+  var h = Blockly.Python.valueToCode(block, 'HUE',
+                                     Blockly.Python.ORDER_NONE) || 0;
+  var s = Blockly.Python.valueToCode(block, 'SATURATION',
+                                     Blockly.Python.ORDER_NONE) || 0;
+  var v = Blockly.Python.valueToCode(block, 'VALUE',
+                                     Blockly.Python.ORDER_NONE) || 0;
+  var code = functionName + '(' + h + ', ' + s + ', ' + v + ')';
+  return [code, Blockly.Python.ORDER_FUNCTION_CALL];
+};
