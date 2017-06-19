@@ -401,6 +401,7 @@ Blockly.Toolbox.prototype.addColour_ = function(opt_tree) {
       } else {
         element.style.borderLeft = border;
       }
+      element.style.color = (child.hexColour || '#ddd');
     }
     this.addColour_(child);
   }
