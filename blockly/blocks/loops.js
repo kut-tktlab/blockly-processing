@@ -40,7 +40,7 @@ goog.require('Blockly.Blocks');
  * Should be the same as Blockly.Msg.LOOPS_HUE
  * @readonly
  */
-Blockly.Constants.Loops.HUE = 120;
+Blockly.Constants.Loops.HUE = '#197b1b';
 /** @deprecated Use Blockly.Constants.Loops.HUE */
 Blockly.Blocks.loops.HUE = Blockly.Constants.Loops.HUE;
 
@@ -118,6 +118,28 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "helpUrl": "%{BKY_CONTROLS_WHILEUNTIL_HELPURL}",
     "extensions": ["controls_whileUntil_tooltip"]
   },
+  // Block for 'while' loop.
+  {
+    "type": "controls_while",
+    "message0": "%{BKY_CONTROLS_WHILE_TITLE}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "BOOL",
+        "check": "Boolean"
+      }
+    ],
+    "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
+    "args1": [{
+      "type": "input_statement",
+      "name": "DO"
+    }],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_LOOPS_HUE}",
+    "helpUrl": "%{BKY_CONTROLS_WHILEUNTIL_HELPURL}",
+    "tooltip": "%{BKY_CONTROLS_WHILEUNTIL_TOOLTIP_WHILE}",
+  },
   // Block for 'for' loop.
   {
     "type": "controls_for",
@@ -143,6 +165,38 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "input_value",
         "name": "BY",
+        "check": "Number",
+        "align": "RIGHT"
+      }
+    ],
+    "message1": "%{BKY_CONTROLS_REPEAT_INPUT_DO} %1",
+    "args1": [{
+      "type": "input_statement",
+      "name": "DO"
+    }],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_LOOPS_HUE}",
+    "helpUrl": "%{BKY_CONTROLS_FOR_HELPURL}",
+    "extensions": [
+      "contextMenu_newGetVariableBlock",
+      "controls_for_tooltip"
+    ]
+  },
+  // Block for simplified 'for' loop.
+  {
+    "type": "controls_for_simple",
+    "message0": "%{BKY_CONTROLS_FOR_SIMPLE_TITLE}",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": null
+      },
+      {
+        "type": "input_value",
+        "name": "TO",
         "check": "Number",
         "align": "RIGHT"
       }
@@ -301,7 +355,7 @@ Blockly.Constants.Loops.CONTROL_FLOW_CHECK_IN_LOOP_MIXIN = {
    * Blockly.Blocks['controls_flow_statements'].LOOP_TYPES.push('custom_loop');
    */
   LOOP_TYPES: ['controls_repeat', 'controls_repeat_ext', 'controls_forEach',
-    'controls_for', 'controls_whileUntil'],
+    'controls_for', 'controls_for_simple', 'controls_whileUntil'],
 
   /**
    * Called whenever anything on the workspace changes.

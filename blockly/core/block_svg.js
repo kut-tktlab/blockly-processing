@@ -1396,6 +1396,9 @@ Blockly.BlockSvg.prototype.updateColour = function() {
   }
   this.svgPath_.setAttribute('fill', hexColour);
 
+  this.svgPathLight_.style.display = 'none'; // no light
+  this.svgPathDark_ .style.display = 'none'; // no shadow
+
   var icons = this.getIcons();
   for (var i = 0; i < icons.length; i++) {
     icons[i].updateColour();

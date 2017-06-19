@@ -49,25 +49,25 @@ goog.require('Blockly.Msg');
  */
 
 /// {{Notranslate}} Hue value for all logic blocks.
-Blockly.Msg.LOGIC_HUE = '210';
+Blockly.Msg.LOGIC_HUE = '#0c696f';
 /// {{Notranslate}} Hue value for all loop blocks.
-Blockly.Msg.LOOPS_HUE = '120';
+Blockly.Msg.LOOPS_HUE = '#197b1b';
 /// {{Notranslate}} Hue value for all math blocks.
-Blockly.Msg.MATH_HUE = '230';
+Blockly.Msg.MATH_HUE = '#702971';
 /// {{Notranslate}} Hue value for all text blocks.
 Blockly.Msg.TEXTS_HUE = '160';
 /// {{Notranslate}} Hue value for all list blocks.
 Blockly.Msg.LISTS_HUE = '260';
 /// {{Notranslate}} Hue value for all colour blocks.
-Blockly.Msg.COLOUR_HUE = '20';
+Blockly.Msg.COLOUR_HUE = '#d63c18';
 /// {{Notranslate}} Hue value for all variable blocks.
-Blockly.Msg.VARIABLES_HUE = '330';
+Blockly.Msg.VARIABLES_HUE = '#a6050e';
 /// {{Notranslate}} Hue value for all procedure blocks.
 Blockly.Msg.PROCEDURES_HUE = '290';
 /// {{Notranslate}} Hue value for all timer blocks.
-Blockly.Msg.BASICS_HUE = '280';
+Blockly.Msg.BASICS_HUE = '#137ad4';
 /// {{Notranslate}} Hue value for all leds blocks.
-Blockly.Msg.LEDS_HUE = '160';
+Blockly.Msg.LEDS_HUE = '#5b318f';
 
 /// default name - A simple, general default name for a variable, preferably short.
 /// For more context, see
@@ -194,11 +194,16 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = 'repeat until';
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = 'While a value is true, then do some statements.';
 /// tooltip - See [https://github.com/google/blockly/wiki/Loops#repeat-until https://github.com/google/blockly/wiki/Loops#repeat-until].
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = 'While a value is false, then do some statements.';
+/// block input text - Title of 'while' loops.
+/// \n\nParameters:\n* %1 - while it is true, the loop should be repeated.
+Blockly.Msg.CONTROLS_WHILE_TITLE = 'repeat while %1';
 
 /// url - Describes 'for loops' in computer programs.  Consider using your language's translation of [https://en.wikipedia.org/wiki/For_loop https://en.wikipedia.org/wiki/For_loop], if present.
 Blockly.Msg.CONTROLS_FOR_HELPURL = 'https://github.com/google/blockly/wiki/Loops#count-with';
 /// tooltip - See [https://github.com/google/blockly/wiki/Loops#count-with https://github.com/google/blockly/wiki/Loops#count-with].\n\nParameters:\n* %1 - the name of the loop variable.
 Blockly.Msg.CONTROLS_FOR_TOOLTIP = 'Have the variable "%1" take on the values from the start number to the end number, counting by the specified interval, and do the specified blocks.';
+/// tooltip - See [https://github.com/google/blockly/wiki/Loops#count-with https://github.com/google/blockly/wiki/Loops#count-with].\n\nParameters:\n* %1 - the name of the loop variable.
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TOOLTIP = 'Have the variable "%1" take on the values from zero to the end number, and do the specified blocks.';
 /// block text - Repeatedly counts a variable (%1)
 /// starting with a (usually lower) number in a range (%2),
 /// ending with a (usually higher) number in a range (%3), and counting the
@@ -207,6 +212,9 @@ Blockly.Msg.CONTROLS_FOR_TOOLTIP = 'Have the variable "%1" take on the values fr
 /// https://github.com/google/blockly/wiki/Loops#count-with].
 /// [[File:Blockly-count-with.png]]
 Blockly.Msg.CONTROLS_FOR_TITLE = 'count with %1 from %2 to %3 by %4';
+/// block text - Repeatedly counts a variable (%1)
+/// ending with a number in a range (%2).
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TITLE = 'count with %1 from 0 to %2';
 Blockly.Msg.CONTROLS_FOR_INPUT_DO = Blockly.Msg.CONTROLS_REPEAT_INPUT_DO;
 
 /// url - Describes 'for-each loops' in computer programs.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Foreach https://en.wikipedia.org/wiki/Foreach] if present.
@@ -537,7 +545,7 @@ Blockly.Msg.MATH_CONSTRAIN_TOOLTIP = 'Constrain a number to be between the speci
 /// url - Information about how computers generate random numbers.
 Blockly.Msg.MATH_RANDOM_INT_HELPURL = 'https://en.wikipedia.org/wiki/Random_number_generation';
 /// block text - The title of the block that generates a random integer (whole number) in the specified range.  For example, if the range is from 5 to 7, this returns 5, 6, or 7 with equal likelihood. %1 is a placeholder for the lower number, %2 is the placeholder for the larger number.
-Blockly.Msg.MATH_RANDOM_INT_TITLE = 'random integer from %1 to %2';
+Blockly.Msg.MATH_RANDOM_INT_TITLE = 'random integer from 0 to %1';
 /// tooltip - Return a random integer between two values specified as inputs.  For example, if one input was 7 and another 9, any of the numbers 7, 8, or 9 could be produced.
 Blockly.Msg.MATH_RANDOM_INT_TOOLTIP = 'Return a random integer between the two specified limits, inclusive.';
 
@@ -1198,7 +1206,7 @@ Blockly.Msg.BASICS_SETUP_TITLE = 'Setup';
 Blockly.Msg.BASICS_LOOP_TITLE = 'Forever do';
 /// block text - Wait for a few seconds.
 /// \n\nParameters:\n* %1 - the number of seconds to wait
-Blockly.Msg.BASICS_SLEEP_TITLE = 'Wait for %1 seconds';
+Blockly.Msg.BASICS_SLEEP_TITLE = 'Wait for %1 milliseconds';
 
 /// block text - Set the color of an LED.
 /// \n\nParameters:\n* %1 - the id of the LED\n* %2 - colour

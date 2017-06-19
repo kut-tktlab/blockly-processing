@@ -39,7 +39,7 @@ goog.require('Blockly.Blocks');
  * This should be the same as Blockly.Msg.BASICS_HUE.
  * @readonly
  */
-Blockly.Constants.Basics.HUE = 280;
+Blockly.Constants.Basics.HUE = '#137ad4';
 /** @deprecated Use Blockly.Constants.Basics.HUE */
 Blockly.Blocks.basics.HUE = Blockly.Constants.Basics.HUE;
 
@@ -81,7 +81,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "message0": "%{BKY_BASICS_SLEEP_TITLE}",
     "args0": [{
       "type": "input_value",
-      "name": "SECONDS",
+      "name": "MSEC",
       "check": "Number"
     }],
     "previousStatement": null,

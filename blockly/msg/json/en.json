@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-06-17 16:29:58.333302",
+		"lastupdated": "2017-06-19 15:56:23.831457",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -60,9 +60,12 @@
 	"CONTROLS_WHILEUNTIL_OPERATOR_UNTIL": "repeat until",
 	"CONTROLS_WHILEUNTIL_TOOLTIP_WHILE": "While a value is true, then do some statements.",
 	"CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL": "While a value is false, then do some statements.",
+	"CONTROLS_WHILE_TITLE": "repeat while %1",
 	"CONTROLS_FOR_HELPURL": "https://github.com/google/blockly/wiki/Loops#count-with",
 	"CONTROLS_FOR_TOOLTIP": "Have the variable '%1' take on the values from the start number to the end number, counting by the specified interval, and do the specified blocks.",
+	"CONTROLS_FOR_SIMPLE_TOOLTIP": "Have the variable '%1' take on the values from zero to the end number, and do the specified blocks.",
 	"CONTROLS_FOR_TITLE": "count with %1 from %2 to %3 by %4",
+	"CONTROLS_FOR_SIMPLE_TITLE": "count with %1 from 0 to %2",
 	"CONTROLS_FOREACH_HELPURL": "https://github.com/google/blockly/wiki/Loops#for-each",
 	"CONTROLS_FOREACH_TITLE": "for each item %1 in list %2",
 	"CONTROLS_FOREACH_TOOLTIP": "For each item in a list, set the variable '%1' to the item, and then do some statements.",
@@ -202,7 +205,7 @@
 	"MATH_CONSTRAIN_TITLE": "constrain %1 low %2 high %3",
 	"MATH_CONSTRAIN_TOOLTIP": "Constrain a number to be between the specified limits (inclusive).",
 	"MATH_RANDOM_INT_HELPURL": "https://en.wikipedia.org/wiki/Random_number_generation",
-	"MATH_RANDOM_INT_TITLE": "random integer from %1 to %2",
+	"MATH_RANDOM_INT_TITLE": "random integer from 0 to %1",
 	"MATH_RANDOM_INT_TOOLTIP": "Return a random integer between the two specified limits, inclusive.",
 	"MATH_RANDOM_FLOAT_HELPURL": "https://en.wikipedia.org/wiki/Random_number_generation",
 	"MATH_RANDOM_FLOAT_TITLE_RANDOM": "random fraction",
@@ -397,6 +400,6 @@
 	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition.",
 	"BASICS_SETUP_TITLE": "Setup",
 	"BASICS_LOOP_TITLE": "Forever do",
-	"BASICS_SLEEP_TITLE": "Wait for %1 seconds",
+	"BASICS_SLEEP_TITLE": "Wait for %1 milliseconds",
 	"LED_SET_COLOR_TITLE": "Set the color of LED %1 to colour %2"
 }

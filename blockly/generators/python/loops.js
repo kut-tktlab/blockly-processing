@@ -70,16 +70,38 @@ Blockly.Python['controls_whileUntil'] = function(block) {
   return 'while ' + argument0 + ':\n' + branch;
 };
 
+Blockly.Python['controls_while'] = function(block) {
+  // While loop.
+  var argument0 = Blockly.Python.valueToCode(block, 'BOOL',
+      Blockly.Python.ORDER_NONE) || 'False';
+  var branch = Blockly.Python.statementToCode(block, 'DO');
+  branch = Blockly.Python.addLoopTrap(branch, block.id) ||
+      Blockly.Python.PASS;
+  return 'while ' + argument0 + ':\n' + branch;
+};
+
 Blockly.Python['controls_for'] = function(block) {
   // For loop.
-  var variable0 = Blockly.Python.variableDB_.getName(
-      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Python.valueToCode(block, 'FROM',
       Blockly.Python.ORDER_NONE) || '0';
   var argument1 = Blockly.Python.valueToCode(block, 'TO',
       Blockly.Python.ORDER_NONE) || '0';
   var increment = Blockly.Python.valueToCode(block, 'BY',
       Blockly.Python.ORDER_NONE) || '1';
+  return Blockly.Python.loops.createFor(block, argument0, argument1, increment);
+};
+
+Blockly.Python['controls_for_simple'] = function(block) {
+  // For loop.
+  var argument1 = Blockly.Python.valueToCode(block, 'TO',
+      Blockly.Python.ORDER_NONE) || '0';
+  return Blockly.Python.loops.createFor(block, '0', argument1, '1');
+};
+
+
+Blockly.Python.loops.createFor = function(block, argument0, argument1, increment) {
+  var variable0 = Blockly.Python.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var branch = Blockly.Python.statementToCode(block, 'DO');
   branch = Blockly.Python.addLoopTrap(branch, block.id) ||
       Blockly.Python.PASS;

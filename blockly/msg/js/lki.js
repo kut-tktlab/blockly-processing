@@ -9,7 +9,7 @@ goog.require('Blockly.Msg');
 Blockly.Msg.ADD_COMMENT = "گةپ دائن";
 Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
 Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
-Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 seconds";  // untranslated
+Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 milliseconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Can't delete the variable '%1' because it's part of the definition of the function '%2'";  // untranslated
 Blockly.Msg.CHANGE_VALUE_TITLE = "تةغییر مقدار:";
 Blockly.Msg.CLEAN_UP = "تمیزکردن بلاکةل";
@@ -42,6 +42,8 @@ Blockly.Msg.CONTROLS_FOREACH_HELPURL = "https://github.com/google/blockly/wiki/L
 Blockly.Msg.CONTROLS_FOREACH_TITLE = "ئةرا هر مورد %1 وۀ نام لیست%2";
 Blockly.Msg.CONTROLS_FOREACH_TOOLTIP = "برای هر مورد در این فهرست، تنظیم متغیر «%1» به مورد و انجام تعدادی عبارت.";
 Blockly.Msg.CONTROLS_FOR_HELPURL = "https://github.com/google/blockly/wiki/Loops#count-with";  // untranslated
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TITLE = "count with %1 from 0 to %2";  // untranslated
+Blockly.Msg.CONTROLS_FOR_SIMPLE_TOOLTIP = "Have the variable '%1' take on the values from zero to the end number, and do the specified blocks.";  // untranslated
 Blockly.Msg.CONTROLS_FOR_TITLE = "با تعداد %1 از %2 به %3 با گام‌های %4";
 Blockly.Msg.CONTROLS_FOR_TOOLTIP = "متغیر %1 را در مقادیر شروع‌شده از عدد انتهای  به عدد انتهایی را دارد، با فواصل مشخص‌شده می‌شمارد و این بلوک مشخص‌شده را انجام می‌دهد.";
 Blockly.Msg.CONTROLS_IF_ELSEIF_TOOLTIP = "افزودن یک شرط به بلوک اگر.";
@@ -65,6 +67,7 @@ Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "تکرار تا وةختێ گ�
 Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "تکرار در حالی که";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "تا زمانی که یک مقدار ناصحیح است، چند عبارت را انجام بده.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "تا زمانی که یک مقدار صحیح است، چند عبارت را انجام بده.";
+Blockly.Msg.CONTROLS_WHILE_TITLE = "repeat while %1";  // untranslated
 Blockly.Msg.DELETE_ALL_BLOCKS = "حةذف کؤل %1 بلاکةل?";
 Blockly.Msg.DELETE_BLOCK = "پاک کردن بلاک";
 Blockly.Msg.DELETE_VARIABLE = "Delete the '%1' variable";  // untranslated
@@ -420,13 +423,13 @@ Blockly.Msg.TEXT_CREATE_JOIN_ITEM_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAM
 Blockly.Msg.LISTS_INDEX_OF_INPUT_IN_LIST = Blockly.Msg.LISTS_INLIST;
 Blockly.Msg.PROCEDURES_DEFRETURN_COMMENT = Blockly.Msg.PROCEDURES_DEFNORETURN_COMMENT;
 
-Blockly.Msg.MATH_HUE = "230";
-Blockly.Msg.LOOPS_HUE = "120";
+Blockly.Msg.MATH_HUE = "#702971";
+Blockly.Msg.LOOPS_HUE = "#197b1b";
 Blockly.Msg.LISTS_HUE = "260";
-Blockly.Msg.LOGIC_HUE = "210";
-Blockly.Msg.VARIABLES_HUE = "330";
+Blockly.Msg.LOGIC_HUE = "#0c696f";
+Blockly.Msg.VARIABLES_HUE = "#a6050e";
 Blockly.Msg.TEXTS_HUE = "160";
 Blockly.Msg.PROCEDURES_HUE = "290";
-Blockly.Msg.COLOUR_HUE = "20";
-Blockly.Msg.BASICS_HUE = "280";
-Blockly.Msg.LEDS_HUE = "160";
+Blockly.Msg.COLOUR_HUE = "#d63c18";
+Blockly.Msg.BASICS_HUE = "#137ad4";
+Blockly.Msg.LEDS_HUE = "#5b318f";
