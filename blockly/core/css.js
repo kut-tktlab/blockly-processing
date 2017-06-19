@@ -113,7 +113,7 @@ Blockly.Css.setCursor = function(cursor) {
  */
 Blockly.Css.CONTENT = [
   '.blocklySvg {',
-    'background-color: #fff;',
+    'background-color: #eee;',
     'outline: none;',
     'overflow: hidden;',  /* IE overflows by default. */
     'position: absolute;',
@@ -502,7 +502,8 @@ Blockly.Css.CONTENT = [
 
   /* Category tree in Toolbox. */
   '.blocklyToolboxDiv {',
-    'background-color: #ddd;',
+    'border-right: 1px solid #ddd;',
+    'background-color: #fff;',
     'overflow-x: visible;',
     'overflow-y: auto;',
     'position: absolute;',
@@ -521,7 +522,7 @@ Blockly.Css.CONTENT = [
     'height: 22px;',
     'line-height: 22px;',
     'margin-bottom: 3px;',
-    'padding-right: 8px;',
+    'padding-right: 28px;',
     'white-space: nowrap;',
   '}',
 
