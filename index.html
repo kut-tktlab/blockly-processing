@@ -36,7 +36,7 @@
     <button onclick="runCode()">Run JavaScript</button>
   </p>
 
-  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+  <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
 
   <xml id="toolbox" style="display: none">
     <category name="基本" colour="%{BKY_BASICS_HUE}">
@@ -167,6 +167,9 @@
   </xml>
 
   <xml id="startBlocks" style="display: none">
+    <block type="basics_setup" x="20" y="20"></block>
+    <block type="basics_loop"  x="220" y="20"></block>
+<!--
     <block type="controls_if" inline="false" x="20" y="20">
       <mutation else="1"></mutation>
       <value name="IF0">
@@ -213,6 +216,7 @@
         </block>
       </statement>
     </block>
+-->
   </xml>
 
   <script>
