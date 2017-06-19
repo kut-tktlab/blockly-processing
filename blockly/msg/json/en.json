@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-06-19 15:56:23.831457",
+		"lastupdated": "2017-06-19 16:30:54.861557",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -44,7 +44,11 @@
 	"COLOUR_RGB_RED": "red",
 	"COLOUR_RGB_GREEN": "green",
 	"COLOUR_RGB_BLUE": "blue",
+	"COLOUR_HSV_HUE": "hue",
+	"COLOUR_HSV_SATURATION": "saturation",
+	"COLOUR_HSV_VALUE": "brightness",
 	"COLOUR_RGB_TOOLTIP": "Create a colour with the specified amount of red, green, and blue. All values must be between 0 and 100.",
+	"COLOUR_HSV_TOOLTIP": "Create a colour with the specified amount of hue, saturation, and brightness. Hue must be between 0 and 360. Saturation and brightness must be between 0 and 100.",
 	"COLOUR_BLEND_HELPURL": "http://meyerweb.com/eric/tools/color-blend/",
 	"COLOUR_BLEND_TITLE": "blend",
 	"COLOUR_BLEND_COLOUR1": "colour 1",
