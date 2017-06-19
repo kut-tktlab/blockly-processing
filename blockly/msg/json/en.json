@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-06-19 15:02:45.732299",
+		"lastupdated": "2017-06-19 15:56:23.831457",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -205,7 +205,7 @@
 	"MATH_CONSTRAIN_TITLE": "constrain %1 low %2 high %3",
 	"MATH_CONSTRAIN_TOOLTIP": "Constrain a number to be between the specified limits (inclusive).",
 	"MATH_RANDOM_INT_HELPURL": "https://en.wikipedia.org/wiki/Random_number_generation",
-	"MATH_RANDOM_INT_TITLE": "random integer from %1 to %2",
+	"MATH_RANDOM_INT_TITLE": "random integer from 0 to %1",
 	"MATH_RANDOM_INT_TOOLTIP": "Return a random integer between the two specified limits, inclusive.",
 	"MATH_RANDOM_FLOAT_HELPURL": "https://en.wikipedia.org/wiki/Random_number_generation",
 	"MATH_RANDOM_FLOAT_TITLE_RANDOM": "random fraction",

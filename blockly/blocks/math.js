@@ -106,7 +106,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "options": [
           ["%{BKY_MATH_SINGLE_OP_ROOT}", 'ROOT'],
           ["%{BKY_MATH_SINGLE_OP_ABSOLUTE}", 'ABS'],
-          ['-', 'NEG'],
+          ["%{BKY_MATH_SUBTRACTION_SYMBOL}", 'NEG'],
           ['ln', 'LN'],
           ['log10', 'LOG10'],
           ['e^', 'EXP'],
@@ -348,11 +348,11 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "type": "math_random_int",
     "message0": "%{BKY_MATH_RANDOM_INT_TITLE}",
     "args0": [
-      {
-        "type": "input_value",
-        "name": "FROM",
-        "check": "Number"
-      },
+      //{
+      //  "type": "input_value",
+      //  "name": "FROM",
+      //  "check": "Number"
+      //},
       {
         "type": "input_value",
         "name": "TO",
