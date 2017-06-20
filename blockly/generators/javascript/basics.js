@@ -34,8 +34,15 @@ goog.require('Blockly.JavaScript');
 
 
 Blockly.JavaScript['basics_setup'] = function(block) {
-  Blockly.JavaScript.basics.createFunc(block, 'setup');
-  return 'setup();\n';
+  var branch = Blockly.JavaScript.statementToCode(block, 'DO');
+  if (Blockly.JavaScript.STATEMENT_PREFIX) {
+    branch = Blockly.JavaScript.prefixLines(
+        Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
+  }
+  var code = '{\n' + branch + '}\n';
+  code = Blockly.JavaScript.scrub_(block, code);
+  return code;
 };
 
 Blockly.JavaScript['basics_loop'] = function(block) {

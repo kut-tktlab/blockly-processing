@@ -34,8 +34,16 @@ goog.require('Blockly.Python');
 
 
 Blockly.Python['basics_setup'] = function(block) {
-  Blockly.Python.basics.createFunc(block, 'setup');
-  return 'setup()\n';
+  var branch = Blockly.Python.statementToCode(block, 'DO');
+  if (Blockly.Python.STATEMENT_PREFIX) {
+    branch = Blockly.Python.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\'') + branch;
+  }
+  // Because the branch is indented, we add a dummy header.
+  var code = 'if True: # a dummy block head\n' +
+             branch;
+  code = Blockly.Python.scrub_(block, code);
+  return code;
 };
 
 Blockly.Python['basics_loop'] = function(block) {
