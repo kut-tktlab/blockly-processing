@@ -270,6 +270,19 @@
     Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
                                workspace);
 
+    // Listen to events on workspace.
+    workspace.addChangeListener(listenEvent);
+    function listenEvent(event) {
+      // Capture only the move events.
+      if (event.type != Blockly.Events.MOVE) {
+        return;
+      }
+      var block = workspace.getBlockById(event.blockId);
+      var root = block.getRootBlock();
+      var disable = (root.type != 'basics_setup' && root.type != 'basics_loop');
+      block.setDisabled(disable);
+    }
+
     function showCodePy() {
       // Generate Python code and display it.
       var code = Blockly.Python.workspaceToCode(workspace);

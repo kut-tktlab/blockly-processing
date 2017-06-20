@@ -186,12 +186,20 @@ Blockly.Python.finish = function(code) {
       definitions.push(def);
     }
   }
+  // Trailer: call the main loop function.
+  var loopFunc = Blockly.Python.MAIN_LOOP_FUNCTION_NAME_;
+  var trailer = '';
+  if (Blockly.Python.definitions_[loopFunc]) {
+    trailer = 'while True:\n' +
+              '  ' + loopFunc + '()\n';
+  }
   // Clean up temporary data.
   delete Blockly.Python.definitions_;
   delete Blockly.Python.functionNames_;
   Blockly.Python.variableDB_.reset();
   var allDefs = imports.join('\n') + '\n\n' + definitions.join('\n\n');
-  return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
+  return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code +
+         trailer;
 };
 
 /**

@@ -413,3 +413,10 @@ Blockly.Generator.prototype.finish = undefined;
  * @return {string} Legal line of code.
  */
 Blockly.Generator.prototype.scrubNakedValue = undefined;
+
+/**
+ * The name of the main loop function.
+ * @type {string}
+ * @private
+ */
+Blockly.Generator.prototype.MAIN_LOOP_FUNCTION_NAME_ = 'sys_main_loop';
