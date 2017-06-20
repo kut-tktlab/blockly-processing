@@ -39,6 +39,9 @@ Blockly.Python['basics_setup'] = function(block) {
     branch = Blockly.Python.STATEMENT_PREFIX.replace(/%1/g,
         '\'' + block.id + '\'') + branch;
   }
+  if (!branch) {
+    branch = Blockly.Python.PASS;
+  }
   // Because the branch is indented, we add a dummy header.
   var code = 'if True: # a dummy block head\n' +
              branch;
@@ -47,8 +50,13 @@ Blockly.Python['basics_setup'] = function(block) {
 };
 
 Blockly.Python['basics_loop'] = function(block) {
-  Blockly.Python.basics.createFunc(block, 'loop');
-  return 'while True:\n' + '  loop()\n';
+  var funcName = Blockly.Python.MAIN_LOOP_FUNCTION_NAME_;
+  // If the loop function is already defined, do nothing.
+  if (Blockly.Python.definitions_[funcName]) {
+    return null;
+  }
+  Blockly.Python.basics.createFunc(block, funcName);
+  return null;
 };
 
 Blockly.Python['basics_sleep'] = function(block) {
@@ -87,7 +95,6 @@ Blockly.Python.basics.createFunc = function(block, funcName) {
   var code = 'def ' + funcName + '():\n' +
       globals + branch;
   code = Blockly.Python.scrub_(block, code);
-  // Add % so as not to collide with helper functions in definitions list.
-  Blockly.Python.definitions_['%' + funcName] = code;
+  Blockly.Python.definitions_[funcName] = code;
   return null;
 };

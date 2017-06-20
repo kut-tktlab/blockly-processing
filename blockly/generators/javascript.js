@@ -175,11 +175,19 @@ Blockly.JavaScript.finish = function(code) {
   for (var name in Blockly.JavaScript.definitions_) {
     definitions.push(Blockly.JavaScript.definitions_[name]);
   }
+  // Trailer: call the main loop function.
+  var loopFunc = Blockly.JavaScript.MAIN_LOOP_FUNCTION_NAME_;
+  var trailer = '';
+  if (Blockly.JavaScript.definitions_[loopFunc]) {
+    trailer =
+      'for (var _mainLoopCnt = 0; _mainLoopCnt < 3; _mainLoopCnt++) {\n' +
+      '  ' + loopFunc + '();\n}\n';
+  }
   // Clean up temporary data.
   delete Blockly.JavaScript.definitions_;
   delete Blockly.JavaScript.functionNames_;
   Blockly.JavaScript.variableDB_.reset();
-  return definitions.join('\n\n') + '\n\n\n' + code;
+  return definitions.join('\n\n') + '\n\n\n' + code + trailer;
 };
 
 /**

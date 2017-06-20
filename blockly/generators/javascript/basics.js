@@ -40,14 +40,19 @@ Blockly.JavaScript['basics_setup'] = function(block) {
         Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
         '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
   }
-  var code = '{\n' + branch + '}\n';
+  var code = '{ // setup\n' + branch + '}\n';
   code = Blockly.JavaScript.scrub_(block, code);
   return code;
 };
 
 Blockly.JavaScript['basics_loop'] = function(block) {
-  Blockly.JavaScript.basics.createFunc(block, 'loop');
-  return 'for (var i = 0; i < 3; i++) { loop(); }\n';
+  var funcName = Blockly.JavaScript.MAIN_LOOP_FUNCTION_NAME_;
+  // If the loop function is already defined, do nothing.
+  if (Blockly.JavaScript.definitions_[funcName]) {
+    return null;
+  }
+  Blockly.JavaScript.basics.createFunc(block, funcName);
+  return null;
 };
 
 Blockly.JavaScript['basics_sleep'] = function(block) {
@@ -73,7 +78,6 @@ Blockly.JavaScript.basics.createFunc = function(block, funcName) {
   var code = 'function ' + funcName + '() {\n' +
       branch + '}';
   code = Blockly.JavaScript.scrub_(block, code);
-  // Add % so as not to collide with helper functions in definitions list.
-  Blockly.JavaScript.definitions_['%' + funcName] = code;
+  Blockly.JavaScript.definitions_[funcName] = code;
   return null;
 };
