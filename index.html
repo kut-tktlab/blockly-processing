@@ -13,6 +13,7 @@
   <script src="blockly/javascript_compressed.js"></script>
   <script src="blockly/python_compressed.js"></script>
   <script src="blockly/msg/js/ja.js"></script>
+  <script src="ledsimulator.js"></script>
   <style>
     body {
       background-color: #fff;
@@ -26,6 +27,16 @@
       margin-top: 60px;
       font-size: smaller;
     }
+    #blocklyMainContainer {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    #blocklyMainContainer > * {
+      display: inline-block;
+    }
+    #blocklyMainContainer > canvas {
+      margin-left: 20px;
+    }
   </style>
 </head>
 <body>
@@ -34,9 +45,21 @@
     <button onclick="showCodePy()">Show Python</button>
     <button onclick="showCode()">Show JavaScript</button>
     <button onclick="runCode()">Run JavaScript</button>
+    <span style="margin-left: 80px;">
+      <select onchange="changeNLed()" id="nled-selector">
+        <option value="10">LED 10個</option>
+        <option value="12">LED 12個</option>
+      </select>
+      <input type="text" id="ledsim-led" value="0" size="2"></input>
+      <input type="text" id="ledsim-color" value="#f00" size="10"></input>
+      <button onclick="setLedColor()">set color</button>
+    </span>
   </p>
 
-  <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
+  <div id="blocklyMainContainer">
+    <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
+    <canvas id="simulatorCanvas" width="80" height="480"></canvas>
+  </div>
 
   <xml id="toolbox" style="display: none">
     <category name="基本" colour="%{BKY_BASICS_HUE}">
@@ -312,6 +335,19 @@
       } catch (e) {
         alert(e);
       }
+    }
+
+    var canvas = document.getElementById('simulatorCanvas');
+    LedSimulator.init(canvas);
+
+    function changeNLed() {
+      var selector = document.getElementById('nled-selector');
+      LedSimulator.setNLed(selector.options[selector.selectedIndex].value);
+    }
+    function setLedColor() {
+      var led = document.getElementById('ledsim-led').value;
+      var color = document.getElementById('ledsim-color').value;
+      LedSimulator.setLedColor(led, color);
     }
   </script>
 
