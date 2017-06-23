@@ -278,9 +278,13 @@
         return;
       }
       var block = workspace.getBlockById(event.blockId);
+      if (!block) { return; } // necessary for shadow blocks
       var root = block.getRootBlock();
       var disable = (root.type != 'basics_setup' && root.type != 'basics_loop');
-      block.setDisabled(disable);
+      var desc = block.getDescendants();
+      for (var i = 0; i < desc.length; i++) {
+        desc[i].setDisabled(disable);
+      }
     }
 
     function showCodePy() {
