@@ -40,44 +40,35 @@ Blockly.JavaScript['basics_setup'] = function(block) {
         Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
         '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
   }
-  var code = '{ // setup\n' + branch + '}\n';
+  if (!branch) {
+    return null;
+  }
+  var code = 'addSetup(function () {\n' + branch + '});\n';
   code = Blockly.JavaScript.scrub_(block, code);
   return code;
 };
 
 Blockly.JavaScript['basics_loop'] = function(block) {
-  var funcName = Blockly.JavaScript.MAIN_LOOP_FUNCTION_NAME_;
-  // If the loop function is already defined, do nothing.
-  if (Blockly.JavaScript.definitions_[funcName]) {
-    return null;
-  }
-  Blockly.JavaScript.basics.createFunc(block, funcName);
-  return null;
-};
-
-Blockly.JavaScript['basics_sleep'] = function(block) {
-  var msec = Blockly.JavaScript.valueToCode(block, 'MSEC',
-      Blockly.JavaScript.ORDER_NONE) || 1;
-  return 'window.alert(\'sleeping ' + msec +
-         ' msec... (not implemented)\');\n';
-};
-
-
-// Create a function without arguments or a return value.
-Blockly.JavaScript.basics.createFunc = function(block, funcName) {
   var branch = Blockly.JavaScript.statementToCode(block, 'DO');
   if (Blockly.JavaScript.STATEMENT_PREFIX) {
     branch = Blockly.JavaScript.prefixLines(
         Blockly.JavaScript.STATEMENT_PREFIX.replace(/%1/g,
         '\'' + block.id + '\''), Blockly.JavaScript.INDENT) + branch;
   }
+  if (!branch) {
+    return null;
+  }
   if (Blockly.JavaScript.INFINITE_LOOP_TRAP) {
     branch = Blockly.JavaScript.INFINITE_LOOP_TRAP.replace(/%1/g,
         '\'' + block.id + '\'') + branch;
   }
-  var code = 'function ' + funcName + '() {\n' +
-      branch + '}';
+  var code = 'addLoop(function () {\n' + branch + '});\n';
   code = Blockly.JavaScript.scrub_(block, code);
-  Blockly.JavaScript.definitions_[funcName] = code;
-  return null;
+  return code;
+};
+
+Blockly.JavaScript['basics_sleep'] = function(block) {
+  var msec = Blockly.JavaScript.valueToCode(block, 'MSEC',
+      Blockly.JavaScript.ORDER_NONE) || 1;
+  return 'delayMilliseconds(' + msec + ');\n';
 };

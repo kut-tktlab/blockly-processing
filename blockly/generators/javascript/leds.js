@@ -34,15 +34,9 @@ goog.require('Blockly.JavaScript');
 
 
 Blockly.JavaScript['led_set_color'] = function(block) {
-  var functionName = Blockly.JavaScript.provideFunction_(
-      'led_set_color',
-      ['function ' + Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ +
-          '(led, color) {',
-       '  window.alert(\'ledSetColor(\' + led + \', \' + color + \')\');',
-       '}']);
   var led = Blockly.JavaScript.valueToCode(block, 'LED',
       Blockly.JavaScript.ORDER_NONE) || 0;
   var color = Blockly.JavaScript.valueToCode(block, 'COLOR',
       Blockly.JavaScript.ORDER_NONE) || '\'#000000\'';
-  return functionName + '(' + led + ', ' + color + ');\n';
+  return 'setLedColor(' + led + ', ' + color + ');\n';
 };

@@ -1,5 +1,15 @@
 /**
- * This script provides functions for an LED simulator.
+ * LED simulator related functions.
+ * The LED simulator is displayed on an HTML Canvas and
+ * controlled by functions provided by this script.
+ * 
+ * LedSimulator
+ *   .init(canvas)  - initialize the simulator.
+ *   .setNLed(n)    - set the number of LEDs.
+ *   .setLedColor(i, color) - change the color of LED #i.
+ * LedSimulator.Dispatcher
+ *   .runCode(code) - run the code with the task dispatcher.
+ *   .stop()        - stop the task dispatcher.
  */
 
 var LedSimulator = (function () {
@@ -137,4 +147,133 @@ var LedSimulator = (function () {
       b = ('0' + (Math.round(b) || 0).toString(16)).slice(-2);
       return '#' + r + g + b;
     }
+})();
+
+LedSimulator.Dispatcher = (function () {
+  var setupFuncs = [];
+  var loopFuncs = [];
+  var dispatchQueue = [];
+
+  /** when true, the dispatching functions stop. */
+  var stop = false;  // request to stop
+  var active = false;  // actual state of the dispatcher
+
+  return {
+    runCode: runCode_,
+    stop: function () {
+      if (!stop && active) { stop = true; }
+    }
+  };
+
+  function runCode_(code) {
+    // the dispatcher is still active?
+    if (active) {
+      // request to stop and try later
+      stop = true;
+      setTimeout(function () { runCode_(code); }, 10);
+      return;
+    }
+
+    setupFuncs = [];
+    loopFuncs  = [];
+    dispatchQueue = [];
+    stop = false;
+    try {
+      eval(code);
+      active = true;
+      runSetup_(0);
+    } catch (e) {
+      alert(e);
+    }
+  }
+
+  /*
+   * Functions called by the generated code.
+   */
+  function addSetup(f) { setupFuncs.push(f); }
+  function addLoop (f) { loopFuncs. push(f); }
+  function delayMilliseconds(ms) {
+    dispatchQueue.push({ 'type': 'd', 'ms': ms });
+  }
+  function setLedColor(led, color) {
+    dispatchQueue.push(
+      { 'type': 'c', 'led': led, 'color': color });
+  }
+
+  /**
+   * Execute the tasks in dispatchQueue.
+   * @param {function} fin  a function to be finally executed.
+   */
+  function dispatch_(fin) {
+    if (stop) { active = false; return; }
+    if (dispatchQueue.length == 0) {
+      setTimeout(fin, 0);
+      return;
+    }
+    var task = dispatchQueue.shift();
+    var delay = 0;
+    if (task.type == 'd') { // delay
+      delay = task.ms;
+    } else if (task.type == 'c') { // setLedColor
+      LedSimulator.setLedColor(task.led, task.color);
+    }
+    // schedule the next dispatching
+    setTimeout(function () { dispatch_(fin); }, delay);
+  }
+
+  /**
+   * Execute one function in setupFuncs.
+   * @param {int} index  index of the function to be executed in setupFuncs.
+   */
+  function runSetup_(index) {
+    if (stop) { active = false; return; }
+    if (index >= setupFuncs.length) {
+      // execution of the setup functions is over.
+      setTimeout(function () { runLoop_(0); }, 0);
+      return;
+    }
+    try {
+      // reset the loop-avoidance counter
+      window.LoopTrap = 1000;
+      // execute a setup function
+      (setupFuncs[index])();
+      index++;
+      // run the dispatcher and then the next setup function.
+      setTimeout(function () {
+        dispatch_(function () { runSetup_(index); });
+      }, 0);
+    } catch (e) {
+      active = false;
+      alert(e);
+    }
+  }
+
+  /**
+   * Execute one function in loopFuncs.
+   * @param {int} index  index of the function to be executed in loopFuncs.
+   */
+  function runLoop_(index) {
+    if (stop) { active = false; return; }
+    if (index >= loopFuncs.length) {
+      // execution of the loop functions is over.
+      active = false;
+      return;
+    }
+    try {
+      // reset the loop-avoidance counter
+      window.LoopTrap = 1000;
+      // execute a loop function
+      (loopFuncs[index])();
+      index = (index + 1) % loopFuncs.length;
+
+      // run the dispatcher and then the next loop function.
+      setTimeout(function () {
+        dispatch_(function () { runLoop_(index); });
+      }, 0);
+    } catch (e) {
+      active = false;
+      alert(e);
+    }
+  }
+
 })();

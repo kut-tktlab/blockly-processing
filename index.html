@@ -46,13 +46,17 @@
     <button onclick="showCode()">Show JavaScript</button>
     <button onclick="runCode()">Run JavaScript</button>
     <span style="margin-left: 80px;">
+      <button onclick="stopCode()">Stop</button>
+      <button onclick="changeNLed()">Clear LEDs</button>
       <select onchange="changeNLed()" id="nled-selector">
         <option value="10">LED 10個</option>
         <option value="12">LED 12個</option>
       </select>
+<!--
       <input type="text" id="ledsim-led" value="0" size="2"></input>
       <input type="text" id="ledsim-color" value="#f00" size="10"></input>
       <button onclick="setLedColor()">set color</button>
+-->
     </span>
   </p>
 
@@ -78,6 +82,11 @@
         <value name="LED">
           <shadow type="math_number">
             <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <value name="COLOR">
+          <shadow type="colour_picker">
+            <field name="COLOUR">#ff0000</field>
           </shadow>
         </value>
       </block>
@@ -330,21 +339,24 @@
           'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-      try {
-        eval(code);
-      } catch (e) {
-        alert(e);
-      }
+
+      LedSimulator.Dispatcher.runCode(code);
+    }
+
+    function stopCode() {
+      LedSimulator.Dispatcher.stop();
     }
 
     var canvas = document.getElementById('simulatorCanvas');
     LedSimulator.init(canvas);
 
     function changeNLed() {
+      LedSimulator.Dispatcher.stop();
       var selector = document.getElementById('nled-selector');
       LedSimulator.setNLed(selector.options[selector.selectedIndex].value);
     }
     function setLedColor() {
+      LedSimulator.Dispatcher.stop();
       var led = document.getElementById('ledsim-led').value;
       var color = document.getElementById('ledsim-color').value;
       LedSimulator.setLedColor(led, color);
