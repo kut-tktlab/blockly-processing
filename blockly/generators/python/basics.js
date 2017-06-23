@@ -73,10 +73,8 @@ Blockly.Python.basics.createFunc = function(block, funcName) {
   // a local parameter.
   var globals = [];
   for (var i = 0, varName; varName = block.workspace.variableList[i]; i++) {
-    if (block.arguments_.indexOf(varName) == -1) {
       globals.push(Blockly.Python.variableDB_.getName(varName,
           Blockly.Variables.NAME_TYPE));
-    }
   }
   globals = globals.length ? '  global ' + globals.join(', ') + '\n' : '';
   var branch = Blockly.Python.statementToCode(block, 'DO');
