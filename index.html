@@ -43,7 +43,7 @@
 
   <p>
     <span style="display: inline-block; width: 80px;">
-      <button onclick="runOrStopCode()" id="runButton">Run</button>
+      <button onclick="runOrStopCode()" id="runButton">&#9658; Run</button>
     </span>
     <span>
       <button onclick="changeNLed()">すべて消灯</button>
@@ -376,11 +376,11 @@
       if (isActive) {
         // make the button "to Stop"
         runButtonMode = false;
-        button.innerText = 'Stop';
+        button.innerHTML = '&#9724; Stop';
       } else {
         // make the button "to Run"
         runButtonMode = true;
-        button.innerText = 'Run';
+        button.innerHTML = '&#9658; Run';
       }
     }
 
