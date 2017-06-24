@@ -310,8 +310,10 @@
     // Listen to events on workspace.
     workspace.addChangeListener(listenEvent);
     function listenEvent(event) {
-      // Capture only the move events.
-      if (event.type != Blockly.Events.MOVE) {
+      // Capture only the create and move events.
+      if (event.type != Blockly.Events.CREATE &&
+          event.type != Blockly.Events.MOVE)
+      {
         return;
       }
       var block = workspace.getBlockById(event.blockId);
