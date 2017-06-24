@@ -206,19 +206,18 @@ LedSimulator.Dispatcher = (function () {
    */
   function dispatch_(fin) {
     if (stop) { active = false; return; }
-    if (dispatchQueue.length == 0) {
-      setTimeout(fin, 0);
-      return;
+    while (dispatchQueue.length > 0) {
+      var task = dispatchQueue.shift();
+      if (task.type == 'd') { // delay
+        // schedule the next dispatching
+        setTimeout(function () { dispatch_(fin); }, task.ms);
+        return;
+      }
+      if (task.type == 'c') { // setLedColor
+        LedSimulator.setLedColor(task.led, task.color);
+      }
     }
-    var task = dispatchQueue.shift();
-    var delay = 0;
-    if (task.type == 'd') { // delay
-      delay = task.ms;
-    } else if (task.type == 'c') { // setLedColor
-      LedSimulator.setLedColor(task.led, task.color);
-    }
-    // schedule the next dispatching
-    setTimeout(function () { dispatch_(fin); }, delay);
+    setTimeout(fin, 0);
   }
 
   /**
