@@ -42,12 +42,11 @@
 <body>
 
   <p>
-    <button onclick="showCodePy()">Show Python</button>
-    <button onclick="showCode()">Show JavaScript</button>
-    <button onclick="runCode()">Run JavaScript</button>
-    <span style="margin-left: 80px;">
-      <button onclick="stopCode()">Stop</button>
-      <button onclick="changeNLed()">Clear LEDs</button>
+    <span style="display: inline-block; width: 80px;">
+      <button onclick="runOrStopCode()" id="runButton">Run</button>
+    </span>
+    <span>
+      <button onclick="changeNLed()">すべて消灯</button>
       <select onchange="changeNLed()" id="nled-selector">
         <option value="10">LED 10個</option>
         <option value="12">LED 12個</option>
@@ -63,6 +62,13 @@
   <div id="blocklyMainContainer">
     <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
     <canvas id="simulatorCanvas" width="80" height="480"></canvas>
+  </div>
+  <div>
+    <span style="font-size: smaller;">
+      For debugging:
+    </span>
+    <button onclick="showCodePy()">Show Python</button>
+    <button onclick="showCode()">Show JavaScript</button>
   </div>
 
   <xml id="toolbox" style="display: none">
@@ -354,6 +360,30 @@
       LedSimulator.Dispatcher.stop();
     }
 
+    var runButtonMode = true;  // the button is "to Run"
+    function runOrStopCode() {
+      if (runButtonMode) {
+        runCode();
+      } else {
+        stopCode();
+      }
+    }
+
+    // Add an observer of the notification of state change.
+    LedSimulator.Dispatcher.addListener(dispatcherChangeState);
+    function dispatcherChangeState(isActive) {
+      var button = document.getElementById('runButton');
+      if (isActive) {
+        // make the button "to Stop"
+        runButtonMode = false;
+        button.innerText = 'Stop';
+      } else {
+        // make the button "to Run"
+        runButtonMode = true;
+        button.innerText = 'Run';
+      }
+    }
+
     var canvas = document.getElementById('simulatorCanvas');
     LedSimulator.init(canvas);
 
@@ -373,12 +403,17 @@
 <div class="footnote">
 <p>
 Note:
-This page is a derived work of Google's
+This application is a derived work of Google's
 <a href="https://developers.google.com/blockly/">Blockly</a>
 <a href="https://blockly-demo.appspot.com/static/demos/index.html">Demos</a> /
 <a href="https://blockly-demo.appspot.com/static/demos/generator/index.html">Generating JavaScript</a>.
 <br />
-Blockly is open-source under the Apache License 2.0.
+This app imitates the block and toolbox design of
+<a href="http://microbit.org">micro:bit</a>'s
+<a href="https://makecode.microbit.org">JavaScript Blocks Editor</a> and the
+<a href="http://chibibit.io/ide/">chibi:bit IDE</a>.
+<br />
+Blockly and this app are open-source under the Apache License 2.0.
 </p>
 </div>
 

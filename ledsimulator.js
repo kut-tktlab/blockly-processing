@@ -10,6 +10,7 @@
  * LedSimulator.Dispatcher
  *   .runCode(code) - run the code with the task dispatcher.
  *   .stop()        - stop the task dispatcher.
+ *   .addListener(listener) - add an observer of dispatcher's state change.
  */
 
 var LedSimulator = (function () {
@@ -150,26 +151,33 @@ var LedSimulator = (function () {
 })();
 
 LedSimulator.Dispatcher = (function () {
+  /** queues of tasks */
   var setupFuncs = [];
   var loopFuncs = [];
   var dispatchQueue = [];
 
+  /** list of observers of dispatcher's state change */
+  var observers = [];
+
   /** when true, the dispatching functions stop. */
-  var stop = false;  // request to stop
-  var active = false;  // actual state of the dispatcher
+  var stopReq = false;  // request to stop
+  var active  = false;  // actual state of the dispatcher
 
   return {
     runCode: runCode_,
     stop: function () {
-      if (!stop && active) { stop = true; }
+      if (active) { stopReq = true; }
+    },
+    addListener: function (listener) {
+      observers.push(listener);
     }
   };
 
   function runCode_(code) {
     // the dispatcher is still active?
     if (active) {
-      // request to stop and try later
-      stop = true;
+      // request to stop and wait a moment
+      stopReq = true;
       setTimeout(function () { runCode_(code); }, 10);
       return;
     }
@@ -177,13 +185,29 @@ LedSimulator.Dispatcher = (function () {
     setupFuncs = [];
     loopFuncs  = [];
     dispatchQueue = [];
-    stop = false;
+    stopReq = false;
     try {
       eval(code);
-      active = true;
+      setActive_();
       runSetup_(0);
     } catch (e) {
       alert(e);
+    }
+  }
+
+  /*
+   * Functions called when the dispatcher's state changes.
+   */
+  function setActive_() {
+    active = true;
+    for (var i = 0; i < observers.length; i++) {
+      (observers[i])(active);
+    }
+  }
+  function setInactive_() {
+    active = false;
+    for (var i = 0; i < observers.length; i++) {
+      (observers[i])(active);
     }
   }
 
@@ -205,7 +229,7 @@ LedSimulator.Dispatcher = (function () {
    * @param {function} fin  a function to be finally executed.
    */
   function dispatch_(fin) {
-    if (stop) { active = false; return; }
+    if (stopReq) { setInactive_(); return; }
     while (dispatchQueue.length > 0) {
       var task = dispatchQueue.shift();
       if (task.type == 'd') { // delay
@@ -225,7 +249,7 @@ LedSimulator.Dispatcher = (function () {
    * @param {int} index  index of the function to be executed in setupFuncs.
    */
   function runSetup_(index) {
-    if (stop) { active = false; return; }
+    if (stopReq) { setInactive_(); return; }
     if (index >= setupFuncs.length) {
       // execution of the setup functions is over.
       setTimeout(function () { runLoop_(0); }, 0);
@@ -242,7 +266,7 @@ LedSimulator.Dispatcher = (function () {
         dispatch_(function () { runSetup_(index); });
       }, 0);
     } catch (e) {
-      active = false;
+      setInactive_();
       alert(e);
     }
   }
@@ -252,10 +276,10 @@ LedSimulator.Dispatcher = (function () {
    * @param {int} index  index of the function to be executed in loopFuncs.
    */
   function runLoop_(index) {
-    if (stop) { active = false; return; }
+    if (stopReq) { setInactive_(); return; }
     if (index >= loopFuncs.length) {
       // execution of the loop functions is over.
-      active = false;
+      setInactive_();
       return;
     }
     try {
@@ -270,7 +294,7 @@ LedSimulator.Dispatcher = (function () {
         dispatch_(function () { runLoop_(index); });
       }, 0);
     } catch (e) {
-      active = false;
+      setInactive_();
       alert(e);
     }
   }
