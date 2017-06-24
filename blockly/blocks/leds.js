@@ -66,5 +66,30 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_LEDS_HUE}"
+  },
+  // Block for turning off an LED.
+  {
+    "type": "led_turn_off",
+    "message0": "%{BKY_LED_TURN_OFF_TITLE}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "LED",
+        "check": "Number",
+        "align": "RIGHT"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_LEDS_HUE}"
+  },
+  // Block for turning off all LEDs.
+  {
+    "type": "led_turn_off_all",
+    "message0": "%{BKY_LED_TURN_OFF_ALL_TITLE}",
+    "args0": [],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_LEDS_HUE}"
   }
 ]);  // END JSON EXTRACT (Do not delete this comment.)

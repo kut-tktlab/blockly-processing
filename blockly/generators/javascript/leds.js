@@ -40,3 +40,14 @@ Blockly.JavaScript['led_set_color'] = function(block) {
       Blockly.JavaScript.ORDER_NONE) || '\'#000000\'';
   return 'setLedColor(' + led + ', ' + color + ');\n';
 };
+
+Blockly.JavaScript['led_turn_off'] = function(block) {
+  var led = Blockly.JavaScript.valueToCode(block, 'LED',
+      Blockly.JavaScript.ORDER_NONE) || 0;
+  var color = '\'#000000\'';
+  return 'setLedColor(' + led + ', ' + color + ');\n';
+};
+
+Blockly.JavaScript['led_turn_off_all'] = function(block) {
+  return 'clearAllLed();\n';
+};

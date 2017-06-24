@@ -7,6 +7,7 @@
  *   .init(canvas)  - initialize the simulator.
  *   .setNLed(n)    - set the number of LEDs.
  *   .setLedColor(i, color) - change the color of LED #i.
+ *   .clearAllLed() - turn off all LEDs.
  * LedSimulator.Dispatcher
  *   .runCode(code) - run the code with the task dispatcher.
  *   .stop()        - stop the task dispatcher.
@@ -24,7 +25,8 @@ var LedSimulator = (function () {
     return {
         init: function (canvas_) { canvas = canvas_; initCanvas_(); },
         setNLed: function (n_) { nLed = n_; initCanvas_(); },
-        setLedColor: setLedColor_
+        setLedColor: setLedColor_,
+        clearAllLed: initCanvas_
     };
 
     function initCanvas_() {
@@ -223,6 +225,10 @@ LedSimulator.Dispatcher = (function () {
     dispatchQueue.push(
       { 'type': 'c', 'led': led, 'color': color });
   }
+  function clearAllLed() {
+    dispatchQueue.push(
+      { 'type': 'x' });
+  }
 
   /**
    * Execute the tasks in dispatchQueue.
@@ -239,6 +245,8 @@ LedSimulator.Dispatcher = (function () {
       }
       if (task.type == 'c') { // setLedColor
         LedSimulator.setLedColor(task.led, task.color);
+      } else if (task.type == 'x') { // clearAllLed
+        LedSimulator.clearAllLed();
       }
     }
     setTimeout(fin, 0);

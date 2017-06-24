@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-06-20 13:55:18.447529",
+		"lastupdated": "2017-06-24 16:48:54.297544",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -405,5 +405,7 @@
 	"BASICS_SETUP_TITLE": "Setup",
 	"BASICS_LOOP_TITLE": "Forever do",
 	"BASICS_SLEEP_TITLE": "Wait for %1 milliseconds",
-	"LED_SET_COLOR_TITLE": "Set the color of LED %1 to colour %2"
+	"LED_SET_COLOR_TITLE": "Set the color of LED %1 to colour %2",
+	"LED_TURN_OFF_TITLE": "Turn off LED %1",
+	"LED_TURN_OFF_ALL_TITLE": "Turn off all LEDs"
 }

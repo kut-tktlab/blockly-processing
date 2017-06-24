@@ -399,5 +399,7 @@
 	"BASICS_SETUP_TITLE": "block text - Do once at the beginning.",
 	"BASICS_LOOP_TITLE": "block text - Do forever.",
 	"BASICS_SLEEP_TITLE": "block text - Wait for a few seconds. \n\nParameters:\n* %1 - the number of seconds to wait",
-	"LED_SET_COLOR_TITLE": "block text - Set the color of an LED. \n\nParameters:\n* %1 - the id of the LED\n* %2 - colour"
+	"LED_SET_COLOR_TITLE": "block text - Set the color of an LED. \n\nParameters:\n* %1 - the id of an LED\n* %2 - colour",
+	"LED_TURN_OFF_TITLE": "block text - Turn off an LED. \n\nParameters:\n* %1 - the id of an LED",
+	"LED_TURN_OFF_ALL_TITLE": "block text - Turn off all LEDs."
 }

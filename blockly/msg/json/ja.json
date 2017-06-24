@@ -368,5 +368,7 @@
 	"BASICS_SETUP_TITLE": "最初だけ",
 	"BASICS_LOOP_TITLE": "ずっと",
 	"BASICS_SLEEP_TITLE": "%1 ミリ秒待つ",
-	"LED_SET_COLOR_TITLE": "LEDの色を変える 位置 %1 色 %2"
+	"LED_SET_COLOR_TITLE": "LEDの色を変える 位置 %1 色 %2",
+	"LED_TURN_OFF_TITLE": "LEDを消灯 位置 %1",
+	"LED_TURN_OFF_ALL_TITLE": "全LEDを消灯"
 }
