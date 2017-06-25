@@ -1,7 +1,25 @@
 # blockly-for-led
 
-(まったくの開発途上です)
+<img src="https://github.com/kut-tktlab/blockly-for-led/wiki/blockly-screen.png"
+ width="400" height="250" alt="screen capture" />
 
+シリアルLEDテープの制御のための[Blockly](https://developers.google.com/blockly/)アプリケーション。
+
+ブロックの配色やツールボックスのデザインは[micro:bit](http://microbit.org/)
+[JavaScript Blocks Editor](https://makecode.microbit.org/)及び[chibi:bit IDE](http://chibibit.io/ide/)
+を真似ています。
+
+実LEDテープを動かす機能はまだ未実装です。
+ブラウザ上で動作を確認するためのLEDシミュレータが付いています。
+
+See also:
+- [serial-led-pi](https://github.com/kut-tktlab/serial-led-pi/) - 
+  A simple library for controlling LED-strips and rings with Raspberry Pi
+- [Blockly | Google Developers](https://developers.google.com/blockly/) -
+  A library for building visual programming editor
+- [BBC micro:bit](http://microbit.org/) | [makecode.microbit.org](https://makecode.microbit.org/) |
+  [chibi:bit IDE](http://chibibit.io/ide/)
+  
 ## お試し
 
 [デモページ](https://ytakata69.github.io/blockly-for-led/)でお試しできます
