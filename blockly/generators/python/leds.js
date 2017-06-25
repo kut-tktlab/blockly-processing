@@ -34,13 +34,20 @@ goog.require('Blockly.Python');
 
 
 Blockly.Python['led_set_color'] = function(block) {
-  var functionName = Blockly.Python.provideFunction_(
-      'led_set_color',
-      ['def ' + Blockly.Python.FUNCTION_NAME_PLACEHOLDER_ + '(led, color):',
-       '  print(\'ledSetColor(%d, %s)\' % (led, color))']);
   var led   = Blockly.Python.valueToCode(block, 'LED',
       Blockly.JavaScript.ORDER_NONE) || 0;
   var color = Blockly.Python.valueToCode(block, 'COLOR',
       Blockly.JavaScript.ORDER_NONE) || '\'#000000\'';
-  return functionName + '(' + led + ', ' + color + ')\n';
+  return 'setLedColor(' + led + ', ' + color + ')\n';
+};
+
+Blockly.Python['led_turn_off'] = function(block) {
+  var led   = Blockly.Python.valueToCode(block, 'LED',
+      Blockly.JavaScript.ORDER_NONE) || 0;
+  var color = '\'#000000\'';
+  return 'setLedColor(' + led + ', ' + color + ')\n';
+};
+
+Blockly.Python['led_turn_off_all'] = function(block) {
+  return 'clearAllLed()\n';
 };

@@ -87,10 +87,10 @@
 	"CONTROLS_IF_TOOLTIP_4": "最初の値が真の場合は、最初のブロックを実行します。そうでなくて2番目の値が真の場合は、2番目のブロックを実行します。それ以外の場合は最後のブロックを実行します。",
 	"CONTROLS_IF_MSG_IF": "もし",
 	"CONTROLS_IF_MSG_THEN": "なら",
-	"CONTROLS_IF_MSG_ELSEIF": "そうでなくてもしも",
+	"CONTROLS_IF_MSG_ELSEIF": "そうでなくてもし",
 	"CONTROLS_IF_MSG_ELSE": "ちがえば",
 	"CONTROLS_IF_IF_TOOLTIP": "追加、削除、またはセクションを順序変更して、ブロックをこれを再構成します。",
-	"CONTROLS_IF_ELSEIF_TOOLTIP": "「もしも」のブロックに条件を追加します。",
+	"CONTROLS_IF_ELSEIF_TOOLTIP": "「もし」のブロックに条件を追加します。",
 	"CONTROLS_IF_ELSE_TOOLTIP": "Ifブロックに、すべてをキャッチする条件を追加。",
 	"LOGIC_COMPARE_HELPURL": "https://ja.wikipedia.org/wiki/不等式",
 	"LOGIC_COMPARE_TOOLTIP_EQ": "両辺が等しい場合に真を返します。",
@@ -336,7 +336,7 @@
 	"LISTS_REVERSE_TOOLTIP": "リストのコピーを逆順にする。",
 	"ORDINAL_NUMBER_SUFFIX": "",
 	"VARIABLES_GET_TOOLTIP": "この変数の値を返します。",
-	"VARIABLES_GET_CREATE_SET": "'セット%1を作成します。",
+	"VARIABLES_GET_CREATE_SET": "' %1 の値を…にする' を作成します。",
 	"VARIABLES_SET": "%1 の値を %2 にする",
 	"VARIABLES_SET_TOOLTIP": "変数の値を設定します。",
 	"VARIABLES_SET_CREATE_GET": "'%1 を取得' を作成します。",
@@ -368,5 +368,7 @@
 	"BASICS_SETUP_TITLE": "最初だけ",
 	"BASICS_LOOP_TITLE": "ずっと",
 	"BASICS_SLEEP_TITLE": "%1 ミリ秒待つ",
-	"LED_SET_COLOR_TITLE": "LEDの色を変える 位置 %1 色 %2"
+	"LED_SET_COLOR_TITLE": "LEDの色を変える 位置 %1 色 %2",
+	"LED_TURN_OFF_TITLE": "LEDを消灯 位置 %1",
+	"LED_TURN_OFF_ALL_TITLE": "全LEDを消灯"
 }

@@ -13,6 +13,7 @@
   <script src="blockly/javascript_compressed.js"></script>
   <script src="blockly/python_compressed.js"></script>
   <script src="blockly/msg/js/ja.js"></script>
+  <script src="ledsimulator.js"></script>
   <style>
     body {
       background-color: #fff;
@@ -26,17 +27,49 @@
       margin-top: 60px;
       font-size: smaller;
     }
+    #blocklyMainContainer {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    #blocklyMainContainer > * {
+      display: inline-block;
+    }
+    #blocklyMainContainer > canvas {
+      margin-left: 20px;
+    }
   </style>
 </head>
 <body>
 
   <p>
-    <button onclick="showCodePy()">Show Python</button>
-    <button onclick="showCode()">Show JavaScript</button>
-    <button onclick="runCode()">Run JavaScript</button>
+    <span style="display: inline-block; width: 80px;">
+      <button onclick="runOrStopCode()" id="runButton">&#9658; Run</button>
+    </span>
+    <span>
+      <button onclick="changeNLed()">すべて消灯</button>
+      <select onchange="changeNLed()" id="nled-selector">
+        <option value="10">LED 10個</option>
+        <option value="12">LED 12個</option>
+      </select>
+<!--
+      <input type="text" id="ledsim-led" value="0" size="2"></input>
+      <input type="text" id="ledsim-color" value="#f00" size="10"></input>
+      <button onclick="setLedColor()">set color</button>
+-->
+    </span>
   </p>
 
-  <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
+  <div id="blocklyMainContainer">
+    <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
+    <canvas id="simulatorCanvas" width="80" height="480"></canvas>
+  </div>
+  <div>
+    <span style="font-size: smaller;">
+      For debugging:
+    </span>
+    <button onclick="showCodePy()">Show Python</button>
+    <button onclick="showCode()">Show JavaScript</button>
+  </div>
 
   <xml id="toolbox" style="display: none">
     <category name="基本" colour="%{BKY_BASICS_HUE}">
@@ -57,7 +90,20 @@
             <field name="NUM">0</field>
           </shadow>
         </value>
+        <value name="COLOR">
+          <shadow type="colour_picker">
+            <field name="COLOUR">#ff0000</field>
+          </shadow>
+        </value>
       </block>
+      <block type="led_turn_off">
+        <value name="LED">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="led_turn_off_all"></block>
     </category>
     <category name="ループ" colour="%{BKY_LOOPS_HUE}">
       <block type="controls_repeat_ext">
@@ -104,7 +150,11 @@
 -->
     </category>
     <category name="条件" colour="%{BKY_LOGIC_HUE}">
-      <block type="controls_if"></block>
+      <block type="controls_if">
+        <value name="IF0">
+          <shadow type="logic_boolean"></shadow>
+        </value>
+      </block>
       <block type="logic_compare">
         <value name="A">
           <shadow type="math_number"></shadow>
@@ -129,6 +179,7 @@
       </block>
       <block type="math_single"></block>
       <block type="math_trig"></block>
+      <block type="math_round"></block>
       <block type="math_random_int">
         <value name="TO">
           <shadow type="math_number">
@@ -273,8 +324,10 @@
     // Listen to events on workspace.
     workspace.addChangeListener(listenEvent);
     function listenEvent(event) {
-      // Capture only the move events.
-      if (event.type != Blockly.Events.MOVE) {
+      // Capture only the create and move events.
+      if (event.type != Blockly.Events.CREATE &&
+          event.type != Blockly.Events.MOVE)
+      {
         return;
       }
       var block = workspace.getBlockById(event.blockId);
@@ -307,23 +360,68 @@
           'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-      try {
-        eval(code);
-      } catch (e) {
-        alert(e);
+
+      LedSimulator.Dispatcher.runCode(code);
+    }
+
+    function stopCode() {
+      LedSimulator.Dispatcher.stop();
+    }
+
+    var runButtonMode = true;  // the button is "to Run"
+    function runOrStopCode() {
+      if (runButtonMode) {
+        runCode();
+      } else {
+        stopCode();
       }
+    }
+
+    // Add an observer of the notification of state change.
+    LedSimulator.Dispatcher.addListener(dispatcherChangeState);
+    function dispatcherChangeState(isActive) {
+      var button = document.getElementById('runButton');
+      if (isActive) {
+        // make the button "to Stop"
+        runButtonMode = false;
+        button.innerHTML = '&#9724; Stop';
+      } else {
+        // make the button "to Run"
+        runButtonMode = true;
+        button.innerHTML = '&#9658; Run';
+      }
+    }
+
+    var canvas = document.getElementById('simulatorCanvas');
+    LedSimulator.init(canvas);
+
+    function changeNLed() {
+      LedSimulator.Dispatcher.stop();
+      var selector = document.getElementById('nled-selector');
+      LedSimulator.setNLed(selector.options[selector.selectedIndex].value);
+    }
+    function setLedColor() {
+      LedSimulator.Dispatcher.stop();
+      var led = document.getElementById('ledsim-led').value;
+      var color = document.getElementById('ledsim-color').value;
+      LedSimulator.setLedColor(led, color);
     }
   </script>
 
 <div class="footnote">
 <p>
 Note:
-This page is a derived work of Google's
+This application is a derived work of Google's
 <a href="https://developers.google.com/blockly/">Blockly</a>
 <a href="https://blockly-demo.appspot.com/static/demos/index.html">Demos</a> /
 <a href="https://blockly-demo.appspot.com/static/demos/generator/index.html">Generating JavaScript</a>.
 <br />
-Blockly is open-source under the Apache License 2.0.
+This app imitates the block and toolbox design of
+<a href="http://microbit.org">micro:bit</a>'s
+<a href="https://makecode.microbit.org">JavaScript Blocks Editor</a> and the
+<a href="http://chibibit.io/ide/">chibi:bit IDE</a>.
+<br />
+Blockly and this app are open-source under the Apache License 2.0.
 </p>
 </div>
 

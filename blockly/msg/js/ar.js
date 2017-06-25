@@ -99,6 +99,8 @@ Blockly.Msg.IOS_VARIABLES_EMPTY_NAME_ERROR = "لا يمكنك استخدام ا�
 Blockly.Msg.IOS_VARIABLES_RENAME_BUTTON = "أعد التسمية";
 Blockly.Msg.IOS_VARIABLES_VARIABLE_NAME = "اسم المتغير";
 Blockly.Msg.LED_SET_COLOR_TITLE = "Set the color of LED %1 to colour %2";  // untranslated
+Blockly.Msg.LED_TURN_OFF_ALL_TITLE = "Turn off all LEDs";  // untranslated
+Blockly.Msg.LED_TURN_OFF_TITLE = "Turn off LED %1";  // untranslated
 Blockly.Msg.LISTS_CREATE_EMPTY_HELPURL = "https://github.com/google/blockly/wiki/Lists#create-empty-list";
 Blockly.Msg.LISTS_CREATE_EMPTY_TITLE = "إنشئ قائمة فارغة";
 Blockly.Msg.LISTS_CREATE_EMPTY_TOOLTIP = "تقوم بإرجاع قائمة، طولها 0, لا تحتوي على أية سجلات البيانات";
