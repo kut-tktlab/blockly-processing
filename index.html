@@ -57,6 +57,11 @@
       <button onclick="setLedColor()">set color</button>
 -->
     </span>
+    <span style="margin-left: 80px;">
+      <button onclick="saveBlocks()">保存</button>
+      <button onclick="restoreBlocks()">復元</button> &nbsp;&nbsp;
+      <button onclick="clearBlocks()">全消去</button>
+    </span>
   </p>
 
   <div id="blocklyMainContainer">
@@ -405,6 +410,52 @@
       var led = document.getElementById('ledsim-led').value;
       var color = document.getElementById('ledsim-color').value;
       LedSimulator.setLedColor(led, color);
+    }
+
+    /** ブロックを全消去 */
+    function clearBlocks() {
+      if (window.confirm('プログラムを消去してよいですか?')) {
+        workspace.clear();
+        Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+                                   workspace);
+      }
+    }
+
+    /** ローカルストレージに保存するときのキー接頭辞 */
+    var savedBlockPrefix = 'bky.saved.';
+
+    /** ブロックを保存 */
+    function saveBlocks() {
+      if ('localStorage' in window) {
+        var name = null;
+        while (!name) {
+          name = window.prompt('プログラム名を入力してください');
+          if (!name) { return; } // ignore if empty
+          if (window.localStorage[savedBlockPrefix + name]) {
+            if (! window.confirm(name + ' は存在します。上書きしますか?')) {
+              name = null;
+            }
+          }
+        }
+        name = savedBlockPrefix + name;
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+        window.localStorage.setItem(name, Blockly.Xml.domToText(xml));
+      }
+    }
+    /** ブロックを復元 */
+    function restoreBlocks() {
+      if ('localStorage' in window) {
+        var name = window.prompt('プログラム名を入力してください');
+        if (!name) { return; } // ignore if empty
+        if (window.localStorage[savedBlockPrefix + name]) {
+          name = savedBlockPrefix + name;
+          var xml = Blockly.Xml.textToDom(window.localStorage[name]);
+          workspace.clear();
+          Blockly.Xml.domToWorkspace(xml, workspace);
+        } else {
+          window.alert(name + ' がありません');
+        }
+      }
     }
   </script>
 
