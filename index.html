@@ -58,9 +58,9 @@
 -->
     </span>
     <span style="margin-left: 80px;">
-      <button onclick="saveBlocks()">保存</button>
-      <button onclick="restoreBlocks()">復元</button> &nbsp;&nbsp;
-      <button onclick="clearBlocks()">全消去</button>
+      <button onclick="saveBlocks()"    id="saveButton"   >保存</button>
+      <button onclick="restoreBlocks()" id="restoreButton">復元</button> &nbsp;&nbsp;
+      <button onclick="clearBlocks()"   id="clearButton"  >全消去</button>
     </span>
   </p>
 
@@ -386,6 +386,11 @@
     LedSimulator.Dispatcher.addListener(dispatcherChangeState);
     function dispatcherChangeState(isActive) {
       var button = document.getElementById('runButton');
+      var buttonsToDisable = [
+        document.getElementById('saveButton'),
+        document.getElementById('restoreButton'),
+        document.getElementById('clearButton')
+      ];
       if (isActive) {
         // make the button "to Stop"
         runButtonMode = false;
@@ -394,6 +399,9 @@
         // make the button "to Run"
         runButtonMode = true;
         button.innerHTML = '&#9658; Run';
+      }
+      for (var i = 0; i < buttonsToDisable.length; i++) {
+        buttonsToDisable[i].disabled = isActive;
       }
     }
 
