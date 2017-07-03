@@ -504,7 +504,7 @@
             items.push(keyBody);
           }
         }
-        if (!items) {
+        if (items.length == 0) {
           window.alert('保存されているプログラムはありません');
           return;
         }
