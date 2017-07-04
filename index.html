@@ -14,6 +14,10 @@
   <script src="blockly/python_compressed.js"></script>
   <script src="blockly/msg/js/ja.js"></script>
   <script src="ledsimulator.js"></script>
+  <script src="node_modules/vex-js/dist/js/vex.combined.min.js"></script>
+  <script>vex.defaultOptions.className = 'vex-theme-os'</script>
+  <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex.css" />
+  <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex-theme-os.css" />
   <style>
     body {
       background-color: #fff;
@@ -477,19 +481,21 @@
     /** ブロックを保存 */
     function saveBlocks() {
       if ('localStorage' in window) {
-        var name = null;
-        while (!name) {
-          name = window.prompt('プログラム名を入力してください');
-          if (!name) { return; } // ignore if empty
-          if (window.localStorage[savedBlockPrefix + name]) {
+        var callback = function (name) {
+          if (name && window.localStorage[savedBlockPrefix + name]) {
             if (! window.confirm(name + ' は存在します。上書きしますか?')) {
-              name = null;
+              name = undefined;
             }
           }
-        }
-        name = savedBlockPrefix + name;
-        var xml = Blockly.Xml.workspaceToDom(workspace);
-        window.localStorage.setItem(name, Blockly.Xml.domToText(xml));
+          if (name === undefined) {
+            Blockly.prompt('プログラム名を入力してください', '', callback);
+          } else if (name) {
+            name = savedBlockPrefix + name;
+            var xml = Blockly.Xml.workspaceToDom(workspace);
+            window.localStorage.setItem(name, Blockly.Xml.domToText(xml));
+          }
+        };
+        callback(undefined);
       }
     }
     /** ブロックを復元 */
@@ -540,6 +546,20 @@
       if (event.target == modal) {
         cancelRestoreBlocks();
       }
+    }
+
+    var isNodeJs = (typeof process !== "undefined" && typeof require !== "undefined");
+
+    // Re-define Blockly.prompt() because window.prompt() is not
+    // supported by Electron.
+    if (isNodeJs) {
+      Blockly.prompt = function(message, defaultValue, callback) {
+        vex.dialog.prompt({
+          'message': message,
+          'value': defaultValue,
+          'callback': callback
+        });
+      };
     }
   </script>
 
