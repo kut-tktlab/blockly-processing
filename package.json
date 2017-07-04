@@ -1,0 +1,5 @@
+{
+  "name": "blockly-for-led",
+  "version": "0.1.0",
+  "main": "elec.js"
+}
