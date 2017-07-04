@@ -53,11 +53,19 @@ var LedSimulator = (function () {
       var ctx = canvas.getContext('2d');
       ctx.strokeStyle = '#aaa';
       var y = ledMargin + i * (ledWidth + ledSep);
-      var baseValue = 0x80;
+      // change the black point to 50% gray
+      var baseGray = 0x80;
       var hsv = rgbToHsv_(color);
       if (hsv) {
-        hsv.value = hsv.value * (255 - baseValue) / 255 + baseValue;
-        ctx.fillStyle = hsvToRgb_(hsv);
+        // assume hsva(h,s,v,0) == hsva(h,s,255,v)
+        var alpha = hsv.value;
+        hsv.value = 255;
+        var rgb = hsvToRgb_(hsv);
+        // alpha-blend with baseGray
+        rgb.r = rgb.r * alpha / 255 + baseGray * (255 - alpha) / 255;
+        rgb.g = rgb.g * alpha / 255 + baseGray * (255 - alpha) / 255;
+        rgb.b = rgb.b * alpha / 255 + baseGray * (255 - alpha) / 255;
+        ctx.fillStyle = composeRgb_(rgb);
       } else {
         ctx.fillStyle = color;
       }
@@ -97,6 +105,16 @@ var LedSimulator = (function () {
     }
 
     /**
+     * The inverse function of decomposeRgb_().
+     */
+    function composeRgb_(rgb) {
+      var r = ('0' + (Math.round(rgb.r) || 0).toString(16)).slice(-2);
+      var g = ('0' + (Math.round(rgb.g) || 0).toString(16)).slice(-2);
+      var b = ('0' + (Math.round(rgb.b) || 0).toString(16)).slice(-2);
+      return '#' + r + g + b;
+    }
+
+    /**
      * Convert color string like '#aaa' to an object with properties
      * 'hue', 'saturation', and 'value'.
      */
@@ -124,7 +142,7 @@ var LedSimulator = (function () {
 
     /**
      * Convert an object with properties 'hue', 'saturation' and 'value'
-     * to a string like '#aaa'.
+     * to an object with 'r', 'g' and 'b'.
      */
     function hsvToRgb_(hsv) {
       var h = hsv.hue;
@@ -145,10 +163,7 @@ var LedSimulator = (function () {
       else if (hgroup == 3) { r = p; g = q; b = v; }
       else if (hgroup == 4) { r = t; g = p; b = v; }
       else if (hgroup == 5) { r = v; g = p; b = q; }
-      r = ('0' + (Math.round(r) || 0).toString(16)).slice(-2);
-      g = ('0' + (Math.round(g) || 0).toString(16)).slice(-2);
-      b = ('0' + (Math.round(b) || 0).toString(16)).slice(-2);
-      return '#' + r + g + b;
+      return { 'r': r, 'g': g, 'b': b };
     }
 })();
 
