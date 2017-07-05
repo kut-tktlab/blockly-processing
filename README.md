@@ -22,6 +22,9 @@
 
 `git clone` して `index.html` をブラウザで開いてください。
 
+[Electron](https://electron.atom.io)で実行する場合は，`npm install`
+で追加ライブラリをインストールした後， `electron .` を実行してください。
+
 ## 改造
 
 [Blockly Guides](https://developers.google.com/blockly/guides/overview)
