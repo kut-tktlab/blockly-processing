@@ -464,11 +464,12 @@
 
     /** ブロックを全消去 */
     function clearBlocks() {
-      if (window.confirm('プログラムを消去してよいですか?')) {
+      Blockly.confirm('プログラムを消去してよいですか?', function (yes) {
+        if (!yes) { return; }
         workspace.clear();
         Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
                                    workspace);
-      }
+      });
     }
 
     /** ローカルストレージに保存するときのキー接頭辞 */
@@ -477,19 +478,26 @@
     /** ブロックを保存 */
     function saveBlocks() {
       if ('localStorage' in window) {
-        var name = null;
-        while (!name) {
-          name = window.prompt('プログラム名を入力してください');
-          if (!name) { return; } // ignore if empty
-          if (window.localStorage[savedBlockPrefix + name]) {
-            if (! window.confirm(name + ' は存在します。上書きしますか?')) {
-              name = null;
+        var saveToFile = function (name) {
+          if (name === undefined) {
+            Blockly.prompt('プログラム名を入力してください', '', saveToFile);
+          } else if (name) {
+            var overwrite = function (yes) {
+              if (yes) {
+                var xml = Blockly.Xml.workspaceToDom(workspace);
+                window.localStorage.setItem(savedBlockPrefix + name, Blockly.Xml.domToText(xml));
+              } else {
+                saveToFile(undefined);
+              }
+            };
+            if (window.localStorage[savedBlockPrefix + name]) {
+              Blockly.confirm(name + ' は存在します。上書きしますか?', overwrite);
+            } else {
+              overwrite(true);
             }
           }
-        }
-        name = savedBlockPrefix + name;
-        var xml = Blockly.Xml.workspaceToDom(workspace);
-        window.localStorage.setItem(name, Blockly.Xml.domToText(xml));
+        };
+        saveToFile(undefined);
       }
     }
     /** ブロックを復元 */
@@ -505,7 +513,7 @@
           }
         }
         if (items.length == 0) {
-          window.alert('保存されているプログラムはありません');
+          Blockly.alert('保存されているプログラムはありません');
           return;
         }
         items.sort();
@@ -528,7 +536,7 @@
         workspace.clear();
         Blockly.Xml.domToWorkspace(xml, workspace);
       } else {
-        window.alert('Error: ' + name + ' がありません');
+        Blockly.alert('Error: ' + name + ' がありません');
       }
     }
     function cancelRestoreBlocks() {
@@ -540,6 +548,55 @@
       if (event.target == modal) {
         cancelRestoreBlocks();
       }
+    }
+  </script>
+  <script>
+    var isNodeJs = (typeof process !== "undefined" && typeof require !== "undefined");
+
+    // Re-define Blockly.prompt() because window.prompt() is not
+    // supported by Electron.
+    if (isNodeJs) {
+      loadJsCss("node_modules/vex-js/dist/js/vex.combined.min.js");
+      loadJsCss("node_modules/vex-js/dist/css/vex.css");
+      loadJsCss("node_modules/vex-js/dist/css/vex-theme-os.css");
+
+      Blockly.prompt = function(message, defaultValue, callback) {
+        vex.defaultOptions.className = 'vex-theme-os';
+        vex.dialog.prompt({
+          'message': message,
+          'value': defaultValue,
+          'callback': callback
+        });
+      };
+      Blockly.confirm = function(message, callback) {
+        vex.defaultOptions.className = 'vex-theme-os';
+        vex.dialog.confirm({
+          'message': message,
+          'callback': callback
+        });
+      };
+      Blockly.alert = function(message, opt_callback) {
+        vex.defaultOptions.className = 'vex-theme-os';
+        vex.dialog.alert(message);
+        if (opt_callback) {
+          opt_callback();
+        }
+      };
+    }
+
+    function loadJsCss(file) {
+      var elem;
+      if (file.substr(-4) == '.css') {
+        elem = document.createElement('link');
+        elem.rel  = 'stylesheet';
+        elem.href = file;
+      } else {
+        elem = document.createElement('script');
+        elem.type = 'text/javascript';
+        elem.src  = file;
+      }
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(elem);
     }
   </script>
 

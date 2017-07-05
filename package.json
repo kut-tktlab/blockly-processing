@@ -1,0 +1,10 @@
+{
+  "name": "blockly-for-led",
+  "main": "elec.js",
+  "license": "Apache-2.0",
+  "repository": "kut-tktlab/blockly-for-led",
+  "dependencies": {
+    "vex-js": "^4.0.0"
+  },
+  "version": "0.1.0"
+}
