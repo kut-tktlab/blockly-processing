@@ -390,14 +390,14 @@
     function showCodePy() {
       // Generate Python code and display it.
       var code = Blockly.Python.workspaceToCode(workspace);
-      Blockly.alert(code);
+      alert(code);
     }
 
     function showCode() {
       // Generate JavaScript code and display it.
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
       var code = Blockly.JavaScript.workspaceToCode(workspace);
-      Blockly.alert(code);
+      alert(code);
     }
 
     function runCode() {
