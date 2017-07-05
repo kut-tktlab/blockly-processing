@@ -390,14 +390,14 @@
     function showCodePy() {
       // Generate Python code and display it.
       var code = Blockly.Python.workspaceToCode(workspace);
-      alert(code);
+      Blockly.alert(code);
     }
 
     function showCode() {
       // Generate JavaScript code and display it.
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
       var code = Blockly.JavaScript.workspaceToCode(workspace);
-      alert(code);
+      Blockly.alert(code);
     }
 
     function runCode() {
@@ -464,11 +464,12 @@
 
     /** ブロックを全消去 */
     function clearBlocks() {
-      if (window.confirm('プログラムを消去してよいですか?')) {
+      Blockly.confirm('プログラムを消去してよいですか?', function (yes) {
+        if (!yes) { return; }
         workspace.clear();
         Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
                                    workspace);
-      }
+      });
     }
 
     /** ローカルストレージに保存するときのキー接頭辞 */
@@ -477,21 +478,26 @@
     /** ブロックを保存 */
     function saveBlocks() {
       if ('localStorage' in window) {
-        var callback = function (name) {
-          if (name && window.localStorage[savedBlockPrefix + name]) {
-            if (! window.confirm(name + ' は存在します。上書きしますか?')) {
-              name = undefined;
+        var saveToFile = function (name) {
+          if (name === undefined) {
+            Blockly.prompt('プログラム名を入力してください', '', saveToFile);
+          } else if (name) {
+            var overwrite = function (yes) {
+              if (yes) {
+                var xml = Blockly.Xml.workspaceToDom(workspace);
+                window.localStorage.setItem(savedBlockPrefix + name, Blockly.Xml.domToText(xml));
+              } else {
+                saveToFile(undefined);
+              }
+            };
+            if (window.localStorage[savedBlockPrefix + name]) {
+              Blockly.confirm(name + ' は存在します。上書きしますか?', overwrite);
+            } else {
+              overwrite(true);
             }
           }
-          if (name === undefined) {
-            Blockly.prompt('プログラム名を入力してください', '', callback);
-          } else if (name) {
-            name = savedBlockPrefix + name;
-            var xml = Blockly.Xml.workspaceToDom(workspace);
-            window.localStorage.setItem(name, Blockly.Xml.domToText(xml));
-          }
         };
-        callback(undefined);
+        saveToFile(undefined);
       }
     }
     /** ブロックを復元 */
@@ -507,7 +513,7 @@
           }
         }
         if (items.length == 0) {
-          window.alert('保存されているプログラムはありません');
+          Blockly.alert('保存されているプログラムはありません');
           return;
         }
         items.sort();
@@ -530,7 +536,7 @@
         workspace.clear();
         Blockly.Xml.domToWorkspace(xml, workspace);
       } else {
-        window.alert('Error: ' + name + ' がありません');
+        Blockly.alert('Error: ' + name + ' がありません');
       }
     }
     function cancelRestoreBlocks() {
@@ -561,6 +567,20 @@
           'value': defaultValue,
           'callback': callback
         });
+      };
+      Blockly.confirm = function(message, callback) {
+        vex.defaultOptions.className = 'vex-theme-os';
+        vex.dialog.confirm({
+          'message': message,
+          'callback': callback
+        });
+      };
+      Blockly.alert = function(message, opt_callback) {
+        vex.defaultOptions.className = 'vex-theme-os';
+        vex.dialog.alert(message);
+        if (opt_callback) {
+          opt_callback();
+        }
       };
     }
 
