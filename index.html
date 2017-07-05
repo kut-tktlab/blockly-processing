@@ -14,10 +14,6 @@
   <script src="blockly/python_compressed.js"></script>
   <script src="blockly/msg/js/ja.js"></script>
   <script src="ledsimulator.js"></script>
-  <script src="node_modules/vex-js/dist/js/vex.combined.min.js"></script>
-  <script>vex.defaultOptions.className = 'vex-theme-os'</script>
-  <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex.css" />
-  <link rel="stylesheet" href="node_modules/vex-js/dist/css/vex-theme-os.css" />
   <style>
     body {
       background-color: #fff;
@@ -547,19 +543,40 @@
         cancelRestoreBlocks();
       }
     }
-
+  </script>
+  <script>
     var isNodeJs = (typeof process !== "undefined" && typeof require !== "undefined");
 
     // Re-define Blockly.prompt() because window.prompt() is not
     // supported by Electron.
     if (isNodeJs) {
+      loadJsCss("node_modules/vex-js/dist/js/vex.combined.min.js");
+      loadJsCss("node_modules/vex-js/dist/css/vex.css");
+      loadJsCss("node_modules/vex-js/dist/css/vex-theme-os.css");
+
       Blockly.prompt = function(message, defaultValue, callback) {
+        vex.defaultOptions.className = 'vex-theme-os';
         vex.dialog.prompt({
           'message': message,
           'value': defaultValue,
           'callback': callback
         });
       };
+    }
+
+    function loadJsCss(file) {
+      var elem;
+      if (file.substr(-4) == '.css') {
+        elem = document.createElement('link');
+        elem.rel  = 'stylesheet';
+        elem.href = file;
+      } else {
+        elem = document.createElement('script');
+        elem.type = 'text/javascript';
+        elem.src  = file;
+      }
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(elem);
     }
   </script>
 
