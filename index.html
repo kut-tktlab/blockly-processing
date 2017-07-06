@@ -116,6 +116,7 @@
     </span>
     <button onclick="showCodePy()">Show Python</button>
     <button onclick="showCode()">Show JavaScript</button>
+    <button onclick="showXml()">Show XML</button>
   </div>
 
   <xml id="toolbox" style="display: none">
@@ -387,6 +388,12 @@
       }
     }
 
+    function showXml() {
+      var xml = Blockly.Xml.workspaceToDom(workspace);
+      var code = Blockly.Xml.domToPrettyText(xml);
+      alert(code);
+    }
+  
     function showCodePy() {
       // Generate Python code and display it.
       var code = Blockly.Python.workspaceToCode(workspace);
