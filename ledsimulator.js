@@ -8,6 +8,7 @@
  *   .setNLed(n)    - set the number of LEDs.
  *   .setLedColor(i, color) - change the color of LED #i.
  *   .clearAllLed() - turn off all LEDs.
+ *   .flush()       - called when the CodeRunner sleeps (not used)
  */
 
 var LedSimulator = (function () {
@@ -22,7 +23,8 @@ var LedSimulator = (function () {
         init: function (canvas_) { canvas = canvas_; initCanvas_(); },
         setNLed: function (n_) { nLed = n_; initCanvas_(); },
         setLedColor: setLedColor_,
-        clearAllLed: initCanvas_
+        clearAllLed: initCanvas_,
+        flush: function () {}
     };
 
     function initCanvas_() {

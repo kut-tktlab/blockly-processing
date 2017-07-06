@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <title>Blockly-for-led</title>
   <script>
-    var useLedSimulator = true;
+    var useLedSimulator = false;
   </script>
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
@@ -481,10 +481,17 @@
       LedSimulator.init(canvas);
       CodeRunner.setTarget(LedSimulator);
     } else {
+      // disable the simulator canvas and buttons
       var canvas  = document.getElementById('simulatorCanvas');
       var buttons = document.getElementById('simulatorButtons');
       canvas.style.display = 'none';
       buttons.style.display = 'none';
+
+      // connect to the LED object in the main process
+      if (typeof require !== 'undefined') {
+        var rem = require('electron');
+        CodeRunner.setTarget(require('electron').remote.getGlobal('ledStrip'));
+      }
     }
 
     function changeNLed() {

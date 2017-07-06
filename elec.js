@@ -10,3 +10,16 @@ app.on('ready', function () {
     });
     //mainWindow.openDevTools(); // Dev Tools for debugging
 });
+
+// a receiver of LED controlling commands
+global.ledStrip = {
+    setLedColor: function (led, color) {
+        console.log('setLedColor(' + led + ', ' + color + ')');
+    },
+    clearAllLed: function () {
+        console.log('clearAllLed()');
+    },
+    flush: function () {
+        console.log('flush()');
+    }
+};

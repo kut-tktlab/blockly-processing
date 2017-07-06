@@ -24,7 +24,8 @@ var CodeRunner = (function () {
   /** target for control */
   var target = { // a dummy target
     setLedColor: function (led, color) {},
-    clearAllLed: function () {}
+    clearAllLed: function () {},
+    flush: function () {}
   };
 
   return {
@@ -102,6 +103,8 @@ var CodeRunner = (function () {
     while (dispatchQueue.length > 0) {
       var task = dispatchQueue.shift();
       if (task.type == 'd') { // delay
+        // flush
+        target.flush();
         // schedule the next dispatching
         setTimeout(function () { dispatch_(fin); }, task.ms);
         return;
@@ -148,6 +151,7 @@ var CodeRunner = (function () {
    */
   function runLoop_(index) {
     if (stopReq) { setInactive_(); return; }
+    target.flush();
     if (index >= loopFuncs.length) {
       // execution of the loop functions is over.
       setInactive_();
