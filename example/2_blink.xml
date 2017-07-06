@@ -1,0 +1,54 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="basics_setup" id="4%V~22%pNM944N;Yy]VF" x="20" y="20"></block>
+  <block type="basics_loop" id="f8^-a~#c1KR6t3h6UT%w" x="170" y="20">
+    <statement name="DO">
+      <block type="controls_for_simple" id="^`GWbSe#y36)eZz)5q*i">
+        <field name="VAR">i</field>
+        <value name="TO">
+          <shadow type="math_number" id="DT+|Y4%u`:qqWE[.JIYK">
+            <field name="NUM">9</field>
+          </shadow>
+        </value>
+        <statement name="DO">
+          <block type="led_set_color" id="f#;Bg=uQ3yg,D3G6*t`a">
+            <value name="LED">
+              <shadow id="M+^4N!T=b8`%.c(6vmA/" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="variables_get" id="P3vJ^K-X4xHJmkGFIB9V">
+                <field name="VAR">i</field>
+              </block>
+            </value>
+            <value name="COLOR">
+              <shadow type="colour_picker" id="a=@Fv+kfkAKlGnpvJLZV">
+                <field name="COLOUR">#ff0000</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="basics_sleep" id="c|+)_bb^+tmUGYKuc2o4">
+            <value name="MSEC">
+              <shadow type="math_number" id="yv2{@Kuyq}(;e(OeR!5g">
+                <field name="NUM">1000</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="led_turn_off_all" id="3I*k19AYQZAs[z[[u|g8">
+                <next>
+                  <block type="basics_sleep" id="?S|FE1hBB+tCV!SktTw:">
+                    <value name="MSEC">
+                      <shadow type="math_number" id="+)4#tG:z#$rNxg}FS%|M">
+                        <field name="NUM">1000</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
