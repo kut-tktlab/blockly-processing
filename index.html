@@ -8,9 +8,6 @@
 <head>
   <meta charset="utf-8">
   <title>Blockly-for-led</title>
-  <script>
-    var useLedSimulator = false;
-  </script>
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
   <script src="blockly/javascript_compressed.js"></script>
@@ -19,6 +16,9 @@
   <script src="ledsimulator.js"></script>
   <script src="coderunner.js"></script>
   <script src="example/example.js"></script>
+  <script>
+    var useLedSimulatorOnElectron = false;
+  </script>
   <style>
     body {
       background-color: #fff;
@@ -476,7 +476,7 @@
       }
     }
 
-    if (useLedSimulator) {
+    if (typeof require === 'undefined' || useLedSimulatorOnElectron) {
       var canvas = document.getElementById('simulatorCanvas');
       LedSimulator.init(canvas);
       CodeRunner.setTarget(LedSimulator);
