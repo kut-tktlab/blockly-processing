@@ -14,6 +14,7 @@
   <script src="blockly/python_compressed.js"></script>
   <script src="blockly/msg/js/ja.js"></script>
   <script src="ledsimulator.js"></script>
+  <script src="example/example.js"></script>
   <style>
     body {
       background-color: #fff;
@@ -50,6 +51,7 @@
       background-color: rgba(0,0,0,0.4);
     }
     .modalWindow {
+      width: 480px;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -91,17 +93,32 @@
       <button onclick="saveBlocks()"    id="saveButton"   >保存</button>
       <button onclick="restoreBlocks()" id="restoreButton">復元</button> &nbsp;&nbsp;
       <button onclick="clearBlocks()"   id="clearButton"  >全消去</button>
+      <span style="margin-left: 40px;">
+      <button onclick="loadExample()"   id="exampleButton">プログラム例</button>
+      </span>
     </span>
   </p>
-  <div id="restoreModal" class="modal" onclick="pressCancelRestoreBlocks(event)">
-    <div class="modalWindow" style="width: 480px">
+  <div id="restoreModal" class="modal" onclick="pressCancelModal(event,'restoreModal')">
+    <div class="modalWindow">
       <div class="modalHeader">
         保存済プログラム
       </div>
       <ul id="restoreList">
       </ul>
       <div class="modalFooter">
-        <a onclick="cancelRestoreBlocks()">キャンセル</a>
+        <a onclick="cancelModal('restoreModal')">キャンセル</a>
+      </div>
+    </div>
+  </div>
+  <div id="exampleModal" class="modal" onclick="pressCancelModal(event,'exampleModal')">
+    <div class="modalWindow">
+      <div class="modalHeader">
+        プログラム例
+      </div>
+      <ul id="exampleList">
+      </ul>
+      <div class="modalFooter">
+        <a onclick="cancelModal('exampleModal')">キャンセル</a>
       </div>
     </div>
   </div>
@@ -116,6 +133,7 @@
     </span>
     <button onclick="showCodePy()">Show Python</button>
     <button onclick="showCode()">Show JavaScript</button>
+    <button onclick="showXml()">Show XML</button>
   </div>
 
   <xml id="toolbox" style="display: none">
@@ -387,6 +405,12 @@
       }
     }
 
+    function showXml() {
+      var xml = Blockly.Xml.workspaceToDom(workspace);
+      var code = Blockly.Xml.domToPrettyText(xml);
+      alert(code);
+    }
+  
     function showCodePy() {
       // Generate Python code and display it.
       var code = Blockly.Python.workspaceToCode(workspace);
@@ -431,7 +455,8 @@
       var buttonsToDisable = [
         document.getElementById('saveButton'),
         document.getElementById('restoreButton'),
-        document.getElementById('clearButton')
+        document.getElementById('clearButton'),
+        document.getElementById('exampleButton'),
       ];
       if (isActive) {
         // make the button "to Stop"
@@ -502,51 +527,97 @@
     }
     /** ブロックを復元 */
     function restoreBlocks() {
-      if ('localStorage' in window) {
-        var modal = document.getElementById('restoreModal');
-        var list  = document.getElementById('restoreList');
-        var items = [];
-        for (var key in window.localStorage) {
+      if (!('localStorage' in window)) { return; }
+      loadBlocks_({
+        'storage': window.localStorage,
+        'filter': function (key) {
           if (key.startsWith(savedBlockPrefix)) {
-            var keyBody = key.substr(savedBlockPrefix.length);
-            items.push(keyBody);
+            return key.substr(savedBlockPrefix.length);
+          } else {
+            return null;
           }
-        }
-        if (items.length == 0) {
-          Blockly.alert('保存されているプログラムはありません');
-          return;
-        }
-        items.sort();
-        var itemsHtml = '';
-        for (var i = 0; i < items.length; i++) {
-          itemsHtml += '<li><a onclick="restoreBlocksFrom(\'' +
-                       items[i] + '\')">' + items[i] + '</a></li>';
-        }
-        list.innerHTML = itemsHtml;
-        modal.style.display = 'block';
-      }
+        },
+        'callbackName': 'restoreBlocksFrom',
+        'modalName':    'restoreModal',
+        'listName':     'restoreList',
+        'alertOnEmpty': '保存されているプログラムはありません',
+      });
     }
     function restoreBlocksFrom(name) {
-      var modal = document.getElementById('restoreModal');
+      loadBlocksFrom_(name, {
+        'storage': window.localStorage,
+        'filter': function (key) { return savedBlockPrefix + key; },
+        'modalName': 'restoreModal'
+      });
+    }
+
+    /** プログラム例を呼び出す */
+    function loadExample() {
+      loadBlocks_({
+        'storage': samplePrograms,
+        'filter': function (key) { return key; },
+        'callbackName': 'loadExampleFrom',
+        'modalName':    'exampleModal',
+        'listName':     'exampleList',
+        'alertOnEmpty': 'プログラム例はありません',
+      });
+    }
+    function loadExampleFrom(name) {
+      loadBlocksFrom_(name, {
+        'storage': samplePrograms,
+        'filter': function (key) { return key; },
+        'modalName': 'exampleModal'
+      });
+    }
+
+    /**
+     * 選択ウィンドウを表示してプログラムを選択させる
+     */
+    function loadBlocks_(arg) {
+      var items = [];
+      for (var key in arg.storage) {
+        var key_ = arg.filter(key);
+        if (key_) {
+          items.push(key_);
+        }
+      }
+      if (items.length == 0) {
+        Blockly.alert(arg.alertOnEmpty);
+        return;
+      }
+      items.sort();
+      var itemsHtml = '';
+      for (var i = 0; i < items.length; i++) {
+        itemsHtml += '<li><a onclick="' + arg.callbackName + '(\'' +
+                      items[i] + '\')">' + items[i] + '</a></li>';
+      }
+      var modal = document.getElementById(arg.modalName);
+      var list  = document.getElementById(arg.listName);
+      list.innerHTML = itemsHtml;
+      modal.style.display = 'block';
+    }
+    function loadBlocksFrom_(name, arg) {
+      var modal = document.getElementById(arg.modalName);
       modal.style.display = 'none';
       if (!name) { return; } // ignore if empty
-      if (window.localStorage[savedBlockPrefix + name]) {
-        name = savedBlockPrefix + name;
-        var xml = Blockly.Xml.textToDom(window.localStorage[name]);
+      var saved = arg.storage[arg.filter(name)];
+      if (saved) {
+        var xml = Blockly.Xml.textToDom(saved);
         workspace.clear();
         Blockly.Xml.domToWorkspace(xml, workspace);
       } else {
         Blockly.alert('Error: ' + name + ' がありません');
       }
     }
-    function cancelRestoreBlocks() {
-      var modal = document.getElementById('restoreModal');
+
+    function cancelModal(id) {
+      var modal = document.getElementById(id);
       modal.style.display = 'none';
     }
-    function pressCancelRestoreBlocks(event) {
-      var modal = document.getElementById('restoreModal');
+    function pressCancelModal(event, id) {
+      var modal = document.getElementById(id);
       if (event.target == modal) {
-        cancelRestoreBlocks();
+        cancelModal(id);
       }
     }
   </script>
