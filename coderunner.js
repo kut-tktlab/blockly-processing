@@ -25,7 +25,9 @@ var CodeRunner = (function () {
   var target = { // a dummy target
     setLedColor: function (led, color) {},
     clearAllLed: function () {},
-    flush: function () {}
+    flush: function () {},
+    open:  function () {},
+    close: function () {}
   };
 
   return {
@@ -65,12 +67,14 @@ var CodeRunner = (function () {
    * Functions called when the dispatcher's state changes.
    */
   function setActive_() {
+    target.open();
     active = true;
     for (var i = 0; i < observers.length; i++) {
       (observers[i])(active);
     }
   }
   function setInactive_() {
+    target.close();
     active = false;
     for (var i = 0; i < observers.length; i++) {
       (observers[i])(active);

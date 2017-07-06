@@ -1,3 +1,7 @@
+var N_LED = 10;
+var ledFile = '/tmp/bky-led-fifo';
+var fs = require('fs');
+
 var electron = require('electron');
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
@@ -12,14 +16,39 @@ app.on('ready', function () {
 });
 
 // a receiver of LED controlling commands
-global.ledStrip = {
-    setLedColor: function (led, color) {
-        console.log('setLedColor(' + led + ', ' + color + ')');
-    },
-    clearAllLed: function () {
-        console.log('clearAllLed()');
-    },
-    flush: function () {
-        console.log('flush()');
+global.ledStrip = (function () {
+    var dirty = false;
+    var buffer = [];
+    var fd = null;
+    clearAllLed_();
+    return {
+        setLedColor: setLedColor_,
+        clearAllLed: function () {
+            clearAllLed_();
+            dirty = true;
+        },
+        flush: flush_,
+        open:  function () { fd = fs.openSync(ledFile, 'w'); },
+        close: function () { fd = fs.closeSync(fd); }
+    };
+    function clearAllLed_() {
+        for (var i = 0; i < N_LED; i++) {
+            buffer[i] = '#000000';
+        }
     }
-};
+    function setLedColor_(led, color) {
+        if (0 <= led && led < N_LED &&
+            color.startsWith('#') && color.length == 7)
+        {
+            buffer[led] = color;
+            dirty = true;
+        }
+    }
+    function flush_() {
+        if (dirty) {
+            fs.writeSync(fd, buffer.join('') + '\n');
+            //console.log(buffer.join(''));
+            dirty = false;
+        }
+    }
+})();
