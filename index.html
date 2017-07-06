@@ -14,6 +14,7 @@
   <script src="blockly/python_compressed.js"></script>
   <script src="blockly/msg/js/ja.js"></script>
   <script src="ledsimulator.js"></script>
+  <script src="coderunner.js"></script>
   <script src="example/example.js"></script>
   <style>
     body {
@@ -432,11 +433,11 @@
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
 
-      LedSimulator.Dispatcher.runCode(code);
+      CodeRunner.runCode(code);
     }
 
     function stopCode() {
-      LedSimulator.Dispatcher.stop();
+      CodeRunner.stop();
     }
 
     var runButtonMode = true;  // the button is "to Run"
@@ -449,8 +450,8 @@
     }
 
     // Add an observer of the notification of state change.
-    LedSimulator.Dispatcher.addListener(dispatcherChangeState);
-    function dispatcherChangeState(isActive) {
+    CodeRunner.addListener(codeRunnerChangeState);
+    function codeRunnerChangeState(isActive) {
       var button = document.getElementById('runButton');
       var buttonsToDisable = [
         document.getElementById('saveButton'),
@@ -474,14 +475,15 @@
 
     var canvas = document.getElementById('simulatorCanvas');
     LedSimulator.init(canvas);
+    CodeRunner.setTarget(LedSimulator);
 
     function changeNLed() {
-      LedSimulator.Dispatcher.stop();
+      CodeRunner.stop();
       var selector = document.getElementById('nled-selector');
       LedSimulator.setNLed(selector.options[selector.selectedIndex].value);
     }
     function setLedColor() {
-      LedSimulator.Dispatcher.stop();
+      CodeRunner.stop();
       var led = document.getElementById('ledsim-led').value;
       var color = document.getElementById('ledsim-color').value;
       LedSimulator.setLedColor(led, color);
