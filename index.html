@@ -8,6 +8,9 @@
 <head>
   <meta charset="utf-8">
   <title>Blockly-for-led</title>
+  <script>
+    var useLedSimulator = true;
+  </script>
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
   <script src="blockly/javascript_compressed.js"></script>
@@ -83,7 +86,7 @@
     <span style="display: inline-block; width: 80px;">
       <button onclick="runOrStopCode()" id="runButton">&#9658; Run</button>
     </span>
-    <span>
+    <span id="simulatorButtons">
       <button onclick="changeNLed()">すべて消灯</button>
       <select onchange="changeNLed()" id="nled-selector">
         <option value="10">LED 10個</option>
@@ -473,9 +476,16 @@
       }
     }
 
-    var canvas = document.getElementById('simulatorCanvas');
-    LedSimulator.init(canvas);
-    CodeRunner.setTarget(LedSimulator);
+    if (useLedSimulator) {
+      var canvas = document.getElementById('simulatorCanvas');
+      LedSimulator.init(canvas);
+      CodeRunner.setTarget(LedSimulator);
+    } else {
+      var canvas  = document.getElementById('simulatorCanvas');
+      var buttons = document.getElementById('simulatorButtons');
+      canvas.style.display = 'none';
+      buttons.style.display = 'none';
+    }
 
     function changeNLed() {
       CodeRunner.stop();

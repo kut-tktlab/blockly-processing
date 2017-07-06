@@ -22,7 +22,10 @@ var CodeRunner = (function () {
   var active  = false;  // actual state of the dispatcher
 
   /** target for control */
-  var target = null;
+  var target = { // a dummy target
+    setLedColor: function (led, color) {},
+    clearAllLed: function () {}
+  };
 
   return {
     runCode: runCode_,
