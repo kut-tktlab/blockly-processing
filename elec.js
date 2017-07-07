@@ -1,7 +1,17 @@
-var N_LED = 10;
-var ledFile = '/tmp/bky-led-fifo';
-var fs = require('fs');
+var N_LED = 12;
 
+// If you do not want to use the blockly-receiver,
+// comment out the following line.
+var ledFile = '/tmp/bky-led-fifo';
+
+var fs = require('fs');
+if (typeof ledFile !== 'undefined' && !fs.existsSync(ledFile)) {
+    console.log('Error: ' + ledFile + ' does not exist.' +
+                ' Run bkykeepfifo first.');
+    process.exit(1);
+}
+
+// Launch the browser
 var electron = require('electron');
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
