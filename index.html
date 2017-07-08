@@ -86,8 +86,8 @@
     <span style="display: inline-block; width: 80px;">
       <button onclick="runOrStopCode()" id="runButton">&#9658; Run</button>
     </span>
+    <button onclick="clearLeds()" id="clearLedButton">すべて消灯</button>
     <span id="simulatorButtons">
-      <button onclick="changeNLed()">すべて消灯</button>
       <select onchange="changeNLed()" id="nled-selector">
         <option value="10">LED 10個</option>
         <option value="12">LED 12個</option>
@@ -96,7 +96,7 @@
     <span style="margin-left: 80px;">
       <button onclick="saveBlocks()"    id="saveButton"   >保存</button>
       <button onclick="restoreBlocks()" id="restoreButton">復元</button> &nbsp;&nbsp;
-      <button onclick="clearBlocks()"   id="clearButton"  >全消去</button>
+      <button onclick="clearBlocks()"   id="clearButton"  >プログラム消去</button>
       <span style="margin-left: 40px;">
       <button onclick="loadExample()"   id="exampleButton">プログラム例</button>
       </span>
@@ -452,11 +452,16 @@
       }
     }
 
+    function clearLeds() {
+      CodeRunner.runCode('addSetup(function(){clearAllLed();});')
+    }
+
     // Add an observer of the notification of state change.
     CodeRunner.addListener(codeRunnerChangeState);
     function codeRunnerChangeState(isActive) {
       var button = document.getElementById('runButton');
       var buttonsToDisable = [
+        document.getElementById('clearLedButton'),
         document.getElementById('saveButton'),
         document.getElementById('restoreButton'),
         document.getElementById('clearButton'),
