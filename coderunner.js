@@ -192,3 +192,8 @@ var CodeRunner = (function () {
   }
 
 })();
+
+// A trick to use on both node.js and a browser.
+(function (exports) {
+  exports.CodeRunner = CodeRunner;
+})(typeof exports === 'undefined' ? this.coderunner = {} : exports);
