@@ -6,9 +6,14 @@
  *   .runCode(code) - run the code with the task dispatcher.
  *   .stop()        - stop the task dispatcher.
  *   .addListener(listener) - add an observer of dispatcher's state change.
+ *   .setTimeLimit(sec) - set the time limit to run a code.
  */
 
 var CodeRunner = (function () {
+  /** automatically stop after a time limit expires (sec) */
+  var timeLimit = 10;
+  var startTime = null;  // set by runCode()
+
   /** queues of tasks */
   var setupFuncs = [];
   var loopFuncs = [];
@@ -38,7 +43,8 @@ var CodeRunner = (function () {
     addListener: function (listener) {
       observers.push(listener);
     },
-    setTarget: function (t) { target = t; }
+    setTarget: function (t) { target = t; },
+    setTimeLimit: function (sec) { timeLimit = sec; }
   };
 
   function runCode_(code) {
@@ -54,9 +60,11 @@ var CodeRunner = (function () {
     loopFuncs  = [];
     dispatchQueue = [];
     stopReq = false;
+    startTime = null;
     try {
       eval(code);
       setActive_();
+      startTime = new Date();
       runSetup_(0);
     } catch (e) {
       alert(e);
@@ -154,6 +162,11 @@ var CodeRunner = (function () {
    * @param {int} index  index of the function to be executed in loopFuncs.
    */
   function runLoop_(index) {
+    if (startTime &&
+        new Date().getTime() - startTime.getTime() > timeLimit * 1000)
+    {
+      stopReq = true;
+    }
     if (stopReq) { setInactive_(); return; }
     target.flush();
     if (index >= loopFuncs.length) {

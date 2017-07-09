@@ -87,6 +87,11 @@
       <button onclick="runOrStopCode()" id="runButton">&#9658; Run</button>
     </span>
     <button onclick="clearLeds()" id="clearLedButton">すべて消灯</button>
+    <select onchange="changeTimeLimit()" id="timeLimitSelector">
+      <option value="10">10秒で停止</option>
+      <option value="30">30秒で停止</option>
+      <option value="72000">無制限</option>
+    </select>
     <span id="simulatorButtons">
       <select onchange="changeNLed()" id="nled-selector">
         <option value="10">LED 10個</option>
@@ -462,6 +467,7 @@
       var button = document.getElementById('runButton');
       var buttonsToDisable = [
         document.getElementById('clearLedButton'),
+        document.getElementById('timeLimitSelector'),
         document.getElementById('saveButton'),
         document.getElementById('restoreButton'),
         document.getElementById('clearButton'),
@@ -499,6 +505,11 @@
       }
     }
 
+    function changeTimeLimit() {
+      CodeRunner.stop();
+      var selector = document.getElementById('timeLimitSelector');
+      CodeRunner.setTimeLimit(selector.options[selector.selectedIndex].value);
+    }
     function changeNLed() {
       CodeRunner.stop();
       var selector = document.getElementById('nled-selector');
