@@ -1,0 +1,72 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="basics_setup" id="4%V~22%pNM944N;Yy]VF" x="20" y="20"></block>
+  <block type="basics_loop" id="f8^-a~#c1KR6t3h6UT%w" x="170" y="20">
+    <statement name="DO">
+      <block type="controls_for_simple" id="^`GWbSe#y36)eZz)5q*i">
+        <field name="VAR">i</field>
+        <value name="TO">
+          <shadow type="math_number" id="DT+|Y4%u`:qqWE[.JIYK">
+            <field name="NUM">9</field>
+          </shadow>
+        </value>
+        <statement name="DO">
+          <block type="led_set_color" id="f#;Bg=uQ3yg,D3G6*t`a">
+            <value name="LED">
+              <shadow id="M+^4N!T=b8`%.c(6vmA/" type="math_number">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="variables_get" id="P3vJ^K-X4xHJmkGFIB9V">
+                <field name="VAR">i</field>
+              </block>
+            </value>
+            <value name="COLOR">
+              <shadow type="colour_picker" id="a=@Fv+kfkAKlGnpvJLZV">
+                <field name="COLOUR">#ff0000</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="basics_sleep" id="c|+)_bb^+tmUGYKuc2o4">
+                <value name="MSEC">
+                  <shadow type="math_number" id="yv2{@Kuyq}(;e(OeR!5g">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_for_simple" id="K4yVi7tr#2uKm.{@X(G|">
+            <field name="VAR">i</field>
+            <value name="TO">
+              <shadow type="math_number" id="!P;6/E/FAP{f]%d)Y1p%">
+                <field name="NUM">9</field>
+              </shadow>
+            </value>
+            <statement name="DO">
+              <block type="led_turn_off" id="(5!5L)85m$E:ER=YqCe[">
+                <value name="LED">
+                  <shadow type="math_number" id="FEhXuo)VU!X|V1n_{Q]E">
+                    <field name="NUM">0</field>
+                  </shadow>
+                  <block type="variables_get" id="HnLmSNhLE/ax_^RMMwb`">
+                    <field name="VAR">i</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="basics_sleep" id="-P%t4`~amUl)AOjeBi+W">
+                    <value name="MSEC">
+                      <shadow type="math_number" id="BN{(p1A;Z5k%W+eh=(U?">
+                        <field name="NUM">100</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
