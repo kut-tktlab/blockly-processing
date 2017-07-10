@@ -26,6 +26,9 @@ var CodeRunner = (function () {
   var stopReq = false;  // request to stop
   var active  = false;  // actual state of the dispatcher
 
+  /** counter for avoding infinite loops */
+  var LoopTrap = 1000;
+
   /** target for control */
   var target = { // a dummy target
     setLedColor: function (led, color) {},
@@ -34,6 +37,10 @@ var CodeRunner = (function () {
     open:  function () {},
     close: function () {}
   };
+
+  /** error handler */
+  var alertListener;
+  if (typeof alert !== 'undefined') { alertListener = alert; }
 
   return {
     runCode: runCode_,
@@ -44,7 +51,9 @@ var CodeRunner = (function () {
       observers.push(listener);
     },
     setTarget: function (t) { target = t; },
-    setTimeLimit: function (sec) { timeLimit = sec; }
+    setTimeLimit: function (sec) { timeLimit = sec; },
+    setAlertListener: function (listener) { alertListener = listener; },
+    createStub: createStub_  // for communicating with server.js
   };
 
   function runCode_(code) {
@@ -61,13 +70,14 @@ var CodeRunner = (function () {
     dispatchQueue = [];
     stopReq = false;
     startTime = null;
+    LoopTrap = 1000;
     try {
       eval(code);
       setActive_();
       startTime = new Date();
       runSetup_(0);
     } catch (e) {
-      alert(e);
+      alertListener(e);
     }
   }
 
@@ -143,7 +153,7 @@ var CodeRunner = (function () {
     }
     try {
       // reset the loop-avoidance counter
-      window.LoopTrap = 1000;
+      LoopTrap = 1000;
       // execute a setup function
       (setupFuncs[index])();
       index++;
@@ -153,7 +163,7 @@ var CodeRunner = (function () {
       }, 0);
     } catch (e) {
       setInactive_();
-      alert(e);
+      alertListener(e);
     }
   }
 
@@ -176,7 +186,7 @@ var CodeRunner = (function () {
     }
     try {
       // reset the loop-avoidance counter
-      window.LoopTrap = 1000;
+      LoopTrap = 1000;
       // execute a loop function
       (loopFuncs[index])();
       index = (index + 1) % loopFuncs.length;
@@ -187,13 +197,41 @@ var CodeRunner = (function () {
       }, 0);
     } catch (e) {
       setInactive_();
-      alert(e);
+      alertListener(e);
     }
+  }
+
+  /**
+   * A function for creating a stub for communicating with
+   * the CodeRunner in the server.js.
+   * If you use server.js,
+   * do `CodeRunner = CodeRunner.createStub(io.connect());`
+   * in the client side.
+   */
+  function createStub_(socket) {
+    socket.on('changeState', function (active) {
+      for (var i = 0; i < observers.length; i++) {
+        (observers[i])(active);
+      }
+    });
+    socket.on('alert', function (msg) {
+      window.alert(msg);
+    });
+    return {
+      runCode: function (code) { socket.emit('runCode', code); },
+      stop:    function ()     { socket.emit('stop'); },
+      setTimeLimit:
+               function (sec)  { socket.emit('setTimeLimit', sec); },
+      addListener: function (listener) {
+        observers.push(listener);
+      },
+      setTarget: undefined
+    };
   }
 
 })();
 
-// A trick to use on both node.js and a browser.
+// A trick to use this module on both node.js and a browser.
 (function (exports) {
   exports.CodeRunner = CodeRunner;
 })(typeof exports === 'undefined' ? this.coderunner = {} : exports);

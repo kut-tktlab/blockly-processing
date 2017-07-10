@@ -16,9 +16,7 @@
   <script src="ledsimulator.js"></script>
   <script src="coderunner.js"></script>
   <script src="example/example.js"></script>
-  <script>
-    var useLedSimulatorOnElectron = false;
-  </script>
+  <script src="node_modules/socket.io-client/dist/socket.io.js"></script>
   <style>
     body {
       background-color: #fff;
@@ -435,9 +433,9 @@
 
     function runCode() {
       // Generate JavaScript code and run it.
-      window.LoopTrap = 1000;
+      //window.LoopTrap = 1000;
       Blockly.JavaScript.INFINITE_LOOP_TRAP =
-          'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+          'if (--LoopTrap == 0) throw "Infinite loop.";\n';
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
 
@@ -487,22 +485,19 @@
       }
     }
 
-    if (typeof require === 'undefined' || useLedSimulatorOnElectron) {
+    if (typeof io === 'undefined' || window.location.protocol == 'file:') {
       var canvas = document.getElementById('simulatorCanvas');
       LedSimulator.init(canvas);
       CodeRunner.setTarget(LedSimulator);
     } else {
+      var socketio = io.connect(); // connect to window.location
+      CodeRunner = CodeRunner.createStub(socketio);
+
       // disable the simulator canvas and buttons
       var canvas  = document.getElementById('simulatorCanvas');
       var buttons = document.getElementById('simulatorButtons');
       canvas.style.display = 'none';
       buttons.style.display = 'none';
-
-      // connect to the LED object in the main process
-      if (typeof require !== 'undefined') {
-        var rem = require('electron');
-        CodeRunner.setTarget(require('electron').remote.getGlobal('ledStrip'));
-      }
     }
 
     function changeTimeLimit() {
