@@ -431,7 +431,7 @@ var samplePrograms = {
       '<field name="VAR">t</field>',
       '<value name="VALUE">',
        '<shadow id="Sj29+:iD~weA{}x?R:l-" type="math_number">',
-        '<field name="NUM">0</field>',
+        '<field name="NUM">30</field>',
        '</shadow>',
       '</value>',
      '</block>',
