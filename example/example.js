@@ -463,7 +463,7 @@ var samplePrograms = {
             '<field name="OP">MINUS</field>',
             '<value name="A">',
              '<shadow id="@/QLhx1HBg~b$oc`bZvN" type="math_number">',
-              '<field name="NUM">1</field>',
+              '<field name="NUM">0.5</field>',
              '</shadow>',
             '</value>',
             '<value name="B">',
