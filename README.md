@@ -10,20 +10,20 @@
 [JavaScript Blocks Editor](https://makecode.microbit.org/)及び[chibi:bit IDE](http://chibibit.io/ide/)
 を真似ています。
 
-実LEDテープを動かす機能はまだ未実装です。
-ブラウザ上で動作を確認するためのLEDシミュレータが付いています。
-  
+
 ## お試し
 
 [デモページ](https://ytakata69.github.io/blockly-for-led/)でお試しできます
 (手動同期なので最新版でないことがあります)。
 
+ブラウザ上で動作を確認するためのLEDシミュレータが付いています。
+
 ## Install
 
+LEDシミュレータを使う場合は，
 `git clone` して `index.html` をブラウザで開いてください。
 
-[Electron](https://electron.atom.io)で実行する場合は，`npm install`
-で追加ライブラリをインストールした後， `electron .` を実行してください。
+実LEDを使う手順は[Wiki](https://github.com/kut-tktlab/blockly-for-led/wiki/Raspbian,-Node.js,-Electron)に記載しています。
 
 ## 改造
 
