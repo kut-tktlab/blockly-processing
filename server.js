@@ -23,6 +23,15 @@ var port = 8080;
 var nLed = 12;  // no problem if it is more than the real number of LEDs.
 var ledFifo = '/tmp/bky-led-fifo';
 
+// Rules for connection permission
+function allowedAddress(addr) {
+    if (addr == '127.0.0.1') { return true; }
+    if (addr == '::1') { return true; }
+    if (addr.startsWith('172.21.')) { return true; }
+    if (addr.startsWith('fe80:')) { return true; } // link-local addr
+    return false;
+}
+
 // Check whether the fifo exists.
 var fs = require('fs');
 if (typeof ledFifo !== 'undefined' && !fs.existsSync(ledFifo)) {
@@ -141,10 +150,3 @@ io.sockets.on('connection', function (socket) {
         codeRunner.setTimeLimit(sec);
     });
 });
-
-function allowedAddress(addr) {
-    if (addr == '127.0.0.1') { return true; }
-    if (addr == '::1') { return true; }
-    if (addr.startsWith('172.21.')) { return true; }
-    return false;
-}
