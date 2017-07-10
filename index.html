@@ -439,7 +439,7 @@
       var code = Blockly.JavaScript.workspaceToCode(workspace);
       Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
 
-      CodeRunner.runCode(code);
+      CodeRunner.runCode(code, codeRunnerChangeState, window.alert);
     }
 
     function stopCode() {
@@ -456,11 +456,11 @@
     }
 
     function clearLeds() {
-      CodeRunner.runCode('addSetup(function(){clearAllLed();});')
+      var code = 'addSetup(function(){clearAllLed();});';
+      CodeRunner.runCode(code, codeRunnerChangeState, window.alert);
     }
 
-    // Add an observer of the notification of state change.
-    CodeRunner.addListener(codeRunnerChangeState);
+    // An observer of the notification of state change.
     function codeRunnerChangeState(isActive) {
       var button = document.getElementById('runButton');
       var buttonsToDisable = [

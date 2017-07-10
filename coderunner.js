@@ -3,9 +3,9 @@
  * 
  * CodeRunner
  *   .setTarget(target) - set the target object, e.g. LedSimulator.
- *   .runCode(code) - run the code with the task dispatcher.
- *   .stop()        - stop the task dispatcher.
- *   .addListener(listener) - add an observer of dispatcher's state change.
+ *   .runCode(code, stateChangeListener, alertListener)
+ *                      - run the code with the task dispatcher.
+ *   .stop()            - stop the task dispatcher.
  *   .setTimeLimit(sec) - set the time limit to run a code.
  */
 
@@ -20,7 +20,8 @@ var CodeRunner = (function () {
   var dispatchQueue = [];
 
   /** list of observers of dispatcher's state change */
-  var observers = [];
+  var stateChangeListener = null;
+  var alertListener = null;  // observer of errors
 
   /** when true, the dispatching functions stop. */
   var stopReq = false;  // request to stop
@@ -38,30 +39,23 @@ var CodeRunner = (function () {
     close: function () {}
   };
 
-  /** error handler */
-  var alertListener;
-  if (typeof alert !== 'undefined') { alertListener = alert; }
-
   return {
     runCode: runCode_,
     stop: function () {
       if (active) { stopReq = true; }
     },
-    addListener: function (listener) {
-      observers.push(listener);
-    },
     setTarget: function (t) { target = t; },
     setTimeLimit: function (sec) { timeLimit = sec; },
-    setAlertListener: function (listener) { alertListener = listener; },
     createStub: createStub_  // for communicating with server.js
   };
 
-  function runCode_(code) {
+  function runCode_(code, stateChange, alert) {
     // the dispatcher is still active?
     if (active) {
       // request to stop and wait a moment
       stopReq = true;
-      setTimeout(function () { runCode_(code); }, 10);
+      setTimeout(function () {
+        runCode_(code, stateChange, alert); }, 10);
       return;
     }
 
@@ -71,6 +65,8 @@ var CodeRunner = (function () {
     stopReq = false;
     startTime = null;
     LoopTrap = 1000;
+    stateChangeListener = stateChange;
+    alertListener = alert;
     try {
       eval(code);
       setActive_();
@@ -87,16 +83,12 @@ var CodeRunner = (function () {
   function setActive_() {
     target.open();
     active = true;
-    for (var i = 0; i < observers.length; i++) {
-      (observers[i])(active);
-    }
+    stateChangeListener(active);
   }
   function setInactive_() {
     target.close();
     active = false;
-    for (var i = 0; i < observers.length; i++) {
-      (observers[i])(active);
-    }
+    stateChangeListener(active);
   }
 
   /*
@@ -210,21 +202,20 @@ var CodeRunner = (function () {
    */
   function createStub_(socket) {
     socket.on('changeState', function (active) {
-      for (var i = 0; i < observers.length; i++) {
-        (observers[i])(active);
-      }
+      stateChangeListener(active);
     });
     socket.on('alert', function (msg) {
       window.alert(msg);
     });
     return {
-      runCode: function (code) { socket.emit('runCode', code); },
+      runCode: function (code, stateChange, alert) {
+        stateChangeListener = stateChange;
+        alertListener = alert;
+        socket.emit('runCode', code);
+      },
       stop:    function ()     { socket.emit('stop'); },
       setTimeLimit:
                function (sec)  { socket.emit('setTimeLimit', sec); },
-      addListener: function (listener) {
-        observers.push(listener);
-      },
       setTarget: undefined
     };
   }

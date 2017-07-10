@@ -116,12 +116,21 @@ server.listen(port);
 console.log('Server running at http://localhost:' + port);
 
 io.sockets.on('connection', function (socket) {
-    console.log('connection from ' + socket.conn.remoteAddress);
-    codeRunner.addListener(changeStateListener);
-    codeRunner.setAlertListener(alertListener);
+    var addr = socket.handshake.address;
+    console.log('connection from ' + addr + ' socket.id=' + socket.id);
+    if (!allowedAddress(addr)) {
+        console.log('ERR: connection not allowed');
+        return;
+    }
     socket.on('runCode', function (code) {
-        console.log('runCode');
-        codeRunner.runCode(code);
+        console.log('runCode socket.id=' + socket.id);
+        codeRunner.runCode(code, function (state) {
+            console.log('changeState to ' + state);
+            socket.emit('changeState', state);
+        }, function (msg) {
+            console.log('alert on running code: ' + msg);
+            socket.emit('alert', msg);
+        });
     });
     socket.on('stop', function () {
         console.log('stop');
@@ -131,13 +140,11 @@ io.sockets.on('connection', function (socket) {
         console.log('setTimeLimit');
         codeRunner.setTimeLimit(sec);
     });
-    function changeStateListener(state) {
-        console.log('changeState to ' + state);
-        socket.emit('changeState', state);
-    }
-    function alertListener(msg) {
-        console.log('alert: ' + msg);
-        socket.emit('alert', msg);
-    }
-
 });
+
+function allowedAddress(addr) {
+    if (addr == '127.0.0.1') { return true; }
+    if (addr == '::1') { return true; }
+    if (addr.startsWith('172.21.')) { return true; }
+    return false;
+}
