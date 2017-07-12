@@ -13,15 +13,14 @@
  * Usage:
  * ```
  * $ node install                    # to install socket.io
- * $ ../serial-led-pi/bkykeepfifo    # create a fifo and keep it opened
- * $ sudo ../serial-led-pi/bkyreceiver &
- * $ node server.js
+ * $ sudo node server.js
  * ```
  */
 
-var port = 8080;
-var nLed = 12;  // no problem if it is more than the real number of LEDs.
-var ledFifo = '/tmp/bky-led-fifo';
+const port    = 8080;
+const nLed    = 12;  // no problem if it is more than the real number of LEDs.
+const gpioPin = 18;
+const serialLedDir = '../serial-led-pi';
 
 // Rules for connection permission
 function allowedAddress(addr) {
@@ -33,11 +32,18 @@ function allowedAddress(addr) {
     return false;
 }
 
-// Check whether the fifo exists.
+// Check whether running in the correct directory.
 var fs = require('fs');
-if (typeof ledFifo !== 'undefined' && !fs.existsSync(ledFifo)) {
-    console.log('Error: ' + ledFifo + ' does not exist.' +
-                ' Run bkykeepfifo first.');
+if (!fs.existsSync('index.html')) {
+    console.log('Error: index.html does not exist.');
+    console.log('Maybe you are running this in a wrong directory.');
+    process.exit(1);
+}
+
+// Setup the LEDs.
+var bkyled = require(serialLedDir + '/build/Release/bky-led');
+if (bkyled.setup(gpioPin, nLed) == -1) {
+    console.log('Error: cannot setup an LED strip.');
     process.exit(1);
 }
 
@@ -54,25 +60,28 @@ var ledStrip = (function () {
             dirty = true;
         },
         flush: flush_,
-        open:  function () { fd = fs.openSync(ledFifo, 'w'); },
-        close: function () { fd = fs.closeSync(fd); }
+        open:  function () {},
+        close: function () {}
     };
     function clearAllLed_() {
         for (var i = 0; i < nLed; i++) {
-            buffer[i] = '#000000';
+            setLedColor_(i, '#000000');
         }
     }
     function setLedColor_(led, color) {
         if (0 <= led && led < nLed &&
             color.startsWith('#') && color.length == 7)
         {
-            buffer[led] = color;
+            var r = parseInt(color.substring(1, 3), 16);
+            var g = parseInt(color.substring(3, 5), 16);
+            var b = parseInt(color.substring(5, 7), 16);
+            bkyled.setColor(led, r, g, b);
             dirty = true;
         }
     }
     function flush_() {
         if (dirty) {
-            fs.writeSync(fd, buffer.join('') + '\n');
+            bkyled.send();
             dirty = false;
         }
     }
@@ -124,6 +133,15 @@ server.on('request', function(req, res) {
 var io = require('socket.io').listen(server);
 server.listen(port);
 console.log('Server running at http://localhost:' + port);
+
+process.on('SIGINT',  terminateServer);
+process.on('SIGHUP',  terminateServer);
+process.on('SIGTERM', terminateServer);
+function terminateServer () {
+    console.log('terminating server.js');
+    bkyled.cleanup();
+    process.exit(0);
+}
 
 io.sockets.on('connection', function (socket) {
     var addr = socket.handshake.address;
