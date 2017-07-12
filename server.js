@@ -28,6 +28,7 @@ function allowedAddress(addr) {
     if (addr == '127.0.0.1') { return true; }
     if (addr == '::1') { return true; }
     if (addr.startsWith('172.21.')) { return true; }
+    if (addr.startsWith('::ffff:172.21.')) { return true; }
     if (addr.startsWith('fe80:')) { return true; } // link-local addr
     return false;
 }
