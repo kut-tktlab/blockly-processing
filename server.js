@@ -41,7 +41,7 @@ if (!fs.existsSync('index.html')) {
 }
 
 // Setup the LEDs.
-var bkyled = require(serialLedDir + '/build/Release/bky-led');
+var bkyled = require(serialLedDir + '/build/Release/serialled');
 if (bkyled.setup(gpioPin, nLed) == -1) {
     console.log('Error: cannot setup an LED strip.');
     process.exit(1);
