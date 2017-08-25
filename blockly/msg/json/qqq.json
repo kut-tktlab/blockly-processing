@@ -421,5 +421,6 @@
 	"FIGURES_NOFILL_TITLE": "block text",
 	"FIGURES_STROKE_WEIGHT_TITLE": "block text",
 	"FIGURES_STROKE": "dropdown - Stroke of a figure.",
-	"FIGURES_FILL": "dropdown"
+	"FIGURES_FILL": "dropdown",
+	"FIGURES_TRANSLATE_TITLE": "block text - Translate the origin. \n\nParameters:\n* %1 - x\n* %2 - y"
 }

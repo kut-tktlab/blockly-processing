@@ -100,6 +100,7 @@ Blockly.Msg.FIGURES_SHAPE_TITLE = "%1 を描く x %2 y %3 幅 %4 高さ %5";
 Blockly.Msg.FIGURES_SHAPE_WIDTH = "幅";
 Blockly.Msg.FIGURES_STROKE = "輪郭線";
 Blockly.Msg.FIGURES_STROKE_WEIGHT_TITLE = "輪郭線の幅 %1";
+Blockly.Msg.FIGURES_TRANSLATE_TITLE = "原点を移動する x %1 y %2";
 Blockly.Msg.FIGURES_TRIANGLE = "三角形";
 Blockly.Msg.HELP = "ヘルプ";
 Blockly.Msg.INLINE_INPUTS = "インライン入力";

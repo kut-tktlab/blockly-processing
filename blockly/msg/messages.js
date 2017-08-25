@@ -1267,3 +1267,6 @@ Blockly.Msg.FIGURES_STROKE_WEIGHT_TITLE = 'Set the stroke weight to %1';
 Blockly.Msg.FIGURES_STROKE = 'stroke';
 /// dropdown
 Blockly.Msg.FIGURES_FILL = 'filling';
+/// block text - Translate the origin.
+/// \n\nParameters:\n* %1 - x\n* %2 - y
+Blockly.Msg.FIGURES_TRANSLATE_TITLE = 'Translate the origin to x %1 y %2';

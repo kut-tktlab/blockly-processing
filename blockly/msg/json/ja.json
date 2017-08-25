@@ -391,6 +391,7 @@
 	"FIGURES_STROKE_WEIGHT_TITLE": "輪郭線の幅 %1",
 	"FIGURES_STROKE": "輪郭線",
 	"FIGURES_FILL": "塗りつぶし",
+	"FIGURES_TRANSLATE_TITLE": "原点を移動する x %1 y %2",
 	"LED_SET_COLOR_TITLE": "LEDの色を変える 位置 %1 色 %2",
 	"LED_TURN_OFF_TITLE": "LEDを消灯 位置 %1",
 	"LED_TURN_OFF_ALL_TITLE": "全LEDを消灯"

@@ -34,7 +34,7 @@ goog.require('Blockly.Processing');
 
 
 Blockly.Processing['figures_shape'] = function(block) {
-  var order_none = Blockly.Processing.ORDER_NONE;
+  var order_comma = Blockly.Processing.ORDER_COMMA;
   var params = {
     'RECT':     ['X', 'Y', 'WIDTH', 'HEIGHT'],
     'ELLIPSE':  ['X', 'Y', 'WIDTH', 'HEIGHT'],
@@ -48,7 +48,7 @@ Blockly.Processing['figures_shape'] = function(block) {
   var parList = [];
   for (var i = 0; i < params[shape].length; i++) {
     var parName = params[shape][i];
-    var p = Blockly.Processing.valueToCode(block, parName, order_none)
+    var p = Blockly.Processing.valueToCode(block, parName, order_comma)
             || 0;
     if (parName == 'SA' || parName == 'EA') {
       p = 'radians(' + p + ')'
@@ -61,7 +61,7 @@ Blockly.Processing['figures_shape'] = function(block) {
 
 Blockly.Processing['figures_background'] = function(block) {
   var c = Blockly.Processing.valueToCode(block, 'COLOUR',
-          Blockly.Processing.ORDER_COMMA) || '#000000';
+          Blockly.Processing.ORDER_NONE) || '#000000';
   return 'background(' + c + ');\n'
 }
 
@@ -69,20 +69,26 @@ Blockly.Processing['figures_colour'] = function(block) {
   var target = block.getFieldValue('TARGET');
   var fun = target.toLowerCase();
   var c = Blockly.Processing.valueToCode(block, 'COLOUR',
-          Blockly.Processing.ORDER_COMMA) || '#000000';
+          Blockly.Processing.ORDER_NONE) || '#000000';
   return fun + '(' + c + ');\n'
 }
 
 Blockly.Processing['figures_nofill'] = function(block) {
   var target = block.getFieldValue('TARGET');
   var fun = 'no' + target.substr(0, 1) + target.substr(1).toLowerCase();
-  var c = Blockly.Processing.valueToCode(block, 'COLOUR',
-          Blockly.Processing.ORDER_COMMA) || '#000000';
   return fun + '();\n'
 }
 
 Blockly.Processing['figures_stroke_weight'] = function(block) {
   var w = Blockly.Processing.valueToCode(block, 'WEIGHT',
-          Blockly.Processing.ORDER_COMMA) || 1;
+          Blockly.Processing.ORDER_NONE) || 1;
   return 'strokeWeight(' + w + ');\n'
+}
+
+Blockly.Processing['figures_translate'] = function(block) {
+  var x = Blockly.Processing.valueToCode(block, 'X',
+          Blockly.Processing.ORDER_COMMA) || 0;
+  var y = Blockly.Processing.valueToCode(block, 'Y',
+          Blockly.Processing.ORDER_COMMA) || 0;
+  return 'translate(' + x + ', ' + y + ');\n'
 }

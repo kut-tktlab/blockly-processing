@@ -100,6 +100,7 @@ Blockly.Msg.FIGURES_SHAPE_TITLE = "Draw %1 at x %1 y %2 width %3 height %4";  //
 Blockly.Msg.FIGURES_SHAPE_WIDTH = "width";  // untranslated
 Blockly.Msg.FIGURES_STROKE = "stroke";  // untranslated
 Blockly.Msg.FIGURES_STROKE_WEIGHT_TITLE = "Set the stroke weight to %1";  // untranslated
+Blockly.Msg.FIGURES_TRANSLATE_TITLE = "Translate the origin to x %1 y %2";  // untranslated
 Blockly.Msg.FIGURES_TRIANGLE = "triangle";  // untranslated
 Blockly.Msg.HELP = "Trợ Giúp";
 Blockly.Msg.INLINE_INPUTS = "Chỗ Gắn Cùng Dòng";

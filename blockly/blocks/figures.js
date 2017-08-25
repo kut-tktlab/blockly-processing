@@ -164,6 +164,27 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_FIGURES_HUE}"
+  },
+  // Block for translation.
+  {
+    "type": "figures_translate",
+    "message0": "%{BKY_FIGURES_TRANSLATE_TITLE}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "X",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "Y",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_FIGURES_HUE}"
   }
 ]);  // END JSON EXTRACT (Do not delete this comment.)
 

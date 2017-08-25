@@ -79,13 +79,14 @@ Blockly.Processing['math_single'] = function(block) {
   if (operator == 'SIN' || operator == 'COS' || operator == 'TAN') {
     arg = Blockly.Processing.valueToCode(block, 'NUM',
         Blockly.Processing.ORDER_DIVISION) || '0';
+  } else if (operator == 'ATAN2') {
+    arg  = Blockly.Processing.valueToCode(block, 'NUM',
+        Blockly.Processing.ORDER_COMMA) || '0';
+    arg2 = Blockly.Processing.valueToCode(block, 'X',
+        Blockly.Processing.ORDER_COMMA) || '0';
   } else {
     arg = Blockly.Processing.valueToCode(block, 'NUM',
         Blockly.Processing.ORDER_NONE) || '0';
-    if (operator == 'ATAN2') {
-      arg2 = Blockly.Processing.valueToCode(block, 'X',
-        Blockly.Processing.ORDER_NONE) || '0';
-    }
   }
   // First, handle cases which generate values that don't need parentheses
   // wrapping the code.

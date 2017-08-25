@@ -100,6 +100,7 @@ Blockly.Msg.FIGURES_SHAPE_TITLE = "Draw %1 at x %1 y %2 width %3 height %4";
 Blockly.Msg.FIGURES_SHAPE_WIDTH = "width";
 Blockly.Msg.FIGURES_STROKE = "stroke";
 Blockly.Msg.FIGURES_STROKE_WEIGHT_TITLE = "Set the stroke weight to %1";
+Blockly.Msg.FIGURES_TRANSLATE_TITLE = "Translate the origin to x %1 y %2";
 Blockly.Msg.FIGURES_TRIANGLE = "triangle";
 Blockly.Msg.HELP = "Help";
 Blockly.Msg.INLINE_INPUTS = "Inline Inputs";

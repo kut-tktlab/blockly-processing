@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-08-25 16:55:04.722740",
+		"lastupdated": "2017-08-25 17:12:21.559457",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -427,5 +427,6 @@
 	"FIGURES_NOFILL_TITLE": "Draw figures without %1",
 	"FIGURES_STROKE_WEIGHT_TITLE": "Set the stroke weight to %1",
 	"FIGURES_STROKE": "stroke",
-	"FIGURES_FILL": "filling"
+	"FIGURES_FILL": "filling",
+	"FIGURES_TRANSLATE_TITLE": "Translate the origin to x %1 y %2"
 }
