@@ -48,8 +48,21 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   // Block for the setup routine.
   {
     "type": "basics_setup",
-    "message0": "%{BKY_BASICS_SETUP_TITLE} %1 %2",
+    "message0": "%{BKY_BASICS_SETUP_TITLE} %1 %{BKY_FIGURES_SHAPE_WIDTH} %2 %{BKY_FIGURES_SHAPE_HEIGHT} %3 %4 %5",
     "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "field_number",
+        "name": "WIDTH",
+        "value": 100
+      },
+      {
+        "type": "field_number",
+        "name": "HEIGHT",
+        "value": 100
+      },
       {
         "type": "input_dummy"
       },
@@ -58,6 +71,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "name": "DO"
       }
     ],
+    "inputsInline": false,
     "colour": "%{BKY_BASICS_HUE}"
   },
   // Block for the main loop.
@@ -87,5 +101,24 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "previousStatement": null,
     "nextStatement": null,
     "colour": "%{BKY_BASICS_HUE}"
+  },
+  // Block for built-in variable.
+  {
+    "type": "basics_builtin_var",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "VAR",
+        "options": [
+          ["width", "WIDTH"], // display_name, language_independent_name
+          ["height", "HEIGHT"],
+          ["mouseX", "MOUSE_X"],
+          ["mouseY", "MOUSE_Y"]
+        ]
+      }
+    ],
+    "output": "Number",
+    "colour": "%{BKY_FIGURES_HUE}"
   }
 ]);  // END JSON EXTRACT (Do not delete this comment.)

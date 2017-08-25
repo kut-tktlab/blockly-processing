@@ -67,7 +67,7 @@ Blockly.Msg.PROCEDURES_HUE = '290';
 /// {{Notranslate}} Hue value for all timer blocks.
 Blockly.Msg.BASICS_HUE = '#137ad4';
 /// {{Notranslate}} Hue value for all leds blocks.
-Blockly.Msg.LEDS_HUE = '#5b318f';
+Blockly.Msg.FIGURES_HUE = '#5b318f';
 
 /// default name - A simple, general default name for a variable, preferably short.
 /// For more context, see
@@ -556,6 +556,13 @@ Blockly.Msg.MATH_RANDOM_INT_HELPURL = 'https://en.wikipedia.org/wiki/Random_numb
 Blockly.Msg.MATH_RANDOM_INT_TITLE = 'random integer from 0 to %1';
 /// tooltip - Return a random integer between two values specified as inputs.  For example, if one input was 7 and another 9, any of the numbers 7, 8, or 9 could be produced.
 Blockly.Msg.MATH_RANDOM_INT_TOOLTIP = 'Return a random integer between the two specified limits, inclusive.';
+
+/// url - Information about how computers generate random numbers.
+Blockly.Msg.MATH_RANDOM_HELPURL = 'https://en.wikipedia.org/wiki/Random_number_generation';
+/// block text - The title of the block that generates a random number (whole number) in the specified range.  For example, if the range is from 5 to 7, this returns 5, 6, or 7 with equal likelihood. %1 is a placeholder for the lower number, %2 is the placeholder for the larger number.
+Blockly.Msg.MATH_RANDOM_TITLE = 'random number from 0 to %1';
+/// tooltip - Return a random number between two values specified as inputs.  For example, if one input was 7 and another 9, any of the numbers 7, 8, or 9 could be produced.
+Blockly.Msg.MATH_RANDOM_TOOLTIP = 'Return a random number between the two specified limits, exclusive.';
 
 /// url - Information about how computers generate random numbers (specifically, numbers in the range from 0 to just below 1).
 Blockly.Msg.MATH_RANDOM_FLOAT_HELPURL = 'https://en.wikipedia.org/wiki/Random_number_generation';
@@ -1216,11 +1223,28 @@ Blockly.Msg.BASICS_LOOP_TITLE = 'Forever do';
 /// \n\nParameters:\n* %1 - the number of seconds to wait
 Blockly.Msg.BASICS_SLEEP_TITLE = 'Wait for %1 milliseconds';
 
-/// block text - Set the color of an LED.
-/// \n\nParameters:\n* %1 - the id of an LED\n* %2 - colour
-Blockly.Msg.LED_SET_COLOR_TITLE = 'Set the color of LED %1 to colour %2';
-/// block text - Turn off an LED.
-/// \n\nParameters:\n* %1 - the id of an LED
-Blockly.Msg.LED_TURN_OFF_TITLE = 'Turn off LED %1';
-/// block text - Turn off all LEDs.
-Blockly.Msg.LED_TURN_OFF_ALL_TITLE = 'Turn off all LEDs';
+/// block text - Draw a figure.
+/// \n\nParameters:\n* %1 - the figure type
+/// \n* %2 - x\n* %3 - y\n* %4 - width\n* %5 - height
+Blockly.Msg.FIGURES_SHAPE_TITLE = 'Draw %1 at x %1 y %2 width %3 height %4';
+Blockly.Msg.FIGURES_SHAPE_WIDTH = 'width';
+Blockly.Msg.FIGURES_SHAPE_HEIGHT = 'height';
+Blockly.Msg.FIGURES_SHAPE_START_ANGLE = 'start angle';
+Blockly.Msg.FIGURES_SHAPE_END_ANGLE = 'end angle';
+/// dropdown - Draw a rectangle.
+Blockly.Msg.FIGURES_RECT = 'rect';
+Blockly.Msg.FIGURES_ELLIPSE = 'ellipse';
+Blockly.Msg.FIGURES_LINE = 'line';
+Blockly.Msg.FIGURES_TRIANGLE = 'triangle';
+Blockly.Msg.FIGURES_QUAD = 'quad';
+Blockly.Msg.FIGURES_POINT = 'point';
+Blockly.Msg.FIGURES_ARC = 'arc';
+/// block text - Fill background.
+/// \n\nParameters:\n* %1 - colour
+Blockly.Msg.FIGURES_BACKGROUND_TITLE = 'Clear the window with colour %1';
+Blockly.Msg.FIGURES_COLOUR_TITLE = 'Set the colour of %1 to colour %2';
+Blockly.Msg.FIGURES_NOFILL_TITLE = 'Draw figures without %1';
+Blockly.Msg.FIGURES_STROKE_WEIGHT_TITLE = 'Set the stroke weight to %1';
+/// dropdown - Stroke of a figure.
+Blockly.Msg.FIGURES_STROKE = 'stroke';
+Blockly.Msg.FIGURES_FILL = 'filling';

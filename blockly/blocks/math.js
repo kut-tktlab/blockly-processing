@@ -365,6 +365,28 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "tooltip": "%{BKY_MATH_RANDOM_INT_TOOLTIP}",
     "helpUrl": "%{BKY_MATH_RANDOM_INT_HELPURL}"
   },
+  // Block for random float between [X] and [Y].
+  {
+    "type": "math_random",
+    "message0": "%{BKY_MATH_RANDOM_TITLE}",
+    "args0": [
+      //{
+      //  "type": "input_value",
+      //  "name": "FROM",
+      //  "check": "Number"
+      //},
+      {
+        "type": "input_value",
+        "name": "TO",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "output": "Number",
+    "colour": "%{BKY_MATH_HUE}",
+    "tooltip": "%{BKY_MATH_RANDOM_TOOLTIP}",
+    "helpUrl": "%{BKY_MATH_RANDOM_HELPURL}"
+  },
 
   // Block for random integer between [X] and [Y].
   {

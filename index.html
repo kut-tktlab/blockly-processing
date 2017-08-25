@@ -7,13 +7,11 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blockly-for-led</title>
+  <title>Blockly-Processing</title>
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
-  <script src="blockly/javascript_compressed.js"></script>
-  <script src="blockly/python_compressed.js"></script>
+  <script src="blockly/processing_compressed.js"></script>
   <script src="blockly/msg/js/ja.js"></script>
-  <script src="ledsimulator.js"></script>
   <style>
     body {
       background-color: #fff;
@@ -36,6 +34,9 @@
     }
     #blocklyMainContainer > canvas {
       margin-left: 20px;
+    }
+    #sketch {
+      border: solid 1px #444;
     }
     .modal { /* covers the main window */
       display: none;
@@ -76,22 +77,24 @@
 </head>
 <body>
 
+  <div id="blocklyMainContainer">
+    <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
+  </div>
+
   <p>
-    <span style="display: inline-block; width: 80px;">
-      <button onclick="runOrStopCode()" id="runButton">&#9658; Run</button>
-    </span>
-    <span>
-      <button onclick="changeNLed()">すべて消灯</button>
-      <select onchange="changeNLed()" id="nled-selector">
-        <option value="10">LED 10個</option>
-        <option value="12">LED 12個</option>
-      </select>
+    <span style="display: inline-block">
+      <button onclick="runCode()"  id="runButton" >&#9658; Run</button>
+      <button onclick="stopCode()" id="stopButton">&#9724; Stop</button>
     </span>
     <span style="margin-left: 80px;">
       <button onclick="saveBlocks()"    id="saveButton"   >保存</button>
       <button onclick="restoreBlocks()" id="restoreButton">復元</button> &nbsp;&nbsp;
       <button onclick="clearBlocks()"   id="clearButton"  >全消去</button>
     </span>
+    <span style="margin-left: 80px; font-size: smaller;">
+      For debugging:
+    </span>
+    <button onclick="showCode()">Show Processing</button>
   </p>
   <div id="restoreModal" class="modal" onclick="pressCancelRestoreBlocks(event)">
     <div class="modalWindow" style="width: 480px">
@@ -106,53 +109,73 @@
     </div>
   </div>
 
-  <div id="blocklyMainContainer">
-    <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
-    <canvas id="simulatorCanvas" width="80" height="480"></canvas>
+  <h2>Canvas</h2>
+  <div id="sketch-container">
+    <canvas id="sketch" width="100" height="100"></canvas>
   </div>
-  <div>
-    <span style="font-size: smaller;">
-      For debugging:
-    </span>
-    <button onclick="showCodePy()">Show Python</button>
-    <button onclick="showCode()">Show JavaScript</button>
-  </div>
+
+  <h2>System Output</h2>
+  <textarea rows="5" cols="80" id="output" readonly="readonly">None.</textarea>
 
   <xml id="toolbox" style="display: none">
     <category name="基本" colour="%{BKY_BASICS_HUE}">
       <block type="basics_setup"></block>
       <block type="basics_loop"></block>
-      <block type="basics_sleep">
-        <value name="MSEC">
+    </category>
+    <category name="図形" colour="%{BKY_FIGURES_HUE}">
+      <block type="figures_shape">
+        <value name="X">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <value name="Y">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <value name="WIDTH">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+        <value name="HEIGHT">
           <shadow type="math_number">
             <field name="NUM">10</field>
           </shadow>
         </value>
       </block>
-    </category>
-    <category name="LED" colour="%{BKY_LEDS_HUE}">
-      <block type="led_set_color">
-        <value name="LED">
-          <shadow type="math_number">
-            <field name="NUM">0</field>
-          </shadow>
-        </value>
-        <value name="COLOR">
+      <block type="figures_colour">
+        <field name="TARGET">FILL</field>
+        <value name="COLOUR">
           <shadow type="colour_picker">
-            <field name="COLOUR">#ff0000</field>
+            <field name="COLOUR">#ffffff</field>
           </shadow>
         </value>
       </block>
-      <block type="led_turn_off">
-        <value name="LED">
+      <block type="figures_nofill">
+      </block>
+      <block type="figures_stroke_weight">
+        <value name="WEIGHT">
           <shadow type="math_number">
-            <field name="NUM">0</field>
+            <field name="NUM">1</field>
           </shadow>
         </value>
       </block>
-      <block type="led_turn_off_all"></block>
+      <block type="figures_background">
+        <value name="COLOUR">
+          <shadow type="colour_picker">
+            <field name="COLOUR">#cccccc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="basics_builtin_var"></block>
+      <block type="basics_builtin_var">
+        <field name="VAR">MOUSE_X</field>
+      </block>
     </category>
     <category name="ループ" colour="%{BKY_LOOPS_HUE}">
+<!--
       <block type="controls_repeat_ext">
         <value name="TIMES">
           <shadow type="math_number">
@@ -160,13 +183,13 @@
           </shadow>
         </value>
       </block>
+-->
       <block type="controls_while">
         <value name="BOOL">
           <shadow type="logic_boolean">
           </shadow>
         </value>
       </block>
-<!--
       <block type="controls_for">
         <value name="FROM">
           <shadow type="math_number">
@@ -184,7 +207,7 @@
           </shadow>
         </value>
       </block>
--->
+<!--
       <block type="controls_for_simple">
         <value name="TO">
           <shadow type="math_number">
@@ -192,7 +215,6 @@
           </shadow>
         </value>
       </block>
-<!--
       <block type="controls_flow_statements"></block>
 -->
     </category>
@@ -203,6 +225,15 @@
         </value>
       </block>
       <block type="logic_compare">
+        <value name="A">
+          <shadow type="math_number"></shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number"></shadow>
+        </value>
+      </block>
+      <block type="logic_compare">
+        <field name="OP">LT</field>
         <value name="A">
           <shadow type="math_number"></shadow>
         </value>
@@ -227,10 +258,10 @@
       <block type="math_single"></block>
       <block type="math_trig"></block>
       <block type="math_round"></block>
-      <block type="math_random_int">
+      <block type="math_random">
         <value name="TO">
           <shadow type="math_number">
-            <field name="NUM">4</field>
+            <field name="NUM">6</field>
           </shadow>
         </value>
       </block>
@@ -311,54 +342,6 @@
   <xml id="startBlocks" style="display: none">
     <block type="basics_setup" x="20" y="20"></block>
     <block type="basics_loop"  x="220" y="20"></block>
-<!--
-    <block type="controls_if" inline="false" x="20" y="20">
-      <mutation else="1"></mutation>
-      <value name="IF0">
-        <block type="logic_compare" inline="true">
-          <field name="OP">EQ</field>
-          <value name="A">
-            <block type="math_arithmetic" inline="true">
-              <field name="OP">MULTIPLY</field>
-              <value name="A">
-                <block type="math_number">
-                  <field name="NUM">6</field>
-                </block>
-              </value>
-              <value name="B">
-                <block type="math_number">
-                  <field name="NUM">7</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <value name="B">
-            <block type="math_number">
-              <field name="NUM">42</field>
-            </block>
-          </value>
-        </block>
-      </value>
-      <statement name="DO0">
-        <block type="text_print" inline="false">
-          <value name="TEXT">
-            <block type="text">
-              <field name="TEXT">Don't panic</field>
-            </block>
-          </value>
-        </block>
-      </statement>
-      <statement name="ELSE">
-        <block type="text_print" inline="false">
-          <value name="TEXT">
-            <block type="text">
-              <field name="TEXT">Panic</field>
-            </block>
-          </value>
-        </block>
-      </statement>
-    </block>
--->
   </xml>
 
   <script>
@@ -387,79 +370,27 @@
       }
     }
 
-    function showCodePy() {
-      // Generate Python code and display it.
-      var code = Blockly.Python.workspaceToCode(workspace);
-      alert(code);
-    }
-
     function showCode() {
-      // Generate JavaScript code and display it.
-      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-      var code = Blockly.JavaScript.workspaceToCode(workspace);
+      // Generate Processing code and display it.
+      Blockly.Processing.INFINITE_LOOP_TRAP = null;
+      var code = Blockly.Processing.workspaceToCode(workspace);
       alert(code);
     }
 
     function runCode() {
-      // Generate JavaScript code and run it.
-      window.LoopTrap = 1000;
-      Blockly.JavaScript.INFINITE_LOOP_TRAP =
-          'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-      var code = Blockly.JavaScript.workspaceToCode(workspace);
-      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+      // Generate Processing code and run it.
+      //window.LoopTrap = 1000;
+      //Blockly.Processing.INFINITE_LOOP_TRAP =
+      //    'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+      var code = Blockly.Processing.workspaceToCode(workspace);
+      //Blockly.Processing.INFINITE_LOOP_TRAP = null;
 
-      LedSimulator.Dispatcher.runCode(code);
+      window.sketchCode = code;
+      runSketch();
     }
 
     function stopCode() {
-      LedSimulator.Dispatcher.stop();
-    }
-
-    var runButtonMode = true;  // the button is "to Run"
-    function runOrStopCode() {
-      if (runButtonMode) {
-        runCode();
-      } else {
-        stopCode();
-      }
-    }
-
-    // Add an observer of the notification of state change.
-    LedSimulator.Dispatcher.addListener(dispatcherChangeState);
-    function dispatcherChangeState(isActive) {
-      var button = document.getElementById('runButton');
-      var buttonsToDisable = [
-        document.getElementById('saveButton'),
-        document.getElementById('restoreButton'),
-        document.getElementById('clearButton')
-      ];
-      if (isActive) {
-        // make the button "to Stop"
-        runButtonMode = false;
-        button.innerHTML = '&#9724; Stop';
-      } else {
-        // make the button "to Run"
-        runButtonMode = true;
-        button.innerHTML = '&#9658; Run';
-      }
-      for (var i = 0; i < buttonsToDisable.length; i++) {
-        buttonsToDisable[i].disabled = isActive;
-      }
-    }
-
-    var canvas = document.getElementById('simulatorCanvas');
-    LedSimulator.init(canvas);
-
-    function changeNLed() {
-      LedSimulator.Dispatcher.stop();
-      var selector = document.getElementById('nled-selector');
-      LedSimulator.setNLed(selector.options[selector.selectedIndex].value);
-    }
-    function setLedColor() {
-      LedSimulator.Dispatcher.stop();
-      var led = document.getElementById('ledsim-led').value;
-      var color = document.getElementById('ledsim-color').value;
-      LedSimulator.setLedColor(led, color);
+      stopSketch();
     }
 
     /** ブロックを全消去 */
@@ -544,21 +475,31 @@
   </script>
 
 <div class="footnote">
+<h2>Note</h2>
 <p>
-Note:
 This application is a derived work of Google's
 <a href="https://developers.google.com/blockly/">Blockly</a>
 <a href="https://blockly-demo.appspot.com/static/demos/index.html">Demos</a> /
 <a href="https://blockly-demo.appspot.com/static/demos/generator/index.html">Generating JavaScript</a>.
+<br />
+This app also incorporates
+    <a href="http://processingjs.org">Processing.js</a> and
+    <a href="http://processingjs.org/tools/processing-helper.html"
+    >Processing.js Helper</a> as a Processing engine.
 <br />
 This app imitates the block and toolbox design of
 <a href="http://microbit.org">micro:bit</a>'s
 <a href="https://makecode.microbit.org">JavaScript Blocks Editor</a> and the
 <a href="http://chibibit.io/ide/">chibi:bit IDE</a>.
 <br />
-Blockly and this app are open-source under the Apache License 2.0.
+Blockly and
+<a href="https://github.com/kut-tktlab/blockly-processing/">this app</a>
+are open-source under the Apache License 2.0.
+Processing.js is licensed under the MIT License.
 </p>
 </div>
 
+    <script src="processing.min.js"></script>
+    <script src="processing-helper.js"></script>
 </body>
 </html>
