@@ -139,7 +139,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
           ["%{BKY_MATH_TRIG_TAN}", "TAN"],
           ["%{BKY_MATH_TRIG_ASIN}", "ASIN"],
           ["%{BKY_MATH_TRIG_ACOS}", "ACOS"],
-          ["%{BKY_MATH_TRIG_ATAN}", "ATAN"]
+          ["%{BKY_MATH_TRIG_ATAN}", "ATAN"],
+          ["%{BKY_MATH_TRIG_ATAN2}", "ATAN2"]
         ]
       },
       {
@@ -151,7 +152,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "output": "Number",
     "colour": "%{BKY_MATH_HUE}",
     "helpUrl": "%{BKY_MATH_TRIG_HELPURL}",
-    "extensions": ["math_op_tooltip"]
+    "extensions": ["math_op_tooltip"],
+    "mutator": "math_atan2_mutator"
   },
 
   // Block for constants: PI, E, the Golden Ratio, sqrt(2), 1/sqrt(2), INFINITY.
@@ -430,7 +432,8 @@ Blockly.Constants.Math.TOOLTIPS_BY_OP = {
   'ASIN': '%{BKY_MATH_TRIG_TOOLTIP_ASIN}',
   'ACOS': '%{BKY_MATH_TRIG_TOOLTIP_ACOS}',
   'ATAN': '%{BKY_MATH_TRIG_TOOLTIP_ATAN}',
-
+  'ATAN2': '%{BKY_MATH_TRIG_TOOLTIP_ATAN2}',
+  
   // math_on_lists
   'SUM': '%{BKY_MATH_ONLIST_TOOLTIP_SUM}',
   'MIN': '%{BKY_MATH_ONLIST_TOOLTIP_MIN}',
@@ -586,3 +589,74 @@ Blockly.Constants.Math.LIST_MODES_MUTATOR_EXTENSION = function() {
 Blockly.Extensions.registerMutator('math_modes_of_list_mutator',
   Blockly.Constants.Math.LIST_MODES_MUTATOR_MIXIN,
   Blockly.Constants.Math.LIST_MODES_MUTATOR_EXTENSION);
+
+/**
+ * Mixin for mutator functions in the 'math_atan2_mutator'
+ * extension.
+ * @mixin
+ * @augments Blockly.Block
+ * @package
+ */
+Blockly.Constants.Math.ATAN2_MUTATOR_MIXIN = {
+  /**
+   * Create XML to represent whether the 'secondInput' should be present.
+   * @return {Element} XML storage element.
+   * @this Blockly.Block
+   */
+  mutationToDom: function() {
+    var container = document.createElement('mutation');
+    var secondInput = (this.getFieldValue('OP') == 'ATAN2');
+    container.setAttribute('second_input', secondInput);
+    return container;
+  },
+  /**
+   * Parse XML to restore the 'secondInput'.
+   * @param {!Element} xmlElement XML storage element.
+   * @this Blockly.Block
+   */
+  domToMutation: function(xmlElement) {
+    var secondInput = (xmlElement.getAttribute('second_input') == 'true');
+    this.updateShape_(secondInput);
+  },
+  /**
+   * Modify this block to have (or not have) an input for 'atan2'.
+   * @param {boolean} secondInput True if this block has a second input.
+   * @private
+   * @this Blockly.Block
+   */
+  updateShape_: function(secondInput) {
+    // Add or remove a Value Input.
+    var inputExists = this.getInput('X');
+    if (secondInput) {
+      if (!inputExists) {
+        this.appendValueInput('X')
+            .appendField('x')
+            .setCheck('Number');
+        this.getInput('NUM').appendField('y', 'FIELD_Y');
+        this.setInputsInline(true);
+      }
+    } else if (inputExists) {
+      this.removeInput('X');
+      this.getInput('NUM').removeField('FIELD_Y');
+      this.setInputsInline(false);
+    }
+  }
+};
+
+/**
+ * 'math_atan2_mutator' extension to the 'math_trig' block that
+ * can update the block shape (add/remove the second input) based on whether
+ * operation is "atan2".
+ * @this Blockly.Block
+ * @package
+ */
+Blockly.Constants.Math.ATAN2_MUTATOR_EXTENSION = function() {
+  this.getField('OP').setValidator(function(option) {
+    var secondInput = (option == 'ATAN2');
+    this.sourceBlock_.updateShape_(secondInput);
+  });
+};
+
+Blockly.Extensions.registerMutator('math_atan2_mutator',
+  Blockly.Constants.Math.ATAN2_MUTATOR_MIXIN,
+  Blockly.Constants.Math.ATAN2_MUTATOR_EXTENSION);

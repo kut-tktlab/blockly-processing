@@ -64,6 +64,7 @@ Blockly.Processing['math_single'] = function(block) {
   var operator = block.getFieldValue('OP');
   var code;
   var arg;
+  var arg2 = null;
   if (operator == 'NEG') {
     // Negation is a special case given its different operator precedence.
     arg = Blockly.Processing.valueToCode(block, 'NUM',
@@ -81,6 +82,10 @@ Blockly.Processing['math_single'] = function(block) {
   } else {
     arg = Blockly.Processing.valueToCode(block, 'NUM',
         Blockly.Processing.ORDER_NONE) || '0';
+    if (operator == 'ATAN2') {
+      arg2 = Blockly.Processing.valueToCode(block, 'X',
+        Blockly.Processing.ORDER_NONE) || '0';
+    }
   }
   // First, handle cases which generate values that don't need parentheses
   // wrapping the code.
@@ -136,6 +141,9 @@ Blockly.Processing['math_single'] = function(block) {
       break;
     case 'ATAN':
       code = 'atan(' + arg + ') / PI * 180';
+      break;
+    case 'ATAN2':
+      code = 'atan2(' + arg + ', ' + arg2 + ') / PI * 180';
       break;
     default:
       throw 'Unknown math operator: ' + operator;

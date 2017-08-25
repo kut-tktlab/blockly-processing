@@ -404,6 +404,9 @@ Blockly.Msg.MATH_TRIG_ACOS = 'acos';
 /// math - The short name of the ''inverse of'' the trigonometric function
 /// [https://en.wikipedia.org/wiki/Trigonometric_functions#Sine.2C_cosine_and_tangent tangent].
 Blockly.Msg.MATH_TRIG_ATAN = 'atan';
+/// math - The short name of the ''inverse of'' the trigonometric function
+/// [https://en.wikipedia.org/wiki/Trigonometric_functions#Sine.2C_cosine_and_tangent tangent].
+Blockly.Msg.MATH_TRIG_ATAN2 = 'atan2';
 
 /// url - Information about addition, subtraction, multiplication, division, and exponentiation.
 Blockly.Msg.MATH_ARITHMETIC_HELPURL = 'https://en.wikipedia.org/wiki/Arithmetic';
@@ -454,6 +457,8 @@ Blockly.Msg.MATH_TRIG_TOOLTIP_ASIN = 'Return the arcsine of a number.';
 Blockly.Msg.MATH_TRIG_TOOLTIP_ACOS = 'Return the arccosine of a number.';
 /// tooltip - The [https://en.wikipedia.org/wiki/Inverse_trigonometric_functions inverse] of the [https://en.wikipedia.org/wiki/Cosine#Sine.2C_cosine_and_tangent tangent] function, using [https://en.wikipedia.org/wiki/Degree_(angle) degrees], not radians.
 Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN = 'Return the arctangent of a number.';
+/// tooltip - The [https://en.wikipedia.org/wiki/Inverse_trigonometric_functions inverse] of the [https://en.wikipedia.org/wiki/Cosine#Sine.2C_cosine_and_tangent tangent] function, using [https://en.wikipedia.org/wiki/Degree_(angle) degrees], not radians.
+Blockly.Msg.MATH_TRIG_TOOLTIP_ATAN2 = 'Return the arctangent of given y and x.';
 
 /// url - Information about the mathematical constants Pi (π), e, the golden ratio (φ), √ 2, √ 1/2, and infinity (∞).
 Blockly.Msg.MATH_CONSTANT_HELPURL = 'https://en.wikipedia.org/wiki/Mathematical_constant';
@@ -1227,24 +1232,38 @@ Blockly.Msg.BASICS_SLEEP_TITLE = 'Wait for %1 milliseconds';
 /// \n\nParameters:\n* %1 - the figure type
 /// \n* %2 - x\n* %3 - y\n* %4 - width\n* %5 - height
 Blockly.Msg.FIGURES_SHAPE_TITLE = 'Draw %1 at x %1 y %2 width %3 height %4';
+/// block text
 Blockly.Msg.FIGURES_SHAPE_WIDTH = 'width';
+/// block text
 Blockly.Msg.FIGURES_SHAPE_HEIGHT = 'height';
+/// block text
 Blockly.Msg.FIGURES_SHAPE_START_ANGLE = 'start angle';
+/// block text
 Blockly.Msg.FIGURES_SHAPE_END_ANGLE = 'end angle';
 /// dropdown - Draw a rectangle.
 Blockly.Msg.FIGURES_RECT = 'rect';
+/// dropdown
 Blockly.Msg.FIGURES_ELLIPSE = 'ellipse';
+/// dropdown
 Blockly.Msg.FIGURES_LINE = 'line';
+/// dropdown
 Blockly.Msg.FIGURES_TRIANGLE = 'triangle';
+/// dropdown
 Blockly.Msg.FIGURES_QUAD = 'quad';
+/// dropdown
 Blockly.Msg.FIGURES_POINT = 'point';
+/// dropdown
 Blockly.Msg.FIGURES_ARC = 'arc';
 /// block text - Fill background.
 /// \n\nParameters:\n* %1 - colour
 Blockly.Msg.FIGURES_BACKGROUND_TITLE = 'Clear the window with colour %1';
+/// block text
 Blockly.Msg.FIGURES_COLOUR_TITLE = 'Set the colour of %1 to colour %2';
+/// block text
 Blockly.Msg.FIGURES_NOFILL_TITLE = 'Draw figures without %1';
+/// block text
 Blockly.Msg.FIGURES_STROKE_WEIGHT_TITLE = 'Set the stroke weight to %1';
 /// dropdown - Stroke of a figure.
 Blockly.Msg.FIGURES_STROKE = 'stroke';
+/// dropdown
 Blockly.Msg.FIGURES_FILL = 'filling';
