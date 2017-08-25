@@ -73,9 +73,9 @@ Blockly.Processing['colour_rgb'] = function(block) {
 Blockly.Processing['colour_blend'] = function(block) {
   // Blend two colours together.
   var c1 = Blockly.Processing.valueToCode(block, 'COLOUR1',
-      Blockly.Processing.ORDER_COMMA) || '\'#000000\'';
+      Blockly.Processing.ORDER_COMMA) || '#000000';
   var c2 = Blockly.Processing.valueToCode(block, 'COLOUR2',
-      Blockly.Processing.ORDER_COMMA) || '\'#000000\'';
+      Blockly.Processing.ORDER_COMMA) || '#000000';
   var ratio = Blockly.Processing.valueToCode(block, 'RATIO',
       Blockly.Processing.ORDER_COMMA) || 0.5;
   var functionName = Blockly.Processing.provideFunction_(
@@ -129,4 +129,36 @@ Blockly.Processing['colour_hsv'] = function(block) {
        '}']);
   var code = functionName + '(' + hue + ', ' + saturation + ', ' + value + ')';
   return [code, Blockly.Processing.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Processing['colour_gray'] = function(block) {
+  // Compose a gray colour from brightness expressed as percentages.
+  var val = Blockly.Processing.valueToCode(block, 'VALUE',
+      Blockly.Processing.ORDER_NONE) || 0;
+  var functionName = Blockly.Processing.provideFunction_(
+      'colourGray',
+      ['function ' + Blockly.Processing.FUNCTION_NAME_PLACEHOLDER_ +
+       '(v) {',
+       '  v = floor(min(100, max(0, Number(v))) * 2.55);',
+       '  return color(v);',
+       '}']);
+  var code = functionName + '(' + val + ')';
+  return [code, Blockly.Processing.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Processing['colour_alpha'] = function(block) {
+  // Compose a translucent colour from an alpha value expressed as percentages.
+  var c = Blockly.Processing.valueToCode(block, 'COLOUR',
+      Blockly.Processing.ORDER_COMMA) || '#000000';
+  var alpha = Blockly.Processing.valueToCode(block, 'ALPHA',
+      Blockly.Processing.ORDER_COMMA) || 0;
+  var functionName = Blockly.Processing.provideFunction_(
+      'colourAlpha',
+      ['function ' + Blockly.Processing.FUNCTION_NAME_PLACEHOLDER_ +
+       '(c, v) {',
+       '  v = floor(min(100, max(0, Number(v))) * 2.55);',
+       '  return color(red(c), green(c), blue(c), v);',
+       '}']);
+    var code = functionName + '(' + c + ', ' + alpha + ')';
+    return [code, Blockly.Processing.ORDER_FUNCTION_CALL];
 };

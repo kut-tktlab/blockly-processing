@@ -165,10 +165,18 @@ Blockly.Msg.COLOUR_HSV_HUE = 'hue';
 Blockly.Msg.COLOUR_HSV_SATURATION = 'saturation';
 /// block input text - The amount of value (from 0 to 100) to use when [https://github.com/google/blockly/wiki/Colour#creating-a-colour-from-red-green-and-blue-components https://github.com/google/blockly/wiki/Colour#creating-a-colour-from-red-green-and-blue-components].\n{{Identical|Value}}
 Blockly.Msg.COLOUR_HSV_VALUE = 'brightness';
+/// block text
+Blockly.Msg.COLOUR_GRAY_TITLE = 'gray with';
+/// block text
+Blockly.Msg.COLOUR_ALPHA_TITLE = 'translucent colour with colour %1 alpha %2';
 /// tooltip - See [https://github.com/google/blockly/wiki/Colour#creating-a-colour-from-red-green-and-blue-components https://github.com/google/blockly/wiki/Colour#creating-a-colour-from-red-green-and-blue-components].
 Blockly.Msg.COLOUR_RGB_TOOLTIP = 'Create a colour with the specified amount of red, green, and blue. All values must be between 0 and 100.';
 /// tooltip - See [https://github.com/google/blockly/wiki/Colour#creating-a-colour-from-red-green-and-blue-components https://github.com/google/blockly/wiki/Colour#creating-a-colour-from-red-green-and-blue-components].
 Blockly.Msg.COLOUR_HSV_TOOLTIP = 'Create a colour with the specified amount of hue, saturation, and brightness. Hue must be between 0 and 360. Saturation and brightness must be between 0 and 100.';
+/// tooltip
+Blockly.Msg.COLOUR_GRAY_TOOLTIP = 'Create a gray colour with the specified amount of brightness. Brightness must be between 0 and 100.';
+/// tooltip
+Blockly.Msg.COLOUR_ALPHA_TOOLTIP = 'Create a translucent colour with the specified alpha value. Alpha value must be between 0 and 100.';
 /// url - A useful link that displays blending of two colors.
 Blockly.Msg.COLOUR_BLEND_HELPURL = 'http://meyerweb.com/eric/tools/color-blend/';
 /// block text - A verb for blending two shades of paint.

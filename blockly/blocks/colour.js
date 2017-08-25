@@ -160,5 +160,45 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "colour": "%{BKY_COLOUR_HUE}",
     "helpUrl": "%{BKY_COLOUR_BLEND_HELPURL}",
     "tooltip": "%{BKY_COLOUR_BLEND_TOOLTIP}"
-  }
+  },
+  // Block for composing a gray colour from brightness.
+  {
+    "type": "colour_gray",
+    "message0": "%{BKY_COLOUR_GRAY_TITLE} %{BKY_COLOUR_HSV_VALUE} %1",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "VALUE",
+        "check": "Number",
+        "align": "RIGHT"
+      }
+    ],
+    "output": "Colour",
+    "colour": "%{BKY_COLOUR_HUE}",
+    "helpUrl": "%{BKY_COLOUR_RGB_HELPURL}",
+    "tooltip": "%{BKY_COLOUR_GRAY_TOOLTIP}"
+  },
+  // Block for composing a transparent colour.
+  {
+    "type": "colour_alpha",
+    "message0": "%{BKY_COLOUR_ALPHA_TITLE}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "COLOUR",
+        "check": "Colour",
+        "align": "RIGHT"
+      },
+      {
+        "type": "input_value",
+        "name": "ALPHA",
+        "check": "Number",
+        "align": "RIGHT"
+      }
+    ],
+    "output": "Colour",
+    "colour": "%{BKY_COLOUR_HUE}",
+    "helpUrl": "%{BKY_COLOUR_RGB_HELPURL}",
+    "tooltip": "%{BKY_COLOUR_ALPHA_TOOLTIP}"
+  }  
 ]);  // END JSON EXTRACT (Do not delete this comment.)

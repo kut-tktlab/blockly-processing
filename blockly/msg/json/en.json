@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-08-25 17:12:21.559457",
+		"lastupdated": "2017-08-25 17:59:30.584311",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -47,8 +47,12 @@
 	"COLOUR_HSV_HUE": "hue",
 	"COLOUR_HSV_SATURATION": "saturation",
 	"COLOUR_HSV_VALUE": "brightness",
+	"COLOUR_GRAY_TITLE": "gray with",
+	"COLOUR_ALPHA_TITLE": "translucent colour with colour %1 alpha %2",
 	"COLOUR_RGB_TOOLTIP": "Create a colour with the specified amount of red, green, and blue. All values must be between 0 and 100.",
 	"COLOUR_HSV_TOOLTIP": "Create a colour with the specified amount of hue, saturation, and brightness. Hue must be between 0 and 360. Saturation and brightness must be between 0 and 100.",
+	"COLOUR_GRAY_TOOLTIP": "Create a gray colour with the specified amount of brightness. Brightness must be between 0 and 100.",
+	"COLOUR_ALPHA_TOOLTIP": "Create a translucent colour with the specified alpha value. Alpha value must be between 0 and 100.",
 	"COLOUR_BLEND_HELPURL": "http://meyerweb.com/eric/tools/color-blend/",
 	"COLOUR_BLEND_TITLE": "blend",
 	"COLOUR_BLEND_COLOUR1": "colour 1",
