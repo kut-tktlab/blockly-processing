@@ -197,7 +197,7 @@
 	"MATH_MODULO_HELPURL": "https://en.wikipedia.org/wiki/Modulo_operation",
 	"MATH_MODULO_TITLE": "%1÷%2の余り",
 	"MATH_MODULO_TOOLTIP": "2つの数値の割り算の余りを返す。",
-	"MATH_CONSTRAIN_TITLE": "%1の下限を%2に上限を%3に制限",
+	"MATH_CONSTRAIN_TITLE": "%1を%2〜%3に制限",
 	"MATH_CONSTRAIN_TOOLTIP": "指定した上限と下限の間に値を制限する（上限と下限の値を含む）。",
 	"MATH_RANDOM_INT_HELPURL": "https://en.wikipedia.org/wiki/Random_number_generation",
 	"MATH_RANDOM_INT_TITLE": "0 〜 %1 の乱数",
