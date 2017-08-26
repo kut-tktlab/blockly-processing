@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-08-25 17:59:30.584311",
+		"lastupdated": "2017-08-26 10:50:58.019718",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -411,6 +411,7 @@
 	"PROCEDURES_IFRETURN_TOOLTIP": "If a value is true, then return a second value.",
 	"PROCEDURES_IFRETURN_HELPURL": "http://c2.com/cgi/wiki?GuardClause",
 	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition.",
+	"PROCEDURES_IFRETURN_RETURN": "return",
 	"BASICS_SETUP_TITLE": "Setup",
 	"BASICS_LOOP_TITLE": "Forever do",
 	"BASICS_SLEEP_TITLE": "Wait for %1 milliseconds",

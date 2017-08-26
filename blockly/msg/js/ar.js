@@ -343,6 +343,7 @@ Blockly.Msg.PROCEDURES_DEFRETURN_TOOLTIP = "انشئ دالة مع المخرج�
 Blockly.Msg.PROCEDURES_DEF_DUPLICATE_WARNING = "تحذير: هذه الدالة تحتوي على معلمات مكررة.";
 Blockly.Msg.PROCEDURES_HIGHLIGHT_DEF = "تسليط الضوء على تعريف الدالة";
 Blockly.Msg.PROCEDURES_IFRETURN_HELPURL = "http://c2.com/cgi/wiki?GuardClause";  // untranslated
+Blockly.Msg.PROCEDURES_IFRETURN_RETURN = "return";  // untranslated
 Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = "إذا كانت القيمة صحيحة ، اذان قم بارجاع القيمة الثانية.";
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = "تحذير:هذه القطعة تستخدم فقط داخل تعريف دالة.";
 Blockly.Msg.PROCEDURES_MUTATORARG_TITLE = "اسم الإدخال:";
@@ -456,11 +457,11 @@ Blockly.Msg.PROCEDURES_DEFRETURN_COMMENT = Blockly.Msg.PROCEDURES_DEFNORETURN_CO
 
 Blockly.Msg.MATH_HUE = "#702971";
 Blockly.Msg.LOOPS_HUE = "#197b1b";
-Blockly.Msg.LISTS_HUE = "260";
+Blockly.Msg.LISTS_HUE = "#a74412";
 Blockly.Msg.LOGIC_HUE = "#0c696f";
 Blockly.Msg.VARIABLES_HUE = "#a6050e";
-Blockly.Msg.TEXTS_HUE = "160";
-Blockly.Msg.PROCEDURES_HUE = "290";
+Blockly.Msg.TEXTS_HUE = "#986515";
+Blockly.Msg.PROCEDURES_HUE = "#0b5c9c";
 Blockly.Msg.COLOUR_HUE = "#d63c18";
 Blockly.Msg.BASICS_HUE = "#137ad4";
 Blockly.Msg.FIGURES_HUE = "#5b318f";

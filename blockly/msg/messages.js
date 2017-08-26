@@ -55,15 +55,15 @@ Blockly.Msg.LOOPS_HUE = '#197b1b';
 /// {{Notranslate}} Hue value for all math blocks.
 Blockly.Msg.MATH_HUE = '#702971';
 /// {{Notranslate}} Hue value for all text blocks.
-Blockly.Msg.TEXTS_HUE = '160';
+Blockly.Msg.TEXTS_HUE = '#986515';
 /// {{Notranslate}} Hue value for all list blocks.
-Blockly.Msg.LISTS_HUE = '260';
+Blockly.Msg.LISTS_HUE = '#a74412';
 /// {{Notranslate}} Hue value for all colour blocks.
 Blockly.Msg.COLOUR_HUE = '#d63c18';
 /// {{Notranslate}} Hue value for all variable blocks.
 Blockly.Msg.VARIABLES_HUE = '#a6050e';
 /// {{Notranslate}} Hue value for all procedure blocks.
-Blockly.Msg.PROCEDURES_HUE = '290';
+Blockly.Msg.PROCEDURES_HUE = '#0b5c9c';
 /// {{Notranslate}} Hue value for all timer blocks.
 Blockly.Msg.BASICS_HUE = '#137ad4';
 /// {{Notranslate}} Hue value for all leds blocks.
@@ -1227,6 +1227,8 @@ Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a sec
 Blockly.Msg.PROCEDURES_IFRETURN_HELPURL = 'http://c2.com/cgi/wiki?GuardClause';
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
+/// block text
+Blockly.Msg.PROCEDURES_IFRETURN_RETURN = 'return';
 
 /// block text - Do once at the beginning.
 Blockly.Msg.BASICS_SETUP_TITLE = 'Setup';

@@ -375,6 +375,11 @@
     </category>
     <sep></sep>
     <category name="変数" colour="%{BKY_VARIABLES_HUE}" custom="VARIABLE"></category>
+    <!--
+    <category name="配列" colour="%{BKY_LISTS_HUE}">
+    </category>
+    -->
+    <category name="関数" colour="%{BKY_PROCEDURES_HUE}" custom="PROCEDURE"></category>
   </xml>
 
   <xml id="startBlocks" style="display: none">
@@ -401,7 +406,11 @@
       var block = workspace.getBlockById(event.blockId);
       if (!block) { return; } // necessary for shadow blocks
       var root = block.getRootBlock();
-      var disable = (root.type != 'basics_setup' && root.type != 'basics_loop');
+      var disable = (
+        root.type != 'basics_setup' && root.type != 'basics_loop' &&
+        root.type != 'procedures_defnoreturn' &&
+        root.type != 'procedures_defreturn'
+      );
       var desc = block.getDescendants();
       for (var i = 0; i < desc.length; i++) {
         desc[i].setDisabled(disable);
@@ -512,8 +521,31 @@
     }
   </script>
 
+<h2>Notes</h2>
+<ul>
+  <li>「最初だけ」が setup()，「ずっと」が draw() に当たります。
+    <ul>
+      <li>関数ブロックの外に置いたブロックは無効です。
+        ブロックはすべて「最初だけ」「ずっと」，またはユーザ定義関数の中に置いてください。
+      </li>
+      <li>「最初だけ」「ずっと」はそれぞれ1個だけ有効です
+        (複数置くこともできますが，実行時にはそのうち1個しか実行されません)。</li>
+      <li>「ずっと」は不要なら削除しても構いません。</li>
+    </ul>
+  </li>
+  <li>int型とfloat型の区別がありません。</li>
+  <li>変数はすべて大域変数です (仮引数を除く)。
+    <ul>
+      <li>再帰関数の中で局所変数を使いたいときは，仮引数として定義してください。<br />
+        例えば「関数 foo(x) の中で局所変数 a を使いたい」場合は「関数
+        foo(x, a)」を定義してください。呼び出し時の a の値 (実引数)
+        は空欄で構いません。
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <div class="footnote">
-<h2>Note</h2>
 <p>
 This application is a derived work of Google's
 <a href="https://developers.google.com/blockly/">Blockly</a>
