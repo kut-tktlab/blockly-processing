@@ -573,7 +573,7 @@ Blockly.Msg.MATH_RANDOM_INT_TOOLTIP = 'Return a random integer between the two s
 /// url - Information about how computers generate random numbers.
 Blockly.Msg.MATH_RANDOM_HELPURL = 'https://en.wikipedia.org/wiki/Random_number_generation';
 /// block text - The title of the block that generates a random number (whole number) in the specified range.  For example, if the range is from 5 to 7, this returns 5, 6, or 7 with equal likelihood. %1 is a placeholder for the lower number, %2 is the placeholder for the larger number.
-Blockly.Msg.MATH_RANDOM_TITLE = 'random number from 0 to %1';
+Blockly.Msg.MATH_RANDOM_TITLE = 'random number from %1 to %2';
 /// tooltip - Return a random number between two values specified as inputs.  For example, if one input was 7 and another 9, any of the numbers 7, 8, or 9 could be produced.
 Blockly.Msg.MATH_RANDOM_TOOLTIP = 'Return a random number between the two specified limits, exclusive.';
 
@@ -888,6 +888,10 @@ Blockly.Msg.LISTS_REPEAT_TOOLTIP = 'Creates a list consisting of the given value
 /// https://github.com/google/blockly/wiki/Lists#create-list-with].
 ///\n\nParameters:\n* %1 - the item (text) to be repeated\n* %2 - the number of times to repeat it
 Blockly.Msg.LISTS_REPEAT_TITLE = 'create list with item %1 repeated %2 times';
+/// block text
+Blockly.Msg.LISTS_REPEAT_SIMPLE_TITLE = 'create list with %1 items';
+/// tooltip
+Blockly.Msg.LISTS_REPEAT_SIMPLE_TOOLTIP = 'Creates a list consisting of the specified number of items.';
 
 /// url - Information about how the length of a list is computed (i.e., by the total number of elements, not the number of different elements).
 Blockly.Msg.LISTS_LENGTH_HELPURL = 'https://github.com/google/blockly/wiki/Lists#length-of';
@@ -969,6 +973,8 @@ Blockly.Msg.LISTS_GET_INDEX_RANDOM = 'random';
 /// accessing an item from a list].  In most languages, this will be the empty string.
 /// [[File:Blockly-list-get-item.png]]
 Blockly.Msg.LISTS_GET_INDEX_TAIL = '';
+/// block text
+Blockly.Msg.LISTS_GET_INDEX_SIMPLE_TITLE = 'in list %1 get # %2';
 Blockly.Msg.LISTS_GET_INDEX_INPUT_IN_LIST = Blockly.Msg.LISTS_INLIST;
 /// tooltip - Indicates the ordinal number that the first item in a list is referenced by.  %1 will be replaced by either "#0" or "#1" depending on the indexing mode.
 Blockly.Msg.LISTS_INDEX_FROM_START_TOOLTIP = '%1 is the first item.';
@@ -1012,6 +1018,8 @@ Blockly.Msg.LISTS_SET_INDEX_INSERT = 'insert at';
 /// block text - The word(s) after the position in the list and before the item to be set/inserted.
 /// [[File:Blockly-in-list-set-insert.png]]
 Blockly.Msg.LISTS_SET_INDEX_INPUT_TO = 'as';
+/// block text
+Blockly.Msg.LISTS_SET_INDEX_SIMPLE_TITLE = 'in list %1 set # %2 as %3';
 /// tooltip - See [https://github.com/google/blockly/wiki/Lists#getting-a-single-item} (even though the page describes the "get" block, the idea is the same for the "set" block).
 Blockly.Msg.LISTS_SET_INDEX_TOOLTIP_SET_FROM = 'Sets the item at the specified position in a list.';
 /// tooltip - See [https://github.com/google/blockly/wiki/Lists#getting-a-single-item} (even though the page describes the "get" block, the idea is the same for the "set" block).

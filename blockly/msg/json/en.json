@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-08-26 10:50:58.019718",
+		"lastupdated": "2017-08-27 11:05:23.406577",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -218,7 +218,7 @@
 	"MATH_RANDOM_INT_TITLE": "random integer from 0 to %1",
 	"MATH_RANDOM_INT_TOOLTIP": "Return a random integer between the two specified limits, inclusive.",
 	"MATH_RANDOM_HELPURL": "https://en.wikipedia.org/wiki/Random_number_generation",
-	"MATH_RANDOM_TITLE": "random number from 0 to %1",
+	"MATH_RANDOM_TITLE": "random number from %1 to %2",
 	"MATH_RANDOM_TOOLTIP": "Return a random number between the two specified limits, exclusive.",
 	"MATH_RANDOM_FLOAT_HELPURL": "https://en.wikipedia.org/wiki/Random_number_generation",
 	"MATH_RANDOM_FLOAT_TITLE_RANDOM": "random fraction",
@@ -305,6 +305,8 @@
 	"LISTS_REPEAT_HELPURL": "https://github.com/google/blockly/wiki/Lists#create-list-with",
 	"LISTS_REPEAT_TOOLTIP": "Creates a list consisting of the given value repeated the specified number of times.",
 	"LISTS_REPEAT_TITLE": "create list with item %1 repeated %2 times",
+	"LISTS_REPEAT_SIMPLE_TITLE": "create list with %1 items",
+	"LISTS_REPEAT_SIMPLE_TOOLTIP": "Creates a list consisting of the specified number of items.",
 	"LISTS_LENGTH_HELPURL": "https://github.com/google/blockly/wiki/Lists#length-of",
 	"LISTS_LENGTH_TITLE": "length of %1",
 	"LISTS_LENGTH_TOOLTIP": "Returns the length of a list.",
@@ -325,6 +327,7 @@
 	"LISTS_GET_INDEX_LAST": "last",
 	"LISTS_GET_INDEX_RANDOM": "random",
 	"LISTS_GET_INDEX_TAIL": "",
+	"LISTS_GET_INDEX_SIMPLE_TITLE": "in list %1 get # %2",
 	"LISTS_INDEX_FROM_START_TOOLTIP": "%1 is the first item.",
 	"LISTS_INDEX_FROM_END_TOOLTIP": "%1 is the last item.",
 	"LISTS_GET_INDEX_TOOLTIP_GET_FROM": "Returns the item at the specified position in a list.",
@@ -343,6 +346,7 @@
 	"LISTS_SET_INDEX_SET": "set",
 	"LISTS_SET_INDEX_INSERT": "insert at",
 	"LISTS_SET_INDEX_INPUT_TO": "as",
+	"LISTS_SET_INDEX_SIMPLE_TITLE": "in list %1 set # %2 as %3",
 	"LISTS_SET_INDEX_TOOLTIP_SET_FROM": "Sets the item at the specified position in a list.",
 	"LISTS_SET_INDEX_TOOLTIP_SET_FIRST": "Sets the first item in a list.",
 	"LISTS_SET_INDEX_TOOLTIP_SET_LAST": "Sets the last item in a list.",

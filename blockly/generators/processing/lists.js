@@ -65,6 +65,8 @@ Blockly.Processing['lists_repeat'] = function(block) {
   return [code, Blockly.Processing.ORDER_FUNCTION_CALL];
 };
 
+Blockly.Processing['lists_repeat_simple'] = Blockly.Processing['lists_repeat'];
+
 Blockly.Processing['lists_length'] = function(block) {
   // String or array length.
   var list = Blockly.Processing.valueToCode(block, 'VALUE',
@@ -172,13 +174,14 @@ Blockly.Processing['lists_getIndex'] = function(block) {
   }
   throw 'Unhandled combination (lists_getIndex).';
 };
+Blockly.Processing['lists_getIndex_simple'] = Blockly.Processing['lists_getIndex'];
 
 Blockly.Processing['lists_setIndex'] = function(block) {
   // Set element at index.
   // Note: Until February 2013 this block did not have MODE or WHERE inputs.
   var list = Blockly.Processing.valueToCode(block, 'LIST',
       Blockly.Processing.ORDER_MEMBER) || '[]';
-  var mode = block.getFieldValue('MODE') || 'GET';
+  var mode = block.getFieldValue('MODE') || 'SET';
   var where = block.getFieldValue('WHERE') || 'FROM_START';
   var value = Blockly.Processing.valueToCode(block, 'TO',
       Blockly.Processing.ORDER_ASSIGNMENT) || 'null';
@@ -249,6 +252,7 @@ Blockly.Processing['lists_setIndex'] = function(block) {
   }
   throw 'Unhandled combination (lists_setIndex).';
 };
+Blockly.Processing['lists_setIndex_simple'] = Blockly.Processing['lists_setIndex'];
 
 /**
  * Returns an expression calculating the index into a list.

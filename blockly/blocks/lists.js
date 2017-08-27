@@ -40,7 +40,7 @@ goog.require('Blockly.Blocks');
  * This should be the same as Blockly.Msg.LISTS_HUE.
  * @readonly
  */
-Blockly.Constants.Lists.HUE = 260;
+Blockly.Constants.Lists.HUE = '#a74412';
 /** @deprecated Use Blockly.Constants.Lists.HUE */
 Blockly.Blocks.lists.HUE = Blockly.Constants.Lists.HUE;
 
@@ -77,6 +77,21 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "output": "Array",
     "colour": "%{BKY_LISTS_HUE}",
     "tooltip": "%{BKY_LISTS_REPEAT_TOOLTIP}",
+    "helpUrl": "%{BKY_LISTS_REPEAT_HELPURL}"
+  },
+  {
+    "type": "lists_repeat_simple",
+    "message0": "%{BKY_LISTS_REPEAT_SIMPLE_TITLE}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "NUM",
+        "check": "Number"
+      }
+    ],
+    "output": "Array",
+    "colour": "%{BKY_LISTS_HUE}",
+    "tooltip": "%{BKY_LISTS_REPEAT_SIMPLE_TOOLTIP}",
     "helpUrl": "%{BKY_LISTS_REPEAT_HELPURL}"
   },
   // Block for reversing a list.
@@ -127,6 +142,55 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "colour": "%{BKY_LISTS_HUE}",
     "tooltip": "%{BKY_LISTS_LENGTH_TOOLTIP}",
     "helpUrl": "%{BKY_LISTS_LENGTH_HELPURL}"
+  },
+  // Block for getting an element of the list
+  {
+    "type": "lists_getIndex_simple",
+    "message0": "%{BKY_LISTS_GET_INDEX_SIMPLE_TITLE}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "VALUE",
+        "check": ["String", "Array"]
+      },
+      {
+        "type": "input_value",
+        "name": "AT",
+        "check": "Number"
+      }
+    ],
+    "inputsInline": true,
+    "output": null,
+    "colour": "%{BKY_LISTS_HUE}",
+    "tooltip": "%{BKY_LISTS_GET_INDEX_TOOLTIP_GET_FROM}",
+    "helpUrl": "%{BKY_LISTS_GET_INDEX_HELPURL}"
+  },
+  // Block for setting an element of the list
+  {
+    "type": "lists_setIndex_simple",
+    "message0": "%{BKY_LISTS_SET_INDEX_SIMPLE_TITLE}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "LIST",
+        "check": ["String", "Array"]
+      },
+      {
+        "type": "input_value",
+        "name": "AT",
+        "check": "Number"
+      },
+      {
+        "type": "input_value",
+        "name": "TO"
+      },
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_LISTS_HUE}",
+    "tooltip": "%{BKY_LISTS_SET_INDEX_TOOLTIP_SET_FROM}",
+    "helpUrl": "%{BKY_LISTS_SET_INDEX_HELPURL}"
   }
 ]);  // END JSON EXTRACT (Do not delete this comment.)
 

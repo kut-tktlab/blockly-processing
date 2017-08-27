@@ -372,11 +372,11 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "type": "math_random",
     "message0": "%{BKY_MATH_RANDOM_TITLE}",
     "args0": [
-      //{
-      //  "type": "input_value",
-      //  "name": "FROM",
-      //  "check": "Number"
-      //},
+      {
+        "type": "input_value",
+        "name": "FROM",
+        "check": "Number"
+      },
       {
         "type": "input_value",
         "name": "TO",
