@@ -7,7 +7,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blockly-Processing</title>
+  <title>Blockly Processing Editor</title>
   <script src="blockly/blockly_compressed.js"></script>
   <script src="blockly/blocks_compressed.js"></script>
   <script src="blockly/processing_compressed.js"></script>
@@ -81,7 +81,7 @@
     <div id="blocklyDiv" style="height: 480px; width: 800px;"></div>
   </div>
 
-  <p>
+  <p id="buttonRow">
     <span style="display: inline-block">
       <button onclick="runCode()"  id="runButton" >&#9658; Run</button>
       <button onclick="stopCode()" id="stopButton">&#9724; Stop</button>
@@ -91,10 +91,6 @@
       <button onclick="restoreBlocks()" id="restoreButton">復元</button> &nbsp;&nbsp;
       <button onclick="clearBlocks()"   id="clearButton"  >全消去</button>
     </span>
-    <span style="margin-left: 80px; font-size: smaller;">
-      For debugging:
-    </span>
-    <button onclick="showCode()">Show Processing</button>
   </p>
   <div id="restoreModal" class="modal" onclick="pressCancelRestoreBlocks(event)">
     <div class="modalWindow" style="width: 480px">
@@ -471,6 +467,11 @@
       var code = Blockly.Processing.workspaceToCode(workspace);
       alert(code);
     }
+    function showXml() {
+      var xml = Blockly.Xml.workspaceToDom(workspace);
+      var code = Blockly.Xml.domToPrettyText(xml);
+      alert(code);
+    }
 
     function runCode() {
       // Generate Processing code and run it.
@@ -567,6 +568,24 @@
         cancelRestoreBlocks();
       }
     }
+
+    (function () {
+      if (document.location.href.endsWith('?debugbuttons')) {
+        var row = document.getElementById('buttonRow');
+        var e = document.createElement('span');
+        e.setAttribute('style', 'margin-left: 80px; font-size: smaller;');
+        e.innerText = 'For debugging: ';
+        row.appendChild(e);
+        e = document.createElement('button');
+        e.setAttribute('onclick', 'showCode()');
+        e.innerText = 'Show Processing';
+        row.appendChild(e);
+        e = document.createElement('button');
+        e.setAttribute('onclick', 'showXml()');
+        e.innerText = 'Show XML';
+        row.appendChild(e);
+      }
+    })();
   </script>
 
 <h2>Notes</h2>
