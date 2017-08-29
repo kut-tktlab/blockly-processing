@@ -585,6 +585,20 @@
         e.innerText = 'Show XML';
         row.appendChild(e);
       }
+      var ex = document.location.href.match(/\?ex=(\w+)$/);
+      if (ex && window.XMLHttpRequest) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            var xml = Blockly.Xml.textToDom(xmlHttp.responseText);
+            workspace.clear();
+            Blockly.Xml.domToWorkspace(xml, workspace);
+          }
+        };
+        var fname = 'example/' + ex[1] + '.xml';
+        xmlHttp.open("GET", fname, true);
+        xmlHttp.send(null);
+      }
     })();
   </script>
 
