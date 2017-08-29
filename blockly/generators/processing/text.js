@@ -278,9 +278,15 @@ Blockly.Processing['text_trim'] = function(block) {
 
 Blockly.Processing['text_print'] = function(block) {
   // Print statement.
-  var msg = Blockly.Processing.valueToCode(block, 'TEXT',
+  var functionName = Blockly.Processing.provideFunction_(
+    'printToTextarea',
+    ['function ' + Blockly.Processing.FUNCTION_NAME_PLACEHOLDER_ +
+        '(str) {',
+     '  window.outputArea.value += str + \'\\r\\n\';',
+     '}']);
+var msg = Blockly.Processing.valueToCode(block, 'TEXT',
       Blockly.Processing.ORDER_NONE) || '\'\'';
-  return 'println(' + msg + ');\n';
+  return functionName + '(' + msg + ');\n';
 };
 
 Blockly.Processing['text_prompt_ext'] = function(block) {

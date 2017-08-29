@@ -4,6 +4,8 @@
     output = document.getElementById('output'),
     instance = null;
 
+  global.outputArea = output;
+
   function createCanvas() {
     // Make a new canvas, in case we're switching from 2D to 3D contexts.
     var container = document.getElementById('sketch-container');
