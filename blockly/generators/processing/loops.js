@@ -142,14 +142,15 @@ Blockly.Processing.loops.createFor = function(block, argument0, argument1, incre
     var incVar = Blockly.Processing.variableDB_.getDistinctName(
         variable0 + '_inc', Blockly.Variables.NAME_TYPE);
     code += 'var ' + incVar + ' = ';
-    if (Blockly.isNumber(increment)) {
-      code += Math.abs(increment) + ';\n';
-    } else {
-      code += 'Math.abs(' + increment + ');\n';
-    }
-    code += 'if (' + startVar + ' > ' + endVar + ') {\n';
-    code += Blockly.Processing.INDENT + incVar + ' = -' + incVar + ';\n';
-    code += '}\n';
+    //if (Blockly.isNumber(increment)) {
+    //  code += Math.abs(increment) + ';\n';
+    //} else {
+    //  code += 'Math.abs(' + increment + ');\n';
+    //}
+    code += increment + ';\n';
+    //code += 'if (' + startVar + ' > ' + endVar + ') {\n';
+    //code += Blockly.Processing.INDENT + incVar + ' = -' + incVar + ';\n';
+    //code += '}\n';
     code += 'for (' + variable0 + ' = ' + startVar + '; ' +
         incVar + ' >= 0 ? ' +
         variable0 + ' <= ' + endVar + ' : ' +

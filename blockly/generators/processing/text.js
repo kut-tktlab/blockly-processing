@@ -280,7 +280,7 @@ Blockly.Processing['text_print'] = function(block) {
   // Print statement.
   var msg = Blockly.Processing.valueToCode(block, 'TEXT',
       Blockly.Processing.ORDER_NONE) || '\'\'';
-  return 'window.alert(' + msg + ');\n';
+  return 'println(' + msg + ');\n';
 };
 
 Blockly.Processing['text_prompt_ext'] = function(block) {

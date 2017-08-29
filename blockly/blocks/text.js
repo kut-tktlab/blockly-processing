@@ -35,7 +35,7 @@ goog.require('Blockly.Blocks');
  * Should be the same as Blockly.Msg.TEXTS_HUE
  * @readonly
  */
-Blockly.Constants.Text.HUE = 160;
+Blockly.Constants.Text.HUE = '#986515';
 /** @deprecated Use Blockly.Constants.Text.HUE */
 Blockly.Blocks.texts.HUE = Blockly.Constants.Text.HUE;
 
@@ -262,7 +262,7 @@ Blockly.Blocks['text_length'] = {
         {
           "type": "input_value",
           "name": "VALUE",
-          "check": ['String', 'Array']
+          "check": 'String'
         }
       ],
       "output": 'Number',
@@ -285,7 +285,7 @@ Blockly.Blocks['text_isEmpty'] = {
         {
           "type": "input_value",
           "name": "VALUE",
-          "check": ['String', 'Array']
+          "check": 'String'
         }
       ],
       "output": 'Boolean',
