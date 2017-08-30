@@ -8,6 +8,7 @@ goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "添加注释";
 Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_MOUSE_PRESSED_TITLE = "Mouse button pressed";  // untranslated
 Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 milliseconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "不能删除变量“%1”，因为它是功能“%2”定义的一部分";

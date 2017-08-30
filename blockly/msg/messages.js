@@ -1245,6 +1245,8 @@ Blockly.Msg.BASICS_LOOP_TITLE = 'Forever do';
 /// block text - Wait for a few seconds.
 /// \n\nParameters:\n* %1 - the number of seconds to wait
 Blockly.Msg.BASICS_SLEEP_TITLE = 'Wait for %1 milliseconds';
+/// block text - Mouse pressed.
+Blockly.Msg.BASICS_MOUSE_PRESSED_TITLE = 'Mouse button pressed';
 
 /// block text - Draw a figure.
 /// \n\nParameters:\n* %1 - the figure type

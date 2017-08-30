@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2017-08-27 11:05:23.406577",
+		"lastupdated": "2017-08-30 09:15:11.357071",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -419,6 +419,7 @@
 	"BASICS_SETUP_TITLE": "Setup",
 	"BASICS_LOOP_TITLE": "Forever do",
 	"BASICS_SLEEP_TITLE": "Wait for %1 milliseconds",
+	"BASICS_MOUSE_PRESSED_TITLE": "Mouse button pressed",
 	"FIGURES_SHAPE_TITLE": "Draw %1 at x %1 y %2 width %3 height %4",
 	"FIGURES_SHAPE_WIDTH": "width",
 	"FIGURES_SHAPE_HEIGHT": "height",

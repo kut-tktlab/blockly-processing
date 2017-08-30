@@ -8,6 +8,7 @@ goog.require('Blockly.Msg');
 
 Blockly.Msg.ADD_COMMENT = "Aggiungi commento";
 Blockly.Msg.BASICS_LOOP_TITLE = "Forever do";  // untranslated
+Blockly.Msg.BASICS_MOUSE_PRESSED_TITLE = "Mouse button pressed";  // untranslated
 Blockly.Msg.BASICS_SETUP_TITLE = "Setup";  // untranslated
 Blockly.Msg.BASICS_SLEEP_TITLE = "Wait for %1 milliseconds";  // untranslated
 Blockly.Msg.CANNOT_DELETE_VARIABLE_PROCEDURE = "Non si può cancellare la variabile '%1' perché è parte della definizione della funzione '%2'";

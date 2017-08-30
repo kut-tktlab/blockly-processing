@@ -66,9 +66,9 @@ Blockly.Processing['basics_loop'] = function(block) {
         Blockly.Processing.STATEMENT_PREFIX.replace(/%1/g,
         '\'' + block.id + '\''), Blockly.Processing.INDENT) + branch;
   }
-  if (!branch) {
-    return null;
-  }
+  //if (!branch) {
+  //  return null;
+  //}
   if (Blockly.Processing.INFINITE_LOOP_TRAP) {
     branch = Blockly.Processing.INFINITE_LOOP_TRAP.replace(/%1/g,
         '\'' + block.id + '\'') + branch;
@@ -89,9 +89,29 @@ Blockly.Processing['basics_builtin_var'] = function(block) {
   var vname = block.getFieldValue('VAR');
   var code;
   if (vname.substr(0, 5) == 'MOUSE') {
-    code = 'mouse' + vname.substr(6, 1);
+    code = 'mouse' + vname.substr(6, 1) + vname.substr(7).toLowerCase();
   } else {
     code = vname.toLowerCase();
   }
   return [code, Blockly.Processing.ORDER_ATOMIC];
+};
+Blockly.Processing['basics_builtin_logic_var'] = Blockly.Processing['basics_builtin_var'];
+  
+Blockly.Processing['basics_mouse_pressed'] = function(block) {
+  if (Blockly.Processing.definitions_['mousePressed']) {
+    return null;
+  }
+  var branch = Blockly.Processing.statementToCode(block, 'DO');
+  if (Blockly.Processing.STATEMENT_PREFIX) {
+    branch = Blockly.Processing.prefixLines(
+        Blockly.Processing.STATEMENT_PREFIX.replace(/%1/g,
+        '\'' + block.id + '\''), Blockly.Processing.INDENT) + branch;
+  }
+  //if (!branch) {
+  //  return null;
+  //}
+  var code = 'void mousePressed() {\n' + branch + '}\n';
+  code = Blockly.Processing.scrub_(block, code);
+  Blockly.Processing.definitions_['mousePressed'] = code;
+  return null;
 };

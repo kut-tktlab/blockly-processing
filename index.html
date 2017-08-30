@@ -117,6 +117,7 @@
     <category name="基本" colour="%{BKY_BASICS_HUE}">
       <block type="basics_setup"></block>
       <block type="basics_loop"></block>
+      <block type="basics_mouse_pressed"></block>
     </category>
     <category name="図形" colour="%{BKY_FIGURES_HUE}">
       <block type="figures_shape">
@@ -176,10 +177,6 @@
             <field name="NUM">0</field>
           </shadow>
         </value>
-      </block>
-      <block type="basics_builtin_var"></block>
-      <block type="basics_builtin_var">
-        <field name="VAR">MOUSE_X</field>
       </block>
     </category>
     <category name="ループ" colour="%{BKY_LOOPS_HUE}">
@@ -252,6 +249,7 @@
       <block type="logic_operation"></block>
       <block type="logic_negate"></block>
       <block type="logic_boolean"></block>
+      <block type="basics_builtin_logic_var"></block>
     </category>
     <category name="数値" colour="%{BKY_MATH_HUE}">
       <block type="math_number"></block>
@@ -299,6 +297,10 @@
             <field name="NUM">1</field>
           </shadow>
         </value>
+      </block>
+      <block type="basics_builtin_var"></block>
+      <block type="basics_builtin_var">
+        <field name="VAR">MOUSE_X</field>
       </block>
     </category>
     <category name="色" colour="%{BKY_COLOUR_HUE}">
@@ -452,6 +454,7 @@
       var root = block.getRootBlock();
       var disable = (
         root.type != 'basics_setup' && root.type != 'basics_loop' &&
+        root.type != 'basics_mouse_pressed' &&
         root.type != 'procedures_defnoreturn' &&
         root.type != 'procedures_defreturn'
       );

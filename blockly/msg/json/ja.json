@@ -382,6 +382,7 @@
 	"BASICS_SETUP_TITLE": "最初だけ",
 	"BASICS_LOOP_TITLE": "ずっと",
 	"BASICS_SLEEP_TITLE": "%1 ミリ秒待つ",
+	"BASICS_MOUSE_PRESSED_TITLE": "クリックされたら",
 	"FIGURES_SHAPE_TITLE": "%1 を描く x %2 y %3 幅 %4 高さ %5",
 	"FIGURES_SHAPE_WIDTH": "幅",
 	"FIGURES_SHAPE_HEIGHT": "高さ",

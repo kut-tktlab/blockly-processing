@@ -102,7 +102,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "nextStatement": null,
     "colour": "%{BKY_BASICS_HUE}"
   },
-  // Block for built-in variable.
+  // Block for built-in variable (Number).
   {
     "type": "basics_builtin_var",
     "message0": "%1",
@@ -119,6 +119,37 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "output": "Number",
-    "colour": "%{BKY_FIGURES_HUE}"
+    "colour": "%{BKY_MATH_HUE}"
+  },
+  // Block for built-in variable (Boolean).
+  {
+    "type": "basics_builtin_logic_var",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "VAR",
+        "options": [
+          ["mousePressed", "MOUSE_PRESSED"] // display_name, language_independent_name
+        ]
+      }
+    ],
+    "output": "Boolean",
+    "colour": "%{BKY_LOGIC_HUE}"
+  },
+  // Block for mousePressed().
+  {
+    "type": "basics_mouse_pressed",
+    "message0": "%{BKY_BASICS_MOUSE_PRESSED_TITLE} %1 %2",
+    "args0": [
+      {
+        "type": "input_dummy",
+      },
+      {
+        "type": "input_statement",
+        "name": "DO"
+      }
+    ],
+    "colour": "%{BKY_BASICS_HUE}"
   }
 ]);  // END JSON EXTRACT (Do not delete this comment.)

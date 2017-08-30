@@ -413,6 +413,7 @@
 	"BASICS_SETUP_TITLE": "block text - Do once at the beginning.",
 	"BASICS_LOOP_TITLE": "block text - Do forever.",
 	"BASICS_SLEEP_TITLE": "block text - Wait for a few seconds. \n\nParameters:\n* %1 - the number of seconds to wait",
+	"BASICS_MOUSE_PRESSED_TITLE": "block text - Mouse pressed.",
 	"FIGURES_SHAPE_TITLE": "block text - Draw a figure. \n\nParameters:\n* %1 - the figure type \n* %2 - x\n* %3 - y\n* %4 - width\n* %5 - height",
 	"FIGURES_SHAPE_WIDTH": "block text",
 	"FIGURES_SHAPE_HEIGHT": "block text",
