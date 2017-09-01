@@ -427,9 +427,39 @@
     </category>
   </xml>
 
+  <xml id="clearBlocks" style="display: none">
+    <block type="basics_setup" x="20" y="20"></block>
+    <block type="basics_loop"  x="20" y="140"></block>
+  </xml>
   <xml id="startBlocks" style="display: none">
     <block type="basics_setup" x="20" y="20"></block>
-    <block type="basics_loop"  x="220" y="20"></block>
+    <block type="basics_loop"  x="20" y="140">
+      <value name="DO">
+        <block type="figures_shape">
+          <field name="SHAPE">ELLIPSE</field>
+          <value name="X">
+            <block type="basics_builtin_var">
+              <field name="VAR">MOUSE_X</field>
+            </block>
+          </value>
+          <value name="Y">
+            <block type="basics_builtin_var">
+              <field name="VAR">MOUSE_Y</field>
+            </block>
+          </value>
+          <value name="WIDTH">
+            <shadow type="math_number">
+              <field name="NUM">80</field>
+            </shadow>
+          </value>
+          <value name="HEIGHT">
+            <shadow type="math_number">
+              <field name="NUM">80</field>
+            </shadow>
+          </value>
+        </block>
+      </value>
+    </block>
   </xml>
 
   <script>
@@ -496,7 +526,7 @@
     function clearBlocks() {
       if (window.confirm('プログラムを消去してよいですか?')) {
         workspace.clear();
-        Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+        Blockly.Xml.domToWorkspace(document.getElementById('clearBlocks'),
                                    workspace);
       }
     }
