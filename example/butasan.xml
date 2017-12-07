@@ -1,0 +1,316 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="basics_setup" id="EvJ=GE+!C#c@R3.kalzU" x="20" y="20">
+    <field name="WIDTH">280</field>
+    <field name="HEIGHT">260</field>
+    <statement name="DO">
+      <block type="figures_stroke_weight" id="hnbM{mV}}{A.hfr^P^yJ">
+        <value name="WEIGHT">
+          <shadow type="math_number" id="ta)PoTkPQw:0igE(sQ16">
+            <field name="NUM">2</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="figures_colour" id="}CX;@CAwT9{u?k+8[?ri">
+            <field name="TARGET">FILL</field>
+            <value name="COLOUR">
+              <shadow type="colour_picker" id="]~.OcGgWQIAOIvP+Au.C">
+                <field name="COLOUR">#ffcc99</field>
+              </shadow>
+              <block type="colour_rgb" id="rbv;0ehWh=Cn0AP^FW`/">
+                <value name="RED">
+                  <shadow type="math_number" id="lb5/fcJ17:p(mKB9M;*6">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+                <value name="GREEN">
+                  <shadow type="math_number" id="Y_W]^fKA)ruVQQ=tiS}2">
+                    <field name="NUM">88</field>
+                  </shadow>
+                </value>
+                <value name="BLUE">
+                  <shadow type="math_number" id=":Fs*XzQxhz%q~ipAgh5P">
+                    <field name="NUM">78</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="figures_shape" id="=F.~N1C,R~o(FswYYQ?D">
+                <mutation shape="TRIANGLE"></mutation>
+                <field name="SHAPE">TRIANGLE</field>
+                <value name="X">
+                  <shadow type="math_number" id="|rId5TXQrBIGVDsr+5-P">
+                    <field name="NUM">50</field>
+                  </shadow>
+                </value>
+                <value name="Y">
+                  <shadow type="math_number" id="P;{kcR4B;]n]N{X5%VPU">
+                    <field name="NUM">30</field>
+                  </shadow>
+                </value>
+                <value name="X2">
+                  <shadow type="math_number" id="@f]A!1b8(g:%vs.:Y?r-">
+                    <field name="NUM">50</field>
+                  </shadow>
+                </value>
+                <value name="Y2">
+                  <shadow type="math_number" id="W~+-S~OTgZo4`=YypJ4D">
+                    <field name="NUM">80</field>
+                  </shadow>
+                </value>
+                <value name="X3">
+                  <shadow type="math_number" id="-vAk$nS]LT9bfq)YR7F(">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+                <value name="Y3">
+                  <shadow type="math_number" id="H30BqG2`NOZ-njw2OZNC">
+                    <field name="NUM">60</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="figures_shape" id="W4)l)qDf./@l1!.RWmWb">
+                    <mutation shape="TRIANGLE"></mutation>
+                    <field name="SHAPE">TRIANGLE</field>
+                    <value name="X">
+                      <shadow type="math_number" id="qPf1:`*zSz{fx_lu7tCf">
+                        <field name="NUM">230</field>
+                      </shadow>
+                    </value>
+                    <value name="Y">
+                      <shadow type="math_number" id="AYJS5HGqG8+x(!%K.rX]">
+                        <field name="NUM">30</field>
+                      </shadow>
+                    </value>
+                    <value name="X2">
+                      <shadow type="math_number" id="_MzDwLX;x{Qq?RWYivH~">
+                        <field name="NUM">230</field>
+                      </shadow>
+                    </value>
+                    <value name="Y2">
+                      <shadow type="math_number" id="pX}Eq2NF$8;A|UrooxNB">
+                        <field name="NUM">80</field>
+                      </shadow>
+                    </value>
+                    <value name="X3">
+                      <shadow type="math_number" id="UnqW*7+Sv=T.5+#+])h:">
+                        <field name="NUM">180</field>
+                      </shadow>
+                    </value>
+                    <value name="Y3">
+                      <shadow type="math_number" id="p/DZH9znP/.w9UyXv0]}">
+                        <field name="NUM">60</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="figures_shape" id="hj0I{GV!}lOUDf7a!;$5">
+                        <mutation shape="ELLIPSE"></mutation>
+                        <field name="SHAPE">ELLIPSE</field>
+                        <value name="X">
+                          <shadow type="math_number" id="vl;_}J2@v[zimfaSod8+">
+                            <field name="NUM">140</field>
+                          </shadow>
+                        </value>
+                        <value name="Y">
+                          <shadow type="math_number" id="[R9ef*YzD_=~l{A:xOx-">
+                            <field name="NUM">130</field>
+                          </shadow>
+                        </value>
+                        <value name="WIDTH">
+                          <shadow type="math_number" id="*[o5$S~vE.V!!3_7SL!X">
+                            <field name="NUM">240</field>
+                          </shadow>
+                        </value>
+                        <value name="HEIGHT">
+                          <shadow type="math_number" id="R7O#Df73}5jGA#9*,6/K">
+                            <field name="NUM">180</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="figures_colour" id="e3FXYE=7h%zaHA3bN+10">
+                            <field name="TARGET">FILL</field>
+                            <value name="COLOUR">
+                              <shadow type="colour_picker" id="9+1ITbP5XW;eyshua?:N">
+                                <field name="COLOUR">#000000</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="figures_shape" id="d6H.D$MIV`Q)/NR`x,[z">
+                                <mutation shape="ELLIPSE"></mutation>
+                                <field name="SHAPE">ELLIPSE</field>
+                                <value name="X">
+                                  <shadow type="math_number" id="Req/#aPPUcs4mFIIEjSn">
+                                    <field name="NUM">85</field>
+                                  </shadow>
+                                </value>
+                                <value name="Y">
+                                  <shadow type="math_number" id="_+0)NVcjXeOaT164jDgO">
+                                    <field name="NUM">95</field>
+                                  </shadow>
+                                </value>
+                                <value name="WIDTH">
+                                  <shadow type="math_number" id="?Yeo.BKEOWf;uFq!FA,2">
+                                    <field name="NUM">10</field>
+                                  </shadow>
+                                </value>
+                                <value name="HEIGHT">
+                                  <shadow type="math_number" id="^!rB{Uqo37nc%Caz9wl4">
+                                    <field name="NUM">10</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="figures_shape" id="my(dH$|?.5`Rl*$]wv)7">
+                                    <mutation shape="ELLIPSE"></mutation>
+                                    <field name="SHAPE">ELLIPSE</field>
+                                    <value name="X">
+                                      <shadow type="math_number" id="=Qu_kRmF53~YRLP:GcDh">
+                                        <field name="NUM">195</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="Y">
+                                      <shadow type="math_number" id="[%2*hIZ^3n^=@HHsUE*L">
+                                        <field name="NUM">95</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="WIDTH">
+                                      <shadow type="math_number" id=",C$/zNBID_60lBH,Kf.(">
+                                        <field name="NUM">10</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="HEIGHT">
+                                      <shadow type="math_number" id="5/5cY~bU_a6X*ItJrv=2">
+                                        <field name="NUM">10</field>
+                                      </shadow>
+                                    </value>
+                                    <next>
+                                      <block type="figures_colour" id="svpP!-h8Ak#+uRi{[:=w">
+                                        <field name="TARGET">FILL</field>
+                                        <value name="COLOUR">
+                                          <shadow type="colour_picker" id="89A72N$EMmYAeZrsY|S_">
+                                            <field name="COLOUR">#ffcccc</field>
+                                          </shadow>
+                                          <block type="colour_rgb" id="8]#!eaMt2oVN-^97gsB}">
+                                            <value name="RED">
+                                              <shadow type="math_number" id=")bC!N](?R~YIf0ot6t,W">
+                                                <field name="NUM">100</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="GREEN">
+                                              <shadow type="math_number" id="vrB8HheZY-F?kZ#uSCPq">
+                                                <field name="NUM">78</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="BLUE">
+                                              <shadow type="math_number" id="iED*jgB*%V+EPck+*[b+">
+                                                <field name="NUM">78</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="figures_shape" id="eFXbtlyXQ#/X]JNoe)5G">
+                                            <mutation shape="ELLIPSE"></mutation>
+                                            <field name="SHAPE">ELLIPSE</field>
+                                            <value name="X">
+                                              <shadow type="math_number" id="1j4iPW6)/H!lXJx,*haB">
+                                                <field name="NUM">140</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="Y">
+                                              <shadow type="math_number" id="ttLz{`%tK!iy29^x()5!">
+                                                <field name="NUM">140</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="WIDTH">
+                                              <shadow type="math_number" id="LZP]zl-7J,vv~`^).Eam">
+                                                <field name="NUM">80</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="HEIGHT">
+                                              <shadow type="math_number" id="Mi!@i5g6X9:VU4B),aIS">
+                                                <field name="NUM">60</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="figures_stroke_weight" id="x~K(.q@+(LdA!BXrhr~U">
+                                                <value name="WEIGHT">
+                                                  <shadow type="math_number" id="$oeJP530Rov*7SbD?GKJ">
+                                                    <field name="NUM">3</field>
+                                                  </shadow>
+                                                </value>
+                                                <next>
+                                                  <block type="figures_shape" id="319YY/2y3s4F#_rj(:_A">
+                                                    <mutation shape="LINE"></mutation>
+                                                    <field name="SHAPE">LINE</field>
+                                                    <value name="X">
+                                                      <shadow type="math_number" id="|5_e/Jf}}Q=V;WSaXSuS">
+                                                        <field name="NUM">120</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <value name="Y">
+                                                      <shadow type="math_number" id="s/1)%BfR/:z)9mCv/vZ7">
+                                                        <field name="NUM">130</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <value name="X2">
+                                                      <shadow type="math_number" id="ot%JdlT_hK2To3Gu]gv]">
+                                                        <field name="NUM">120</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <value name="Y2">
+                                                      <shadow type="math_number" id="J*@!Ovzw?cISt~Jb,PbK">
+                                                        <field name="NUM">150</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <next>
+                                                      <block type="figures_shape" id="su}%lavJioCAl~@R_bHz">
+                                                        <mutation shape="LINE"></mutation>
+                                                        <field name="SHAPE">LINE</field>
+                                                        <value name="X">
+                                                          <shadow type="math_number" id="`N!%y7qw^lx`D[kevIl+">
+                                                            <field name="NUM">160</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <value name="Y">
+                                                          <shadow type="math_number" id="OacjG3K[$jV{ZSNnsB{(">
+                                                            <field name="NUM">130</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <value name="X2">
+                                                          <shadow type="math_number" id="(5MY@w%BjffT3=?v@q_l">
+                                                            <field name="NUM">160</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <value name="Y2">
+                                                          <shadow type="math_number" id="eUSa:2g0tN+q+3n6I+S%">
+                                                            <field name="NUM">150</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
