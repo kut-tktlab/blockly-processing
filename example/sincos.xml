@@ -1,0 +1,219 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="basics_setup" id="+$/SOxGGl+?K4E7rno3$" x="20" y="20">
+    <field name="WIDTH">480</field>
+    <field name="HEIGHT">120</field>
+    <statement name="DO">
+      <block type="figures_translate" id="!APW5B:bk#Zl?5?b0@{X">
+        <value name="X">
+          <shadow type="math_number" id="/1m/1G[H@E4(Wf/001mG">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <value name="Y">
+          <shadow type="math_number" id="Ndb@c/*s8e0!]=;ta.gw">
+            <field name="NUM">0</field>
+          </shadow>
+          <block type="math_arithmetic" id="^sQxjh?]5:Qt_QF8c.XA">
+            <field name="OP">DIVIDE</field>
+            <value name="A">
+              <shadow type="math_number" id="/E6J8MM8prG8,.zcR]/R">
+                <field name="NUM">0</field>
+              </shadow>
+              <block type="basics_builtin_var" id="J8h@jMRunhNVPN-:]%(Z">
+                <field name="VAR">HEIGHT</field>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id="VKHbhj8uWE)2K68x,W#%">
+                <field name="NUM">2</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="figures_nofill" id="BS7jxNy)Ih^i/fbHAVoM">
+            <field name="TARGET">STROKE</field>
+            <next>
+              <block type="controls_for" id="F:y:V7~4.{Bc+6Bv%vu@">
+                <field name="VAR">x</field>
+                <value name="FROM">
+                  <shadow type="math_number" id="pvF03S;jNnC.^h!~z^oZ">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number" id="h.D?$@LXEdCULomdZ43:">
+                    <field name="NUM">10</field>
+                  </shadow>
+                  <block type="basics_builtin_var" id="*%b4F1o~CO;ucXydK%kf">
+                    <field name="VAR">WIDTH</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <shadow type="math_number" id="^A,.`xNhiel1d4b*.^ov">
+                    <field name="NUM">10</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set" id="Yk]uM`B.#lY*?-$;3@yU">
+                    <field name="VAR">y</field>
+                    <value name="VALUE">
+                      <shadow type="math_number" id="UI6WvD5FZ,VI}+V#CKQ5">
+                        <field name="NUM">0</field>
+                      </shadow>
+                      <block type="math_arithmetic" id="4!5`fkq|dd@Fgz?Fx2o{">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                          <shadow type="math_number" id="o^;n:Q_qsfAH*P{J}-Th">
+                            <field name="NUM">50</field>
+                          </shadow>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number" id="/mo~K0TX+HODyK5D2QMg">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="math_trig" id="u!X,13ezAVj5QL}T%15D">
+                            <mutation second_input="false"></mutation>
+                            <field name="OP">SIN</field>
+                            <value name="NUM">
+                              <block type="variables_get" id="xw8;6iDc@M,M3p?i#YG{">
+                                <field name="VAR">x</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="figures_colour" id="4fuoz%kPNlH?j!dPKX#;">
+                        <field name="TARGET">FILL</field>
+                        <value name="COLOUR">
+                          <shadow type="colour_picker" id="ag;TPhK^,TbO|b_o8hhB">
+                            <field name="COLOUR">#ffffff</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="figures_shape" id="m@1uJ{}|WgJ/X)e,U[dj">
+                            <mutation shape="ELLIPSE"></mutation>
+                            <field name="SHAPE">ELLIPSE</field>
+                            <value name="X">
+                              <shadow type="math_number" id="|:v.G!e~f?(F(*jgglc=">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="variables_get" id=",,x|NzbNZY9(8^/pkdU2">
+                                <field name="VAR">x</field>
+                              </block>
+                            </value>
+                            <value name="Y">
+                              <shadow type="math_number" id="7Pu?sf7_(F9!Ww]`!3ci">
+                                <field name="NUM">0</field>
+                              </shadow>
+                              <block type="variables_get" id="*7FQKTM7;YLvBL^B[+eM">
+                                <field name="VAR">y</field>
+                              </block>
+                            </value>
+                            <value name="WIDTH">
+                              <shadow type="math_number" id="~ce#rO2fIZ3u@`):ZY(g">
+                                <field name="NUM">10</field>
+                              </shadow>
+                            </value>
+                            <value name="HEIGHT">
+                              <shadow type="math_number" id="v#AXXiJR0z5myP5bP{C#">
+                                <field name="NUM">10</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="v:nF!@rg`RRX~Lb~H#$#">
+                                <field name="VAR">y</field>
+                                <value name="VALUE">
+                                  <shadow type="math_number" id="UI6WvD5FZ,VI}+V#CKQ5">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="math_arithmetic" id="UzrM+?q4*O_zc4aeIW04">
+                                    <field name="OP">MULTIPLY</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id="F2T`[-#iEJk_UR)9zn4T">
+                                        <field name="NUM">50</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id="/mo~K0TX+HODyK5D2QMg">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="math_trig" id="EjNR/wtt*w5kycP9ytyT">
+                                        <mutation second_input="false"></mutation>
+                                        <field name="OP">COS</field>
+                                        <value name="NUM">
+                                          <block type="variables_get" id="k)Obb*WC+]F9og/KAS[e">
+                                            <field name="VAR">x</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="figures_colour" id="FfE8MwdNnW2uPmH9hGWG">
+                                    <field name="TARGET">FILL</field>
+                                    <value name="COLOUR">
+                                      <shadow type="colour_picker" id="^@8#y(Pqn:T4zzVvfszQ">
+                                        <field name="COLOUR">#666666</field>
+                                      </shadow>
+                                      <block type="colour_gray" id="N0gD|Y;~OiL]jO*H=Hpo">
+                                        <value name="VALUE">
+                                          <shadow type="math_number" id="{z[Z`jd%+0s#svTUp@--">
+                                            <field name="NUM">50</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="figures_shape" id="n(U[~sUN8PdZsklOx!_h">
+                                        <mutation shape="ELLIPSE"></mutation>
+                                        <field name="SHAPE">ELLIPSE</field>
+                                        <value name="X">
+                                          <shadow type="math_number" id="|:v.G!e~f?(F(*jgglc=">
+                                            <field name="NUM">0</field>
+                                          </shadow>
+                                          <block type="variables_get" id="Dvig55_0ee;F-F{_GQ=*">
+                                            <field name="VAR">x</field>
+                                          </block>
+                                        </value>
+                                        <value name="Y">
+                                          <shadow type="math_number" id="7Pu?sf7_(F9!Ww]`!3ci">
+                                            <field name="NUM">0</field>
+                                          </shadow>
+                                          <block type="variables_get" id="w/=$[4o7+,.4euOI8@rN">
+                                            <field name="VAR">y</field>
+                                          </block>
+                                        </value>
+                                        <value name="WIDTH">
+                                          <shadow type="math_number" id="Fm6CbIY|a)He|4wg},bG">
+                                            <field name="NUM">10</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="HEIGHT">
+                                          <shadow type="math_number" id="t*ZZo=lNc`bN`PFV~hzh">
+                                            <field name="NUM">10</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
